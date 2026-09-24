@@ -1,0 +1,131 @@
+{
+ "tool": "EBI InterProScan 5 REST",
+ "job_id": "iprscan5-R20260924-230607-0918-82339682-p2m",
+ "interproscan_version": "5.78-109.0",
+ "sequence_length": 154,
+ "n_matches": 9,
+ "matches": [
+  {
+   "library": "GENE3D",
+   "accession": "G3DSA:2.60.40.200",
+   "name": "Superoxide dismutase, copper/zinc binding domain",
+   "locations": [
+    {
+     "start": 2,
+     "end": 154
+    }
+   ]
+  },
+  {
+   "library": "FUNFAM",
+   "accession": "G3DSA:2.60.40.200:FF:000001",
+   "name": null,
+   "locations": [
+    {
+     "start": 1,
+     "end": 154
+    }
+   ]
+  },
+  {
+   "library": "PRINTS",
+   "accession": "PR00068",
+   "name": "CUZNDISMTASE",
+   "locations": [
+    {
+     "start": 45,
+     "end": 67
+    },
+    {
+     "start": 81,
+     "end": 90
+    },
+    {
+     "start": 100,
+     "end": 122
+    },
+    {
+     "start": 125,
+     "end": 151
+    }
+   ]
+  },
+  {
+   "library": "PANTHER",
+   "accession": "PTHR10003",
+   "name": "SUPEROXIDE DISMUTASE  CU-ZN -RELATED",
+   "locations": [
+    {
+     "start": 2,
+     "end": 152
+    }
+   ]
+  },
+  {
+   "library": "PFAM",
+   "accession": "PF00080",
+   "name": "Sod_Cu",
+   "locations": [
+    {
+     "start": 15,
+     "end": 150
+    }
+   ]
+  },
+  {
+   "library": "SUPERFAMILY",
+   "accession": "SSF49329",
+   "name": "Cu,Zn superoxide dismutase-like",
+   "locations": [
+    {
+     "start": 3,
+     "end": 153
+    }
+   ]
+  },
+  {
+   "library": "CDD",
+   "accession": "cd00305",
+   "name": "Cu-Zn_Superoxide_Dismutase",
+   "locations": [
+    {
+     "start": 3,
+     "end": 147
+    }
+   ]
+  },
+  {
+   "library": "PROSITE_PATTERNS",
+   "accession": "PS00332",
+   "name": "SOD_CU_ZN_2",
+   "locations": [
+    {
+     "start": 139,
+     "end": 150
+    }
+   ]
+  },
+  {
+   "library": "PROSITE_PATTERNS",
+   "accession": "PS00087",
+   "name": "SOD_CU_ZN_1",
+   "locations": [
+    {
+     "start": 45,
+     "end": 55
+    }
+   ]
+  }
+ ],
+ "cross_check": {
+  "claim_tested": "SOD1 residues 4 and 6 (A4V, C6) lie OUTSIDE the Pfam Sod_Cu domain PF00080",
+  "pfam_pf00080_span": [
+   15,
+   150
+  ],
+  "A4_inside_pfam": false,
+  "C6_inside_pfam": false,
+  "verdict": "CONFIRMED: PF00080 starts at residue 15, so A4 and C6 are N-terminal to the domain and outside it"
+ },
+ "fetched": "2026-09-25T03:51+05:30"
+}

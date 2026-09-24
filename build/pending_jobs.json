@@ -2,24 +2,6 @@
  "note": "async external jobs awaiting collection; on completion write the results file listed, count the tool in EXTERNAL_TOOLS.md, and delete the entry",
  "jobs": [
   {
-   "tool": "EBI InterProScan 5 REST",
-   "id": "iprscan5-R20260924-230607-0918-82339682-p2m",
-   "status_url": "https://www.ebi.ac.uk/Tools/services/rest/iprscan5/status/iprscan5-R20260924-230607-0918-82339682-p2m",
-   "result_url": "https://www.ebi.ac.uk/Tools/services/rest/iprscan5/result/iprscan5-R20260924-230607-0918-82339682-p2m/json",
-   "purpose": "independent domain/motif annotation of SOD1 sequence (cross-check of Pfam finding that A4/C6 lie outside PF00080)",
-   "out": "results/interproscan_sod1.json",
-   "note": "resubmitted 2026-09-25 03:36 IST after prior job (R20260924-173220) returned ERROR from EBI; dropped goterms/pathways"
-  },
-  {
-   "tool": "EBI Clustal Omega REST",
-   "id": "clustalo-R20260924-230557-0363-17085800-p1m",
-   "status_url": "https://www.ebi.ac.uk/Tools/services/rest/clustalo/status/clustalo-R20260924-230557-0363-17085800-p1m",
-   "result_url": "https://www.ebi.ac.uk/Tools/services/rest/clustalo/result/clustalo-R20260924-230557-0363-17085800-p1m/clustal",
-   "purpose": "SOD1 ortholog alignment (human/mouse/bovine/fly, data/bench/sod1_orthologs.fasta) - conservation at scan-candidate positions G33/G41/G82 as predictor-relevant signal",
-   "out": "results/clustalo_sod1_conservation.json",
-   "note": "resubmitted 2026-09-25 03:36 IST after prior job (R20260924-173651) returned ERROR from EBI; outfmt=clustal (default)"
-  },
-  {
    "tool": "EBI EMBOSS pepstats REST",
    "id": "emboss_pepstats-R20260924-174112-0982-83250395-p1m",
    "status_url": "https://www.ebi.ac.uk/Tools/services/rest/emboss_pepstats/status/emboss_pepstats-R20260924-174112-0982-83250395-p1m",

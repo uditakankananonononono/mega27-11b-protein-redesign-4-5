@@ -1,0 +1,58 @@
+{
+ "tool": "EBI Clustal Omega REST",
+ "job_id": "clustalo-R20260924-230557-0363-17085800-p1m",
+ "result_type": "aln-clustal",
+ "note_numbering": "scan candidates are in mature SOD1 numbering (initiator Met removed); canonical UniProt position = mature + 1",
+ "sequences": {
+  "SODC_HUMAN": "MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSAGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVHEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ-",
+  "SODC_MOUSE": "MAMKAVCVLKGDGPVQGTIHFEQKASGEPVVLSGQITGLTEGQHGFHVHQYGDNTQGCTSAGPHFNPHSKKHGGPADEERHVGDLGNVTAGKDGVANVSIEDRVISLSGEHSIIGRTMVVHEKQDDLGKGGNEESTKTGNAGSRLACGVIGIAQ-",
+  "SODC_BOVIN": "MATKAVCVLKGDGPVQGTIHFEAK--GDTVVVTGSITGLTEGDHGFHVHQFGDNTQGCTSAGPHFNPLSKKHGGPKDEERHVGDLGNVTADKNGVAIVDIVDPLISLSGEYSIIGRTMVVHEKPDDLGRGGNEESTKTGNAGSRLACGVIGIAK-",
+  "SODC_DROME": "MVVKAVCVINGD--AKGTVFFEQESSGTPVKVSGEVCGLAKGLHGFHVHEFGDNTNGCMSSGPHFNPYGKEHGAPVDENRHLGDLGNIEATGDCPTKVNITDSKITLFGADSIIGRTVVVHADADDLGQGGHELSKSTGNAGARIGCGVIGIAKV"
+ },
+ "alignment_length": 155,
+ "pairwise_identity_vs_human": {
+  "SODC_MOUSE": 0.8377,
+  "SODC_BOVIN": 0.8289,
+  "SODC_DROME": 0.6184
+ },
+ "scan_candidate_conservation": {
+  "G33": {
+   "mature_position": 33,
+   "canonical_uniprot_position": 34,
+   "human_residue": "G",
+   "column_residues": {
+    "SODC_HUMAN": "G",
+    "SODC_MOUSE": "G",
+    "SODC_BOVIN": "G",
+    "SODC_DROME": "G"
+   },
+   "fully_conserved_4spp": true
+  },
+  "G41": {
+   "mature_position": 41,
+   "canonical_uniprot_position": 42,
+   "human_residue": "G",
+   "column_residues": {
+    "SODC_HUMAN": "G",
+    "SODC_MOUSE": "G",
+    "SODC_BOVIN": "G",
+    "SODC_DROME": "G"
+   },
+   "fully_conserved_4spp": true
+  },
+  "G82": {
+   "mature_position": 82,
+   "canonical_uniprot_position": 83,
+   "human_residue": "G",
+   "column_residues": {
+    "SODC_HUMAN": "G",
+    "SODC_MOUSE": "G",
+    "SODC_BOVIN": "G",
+    "SODC_DROME": "G"
+   },
+   "fully_conserved_4spp": true
+  }
+ },
+ "finding": "All three GNN scan-candidate glycines (G33, G41, G82; mature numbering) are fully conserved across human/mouse/bovine/fly SOD1",
+ "fetched": "2026-09-25T03:51+05:30"
+}
