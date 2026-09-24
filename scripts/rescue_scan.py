@@ -69,6 +69,25 @@ def main():
                  "data/bench/protddg-bench/P53/p53.tsv"]:
         for r in load_bench_tsv(path):
             known.add((r.pdb_id, r.wt_aa3, r.position, r.mut_aa3))
+    # curated known p53 suppressors/stabilizers (literature novelty screen)
+    known_suppressors = set()
+    sup_path = "data/bench/known_p53_suppressors.tsv"
+    if os.path.exists(sup_path):
+        for ln in open(sup_path):
+            if ln.startswith("#") or ln.startswith("mutation"):
+                continue
+            parts = ln.split("\t")
+            if parts and len(parts[0]) >= 4:
+                m = parts[0].strip()
+                known_suppressors.add(m)
+                known.add(("", None, None, m))  # marker, matched below
+
+    def is_known(pdb, wt, pos, mut):
+        if (pdb, wt, pos, mut) in known:
+            return True
+        from src.dataset import AA3_TO_1
+        code = f"{AA3_TO_1.get(wt, '?')}{pos}{AA3_TO_1.get(mut, '?')}"
+        return code in known_suppressors
 
     results = []
     for i in range(n):
@@ -80,7 +99,7 @@ def main():
             results.append({
                 "position": seq, "wt": res_name, "mut": mut,
                 "ddg_pred": round(ddg, 4),
-                "in_reference_sets": (args.pdb, res_name, seq, mut) in known,
+                "in_reference_sets": is_known(args.pdb, res_name, seq, mut),
             })
         if (i + 1) % 50 == 0:
             print(f"{i+1}/{n} positions scanned", flush=True)
