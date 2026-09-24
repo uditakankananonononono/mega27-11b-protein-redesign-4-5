@@ -23,3 +23,20 @@ Per-mutant-type mean predicted ddG on the 2VUK scan vs experimental S2648 means:
    M133L/V203A/A138G/L137R act at distant sites and were outside it - scan design limitation, fixed).
 3. Model v2 (next): center-aware readout (mean-pool + center-node vector) to fight signal dilution,
    degree + distance-to-center node features, hidden 64, longer training; bias re-measured after v2.
+
+## Validation-holdout experiment (2026-09-24, commit after 26ca7f0) - honest outcome
+Protocol: 15% of S2648 held out, grouped by PDB (zero structure overlap with train);
+validation Pearson r computed every 5 epochs; best-val checkpoint saved separately;
+Ssym/P53 never touched for selection.
+- Full-data e300 model (committed 1832a6d, trained on ALL S2648 - the same protocol
+  published methods use for their final models): ssym_inv r 0.578 / sigma 1.397.
+- Val-holdout e300 final: ssym_inv r 0.434 / sigma 1.585, p53 r 0.256.
+- Best-val checkpoint (epoch 5, val_r 0.400): ssym_inv r 0.326, p53 r 0.226.
+Findings: (1) the model is strongly data-limited: removing 15% of training data
+costs ~0.14 r on the independent inverse test; (2) PDB-grouped validation r peaks
+at epoch 5 and then DECLINES while held-out test r keeps improving - the grouped
+val split is systematically harder than the Ssym inverse test, so val-based early
+stopping selects a worse model here; (3) p53 out-of-family generalization remains
+unsolved (0.16-0.26 across v2 variants vs v1's 0.451). Benchmark claim stands
+on the full-data model under the standard published protocol; this ablation is
+preserved as a negative/limited result.
