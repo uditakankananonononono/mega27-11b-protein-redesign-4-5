@@ -162,6 +162,7 @@ Following Pucci et al., $\Delta\Delta G = \Delta G_{\mathrm{mut}}-\Delta G_{\mat
 stabilizing. We score $s(\text{wt}\!\to\!\text{mut}) = f(G_{\text{mut}})-f(G_{\text{wt}})$
 through one shared network $f$.
 \begin{proposition}[Exact antisymmetry on a shared backbone]
+\label{prop:antisym}
 If wild-type and mutant graphs differ only in node features at the mutated
 site (identical $P$), then $s(w\!\to\!m) = -s(m\!\to\!w)$ exactly.
 \end{proposition}
@@ -335,6 +336,81 @@ invisible to a single-chain contact graph. A whole-chain scan of WT SOD1
 C111S, the one free-cysteine removal the model could in principle see,
 ranks top 26\% with the correct sign. These are hypotheses with explicit
 caveats, not claims.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Why antisymmetry is the binding constraint}
+The single most consequential design decision in this work is not the
+graph architecture but the scoring rule
+$\widehat{\Delta\Delta G} = \tfrac{1}{2}[f(x_{\mathrm{mut}}) -
+f(x_{\mathrm{wt}})]$ evaluated as an explicit antisymmetrized pair
+(Section~3). Without it, a network trained on forward mutations has no
+reason to assign the negated score to the corresponding inverse
+mutation, and the published record shows exactly this failure: methods
+that are strong on forward prediction degrade sharply when scored on
+inverse pairs. Our construction makes antisymmetry exact by algebra,
+not by approximation, and the ablation confirms that the learned
+residual antisymmetry is negligible. The lesson generalizes: when a
+quantity obeys an exact physical symmetry, that symmetry is cheapest
+and most reliably enforced in the output layer, not hoped for from
+data augmentation.
+
+\subsection{Identity bias is measurable, and therefore correctable}
+Both model generations exhibit systematic per-amino-acid biases: the
+predicted effect of mutating \emph{to} a given residue type is shifted
+by a type-dependent constant. Because the bias is a property of the
+model rather than of any single structure, it can be estimated once on
+held-out data and subtracted. The corrected rankings change materially
+- most visibly for aromatic substitutions, which the first-generation
+model systematically over-scored - and the correction is what makes
+the whole-chain scan rankings interpretable at all. We regard this as
+a general protocol: before any learned $\Delta\Delta G$ model is used
+to rank candidate rescue mutations, its per-type bias table should be
+measured and the ranking recomputed on bias-corrected residuals.
+
+\subsection{Transfer across protein families remains the open problem}
+The clearest negative result in this study is the collapse of
+cross-family transfer with prolonged training. A model selected on a
+within-family validation split improves on its own benchmark yet gets
+\emph{worse} on an unseen protein family, and validation-based early
+stopping does not repair the gap. The mechanistic reading is that the
+network first learns features shared across globular proteins
+(hydrophobic burial, local packing) and later overfits to the
+idiosyncrasies of the training distribution. Any deployment of such a
+model on a new target should therefore be treated as
+out-of-distribution by default, and only rank-level, bias-corrected
+claims should survive contact with an unvalidated family.
+
+\subsection{Structure background is not a detail}
+The p53-Y220C structure 2VUK is solved on a quadruply-stabilized
+background. A scan that treats the deposited chain as ``wild-type
+p53'' scores every candidate against the wrong reference and the
+absolute magnitudes are meaningless even when the ranking is useful.
+We caught this only by checking the experimental construct against the
+mutation codes, and the same check invalidated naive readings of the
+SOD1 structures. Background verification - reading the methods of the
+depositing paper, not just the coordinates - is a mandatory
+preprocessing step for any structure-based rescue scan.
+
+\subsection{What single-chain contact graphs cannot see}
+The SOD1 study fails for instructive reasons. The dominant
+destabilizing mutations act through metal binding, dimer-interface
+disruption, and free-thiol chemistry; none of these exist in a
+single-chain C$\alpha$ contact graph. This is not a training-data
+problem that more data would fix; it is an expressivity ceiling of the
+representation. We expect the same ceiling to bind for any target
+whose pathogenic mechanism is oligomeric, allosteric, or
+cofactor-mediated, and we report the failure in full because it
+delimits where the method class should and should not be applied.
+
+\subsection{Recommended use}
+Taken together, the results support exactly one deployment pattern:
+bias-corrected, rank-based triage of candidate rescue mutations on
+single-chain soluble proteins, with proline positions excluded,
+background verified, and magnitudes ignored. Within that envelope the
+approach beats the published symmetric benchmark on the leak-free
+inverse split; outside it, our own negative results apply.
 
 \section{Limitations and negative results}
 \label{sec:limits}
