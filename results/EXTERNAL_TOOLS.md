@@ -42,7 +42,7 @@ STAGED = fetched and on disk, analysis pending; PLANNED = queued.
 DSSP/mkdssp, NCBI BLAST API [job submitted RID BAM06SAF014, polling pending], EBI InterProScan REST [job iprscan5-R20260924-173220-0680-81949957-p1m queued], EBI Clustal Omega API,
 EBI InterProScan, HHpred, ConSurf, PROSITE [scan endpoint redirect host unresolvable from sandbox - NOT RUN],
 FoldX (if license permits), Rosetta (if installable), DDGun [PROBED: no public API found, web-form only - NOT RUN], INPS-MD,
-MAESTROweb, mCSM, SDM2, DUET, PremPS, ThermoNet, RaSP, ESM-1v (scoring),
+MAESTROweb, mCSM, SDM2, DUET, PremPS, ThermoNet, RaSP, ESM-1v (scoring) [HF inference API unreachable from sandbox, no local weights - NOT RUN],
 ProteinMPNN (scoring), PyMOL (figures), PDBrenum [no PyPI distribution found - NOT RUN],
 PDBj, CATH, SCOPe, Pfam, ExPASy ProtParam, STRIDE, NACCESS-adapter.
 Target: 40 VERIFIED uses, each with a one-line "what it was used for" in the
