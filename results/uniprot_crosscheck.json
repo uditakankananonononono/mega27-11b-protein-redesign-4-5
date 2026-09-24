@@ -1,0 +1,481 @@
+{
+ "tool": "UniProt REST API (rest.uniprot.org)",
+ "purpose": "cross-check scan candidate positions and validation mutations against curated variant/mutagenesis annotations",
+ "checks": [
+  {
+   "protein": "p53 P04637",
+   "position": 137,
+   "context": "L137R known suppressor",
+   "n_annotations": 4,
+   "annotations": [
+    {
+     "type": "Natural variant",
+     "change": "L->M",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "L->P",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "L->Q",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "L->V",
+     "desc": "in sporadic cancers; somatic mutation"
+    }
+   ]
+  },
+  {
+   "protein": "p53 P04637",
+   "position": 138,
+   "context": "A138G known suppressor (missed)",
+   "n_annotations": 5,
+   "annotations": [
+    {
+     "type": "Natural variant",
+     "change": "A->D",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "A->P",
+     "desc": "in LFS; germline mutation and in sporadic cancers; somatic mutation; dbSNP:rs28934875"
+    },
+    {
+     "type": "Natural variant",
+     "change": "A->S",
+     "desc": "in LFS; germline mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "A->T",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "A->V",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs750600586"
+    }
+   ]
+  },
+  {
+   "protein": "p53 P04637",
+   "position": 168,
+   "context": "H168R known suppressor",
+   "n_annotations": 11,
+   "annotations": [
+    {
+     "type": "Natural variant",
+     "change": "QH->HD",
+     "desc": "in a sporadic cancer; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "QH->YL",
+     "desc": "in a sporadic cancer; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "HM->LI",
+     "desc": "in a sporadic cancer; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "H->D",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "H->L",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "H->N",
+     "desc": "in sporadic cancers; somatic mutation"
+    }
+   ]
+  },
+  {
+   "protein": "p53 P04637",
+   "position": 178,
+   "context": "H178Y known suppressor",
+   "n_annotations": 9,
+   "annotations": [
+    {
+     "type": "Natural variant",
+     "change": "HH->QS",
+     "desc": "in a sporadic cancer; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "H->D",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "H->HPHP",
+     "desc": "in a Burkitt lymphoma"
+    },
+    {
+     "type": "Natural variant",
+     "change": "H->L",
+     "desc": "in a sporadic cancer; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "H->N",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs1064795203"
+    },
+    {
+     "type": "Natural variant",
+     "change": "H->P",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs1555526004"
+    }
+   ]
+  },
+  {
+   "protein": "p53 P04637",
+   "position": 240,
+   "context": "S240C top novel candidate",
+   "n_annotations": 7,
+   "annotations": [
+    {
+     "type": "Natural variant",
+     "change": "S->C",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "S->G",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "S->I",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "S->N",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "S->P",
+     "desc": "in a sporadic cancer; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "S->R",
+     "desc": "in sporadic cancers; somatic mutation"
+    }
+   ]
+  },
+  {
+   "protein": "p53 P04637",
+   "position": 241,
+   "context": "S241C top novel candidate",
+   "n_annotations": 6,
+   "annotations": [
+    {
+     "type": "Natural variant",
+     "change": "S->A",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs1057520002"
+    },
+    {
+     "type": "Natural variant",
+     "change": "S->C",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs28934573"
+    },
+    {
+     "type": "Natural variant",
+     "change": "S->F",
+     "desc": "in LFS; germline mutation and in sporadic cancers; somatic mutation; dbSNP:rs28934573"
+    },
+    {
+     "type": "Natural variant",
+     "change": "S->P",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs1057520002"
+    },
+    {
+     "type": "Natural variant",
+     "change": "S->T",
+     "desc": "in LFS; germline mutation and in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "S->Y",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs28934573"
+    }
+   ]
+  },
+  {
+   "protein": "p53 P04637",
+   "position": 245,
+   "context": "G245C top novel candidate (hotspot)",
+   "n_annotations": 11,
+   "annotations": [
+    {
+     "type": "Natural variant",
+     "change": "G->A",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs121912656"
+    },
+    {
+     "type": "Natural variant",
+     "change": "G->C",
+     "desc": "in LFS; germline mutation and in sporadic cancers; somatic mutation; dbSNP:rs28934575"
+    },
+    {
+     "type": "Natural variant",
+     "change": "G->D",
+     "desc": "in LFS; germline mutation and in sporadic cancers; somatic mutation; dbSNP:rs121912656"
+    },
+    {
+     "type": "Natural variant",
+     "change": "G->E",
+     "desc": "in a sporadic cancer; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "G->F",
+     "desc": "in sporadic cancers; somatic mutation; requires 2 nucleotide substitutions"
+    },
+    {
+     "type": "Natural variant",
+     "change": "G->H",
+     "desc": "in a sporadic cancer; somatic mutation; requires 2 nucleotide substitutions"
+    }
+   ]
+  },
+  {
+   "protein": "p53 P04637",
+   "position": 246,
+   "context": "M246C top novel candidate",
+   "n_annotations": 6,
+   "annotations": [
+    {
+     "type": "Natural variant",
+     "change": "M->I",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs1019340046"
+    },
+    {
+     "type": "Natural variant",
+     "change": "M->K",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "M->L",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs483352695"
+    },
+    {
+     "type": "Natural variant",
+     "change": "M->R",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs587780074"
+    },
+    {
+     "type": "Natural variant",
+     "change": "M->T",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs587780074"
+    },
+    {
+     "type": "Natural variant",
+     "change": "M->V",
+     "desc": "in LFS; germline mutation and in sporadic cancers; somatic mutation; dbSNP:rs483352695"
+    }
+   ]
+  },
+  {
+   "protein": "p53 P04637",
+   "position": 273,
+   "context": "R273C top novel candidate (DNA-contact)",
+   "n_annotations": 9,
+   "annotations": [
+    {
+     "type": "Natural variant",
+     "change": "R->C",
+     "desc": "in LFS; germline mutation and in sporadic cancers; somatic mutation; dbSNP:rs121913343"
+    },
+    {
+     "type": "Natural variant",
+     "change": "R->G",
+     "desc": "in LFS; germline mutation and in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "R->H",
+     "desc": "in LFS; germline mutation and in sporadic cancers; somatic mutation; abolishes sequence-specific DNA"
+    },
+    {
+     "type": "Natural variant",
+     "change": "R->L",
+     "desc": "in LFS; germline mutation and in sporadic cancers; somatic mutation; dbSNP:rs28934576"
+    },
+    {
+     "type": "Natural variant",
+     "change": "R->N",
+     "desc": "in a sporadic cancer; somatic mutation; requires 2 nucleotide substitutions"
+    },
+    {
+     "type": "Natural variant",
+     "change": "R->P",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs28934576"
+    }
+   ]
+  },
+  {
+   "protein": "p53 P04637",
+   "position": 133,
+   "context": "M133L superstable bg",
+   "n_annotations": 7,
+   "annotations": [
+    {
+     "type": "Natural variant",
+     "change": "KM->NL",
+     "desc": "in a sporadic cancer; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "M->I",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs1064795139"
+    },
+    {
+     "type": "Natural variant",
+     "change": "M->K",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "M->L",
+     "desc": "in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "M->R",
+     "desc": "in LFS; germline mutation and in sporadic cancers; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "M->T",
+     "desc": "in LFS; germline mutation and in sporadic cancers; somatic mutation; dbSNP:rs28934873"
+    }
+   ]
+  },
+  {
+   "protein": "p53 P04637",
+   "position": 220,
+   "context": "Y220C target lesion",
+   "n_annotations": 6,
+   "annotations": [
+    {
+     "type": "Natural variant",
+     "change": "Y->C",
+     "desc": "in LFS; germline mutation and in sporadic cancers; somatic mutation; dbSNP:rs121912666"
+    },
+    {
+     "type": "Natural variant",
+     "change": "Y->D",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs530941076"
+    },
+    {
+     "type": "Natural variant",
+     "change": "Y->F",
+     "desc": "in a sporadic cancer; somatic mutation"
+    },
+    {
+     "type": "Natural variant",
+     "change": "Y->H",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs530941076"
+    },
+    {
+     "type": "Natural variant",
+     "change": "Y->N",
+     "desc": "in sporadic cancers; somatic mutation; dbSNP:rs530941076"
+    },
+    {
+     "type": "Natural variant",
+     "change": "Y->S",
+     "desc": "in a brain tumor with no family history; germline mutation and in sporadic cancers; somatic mutation"
+    }
+   ]
+  },
+  {
+   "protein": "SOD1 P00441",
+   "position": 4,
+   "context": "A4V (our validation row)",
+   "n_annotations": 0,
+   "annotations": []
+  },
+  {
+   "protein": "SOD1 P00441",
+   "position": 6,
+   "context": "C6A (validation)",
+   "n_annotations": 0,
+   "annotations": []
+  },
+  {
+   "protein": "SOD1 P00441",
+   "position": 46,
+   "context": "H46R (validation)",
+   "n_annotations": 1,
+   "annotations": [
+    {
+     "type": "Natural variant",
+     "change": "F->C",
+     "desc": "in ALS1; slow progression; dbSNP:rs121912457"
+    }
+   ]
+  },
+  {
+   "protein": "SOD1 P00441",
+   "position": 85,
+   "context": "G85R (validation)",
+   "n_annotations": 2,
+   "annotations": [
+    {
+     "type": "Natural variant",
+     "change": "L->F",
+     "desc": "in ALS1; dbSNP:rs1315541036"
+    },
+    {
+     "type": "Natural variant",
+     "change": "L->V",
+     "desc": "in ALS1; dbSNP:rs121912452"
+    }
+   ]
+  },
+  {
+   "protein": "SOD1 P00441",
+   "position": 100,
+   "context": "E100G (validation)",
+   "n_annotations": 0,
+   "annotations": []
+  },
+  {
+   "protein": "SOD1 P00441",
+   "position": 111,
+   "context": "C111S (validation)",
+   "n_annotations": 0,
+   "annotations": []
+  },
+  {
+   "protein": "SOD1 P00441",
+   "position": 148,
+   "context": "V148I (validation)",
+   "n_annotations": 1,
+   "annotations": [
+    {
+     "type": "Natural variant",
+     "change": "G->R",
+     "desc": "in ALS1; dbSNP:rs1568811520"
+    }
+   ]
+  }
+ ]
+}

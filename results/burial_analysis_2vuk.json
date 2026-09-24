@@ -1,0 +1,74 @@
+{
+ "tools": [
+  "FreeSASA 2.2.1 (per-residue SASA, Shrake-Rupley)",
+  "pandas (table joins/aggregation)",
+  "SciPy (Spearman, Mann-Whitney)"
+ ],
+ "purpose": "does predicted |ddG| concentrate at buried positions? (structure-sanity signal for the scan)",
+ "n_positions_joined": 195,
+ "spearman_burial_vs_mean_abs_ddg": {
+  "rho": 0.3912,
+  "p": 1.5616166950095068e-08
+ },
+ "buried_relSASA_lt_0.2": {
+  "n": 84,
+  "mean_abs_ddg": 1.7454
+ },
+ "exposed_relSASA_gt_0.5": {
+  "n": 47,
+  "mean_abs_ddg": 1.3054
+ },
+ "mannwhitney_buried_vs_exposed_p": 1.1173349834434499e-05,
+ "top10_candidates_burial": [
+  {
+   "mutation": "SER240CYS",
+   "ddg_corr": 6.5236,
+   "rel_sasa": 0.046
+  },
+  {
+   "mutation": "GLY245CYS",
+   "ddg_corr": 6.0523,
+   "rel_sasa": 0.068
+  },
+  {
+   "mutation": "MET246CYS",
+   "ddg_corr": 6.0191,
+   "rel_sasa": 0.001
+  },
+  {
+   "mutation": "ARG273CYS",
+   "ddg_corr": 5.9134,
+   "rel_sasa": 0.347
+  },
+  {
+   "mutation": "SER241CYS",
+   "ddg_corr": 5.5986,
+   "rel_sasa": 0.543
+  },
+  {
+   "mutation": "ALA189ARG",
+   "ddg_corr": 5.4811,
+   "rel_sasa": 0.037
+  },
+  {
+   "mutation": "MET243CYS",
+   "ddg_corr": 5.2244,
+   "rel_sasa": 0.674
+  },
+  {
+   "mutation": "ALA161GLU",
+   "ddg_corr": 5.1694,
+   "rel_sasa": 0.085
+  },
+  {
+   "mutation": "ALA161TYR",
+   "ddg_corr": 5.1469,
+   "rel_sasa": 0.085
+  },
+  {
+   "mutation": "ASN247CYS",
+   "ddg_corr": 5.1103,
+   "rel_sasa": 0.334
+  }
+ ]
+}

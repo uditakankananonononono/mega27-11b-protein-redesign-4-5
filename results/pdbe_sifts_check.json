@@ -1,0 +1,91 @@
+{
+ "tool": "PDBe API (SIFTS PDB<->UniProt residue mappings)",
+ "purpose": "verify that PDB author numbering at key positions equals UniProt canonical numbering (the SOD1 numbering-ambiguity failure mode documented in results/sod1_study2.md)",
+ "method": "SIFTS mappings give label_seq_id<->UniProt segments; author res_seq is verified directly from the deposited ATOM records (data/pdb/*.pdb) at each key position",
+ "mappings": [
+  {
+   "pdb": "2vuk",
+   "uniprot": "P04637",
+   "sifts_segments_chainA": [
+    {
+     "chain": "A",
+     "unp_start": 94,
+     "unp_end": 312,
+     "label_start": 1,
+     "label_end": 219,
+     "identity": 0.98
+    }
+   ],
+   "author_numbering_check": {
+    "137": {
+     "file_resname": "LEU",
+     "expected": "LEU",
+     "match": true
+    },
+    "138": {
+     "file_resname": "ALA",
+     "expected": "ALA",
+     "match": true
+    },
+    "220": {
+     "file_resname": "CYS",
+     "expected": "CYS",
+     "match": true
+    },
+    "245": {
+     "file_resname": "GLY",
+     "expected": "GLY",
+     "match": true
+    },
+    "273": {
+     "file_resname": "ARG",
+     "expected": "ARG",
+     "match": true
+    }
+   },
+   "all_match": true
+  },
+  {
+   "pdb": "1spd",
+   "uniprot": "P00441",
+   "sifts_segments_chainA": [
+    {
+     "chain": "A",
+     "unp_start": 2,
+     "unp_end": 154,
+     "label_start": 2,
+     "label_end": 154,
+     "identity": 1.0
+    }
+   ],
+   "author_numbering_check": {
+    "4": {
+     "file_resname": "ALA",
+     "expected": "ALA",
+     "match": true
+    },
+    "6": {
+     "file_resname": "CYS",
+     "expected": "CYS",
+     "match": true
+    },
+    "46": {
+     "file_resname": "HIS",
+     "expected": "HIS",
+     "match": true
+    },
+    "85": {
+     "file_resname": "GLY",
+     "expected": "GLY",
+     "match": true
+    },
+    "111": {
+     "file_resname": "CYS",
+     "expected": "CYS",
+     "match": true
+    }
+   },
+   "all_match": true
+  }
+ ]
+}

@@ -352,12 +352,13 @@ on S2648 for the v1 and v2 models.}
 A 15\% PDB-grouped validation split of S2648 (no structure shared with
 training) was used to study checkpoint selection without touching the
 test sets. Findings: (i) the model is data-limited - removing 15\% of
-training structures drops Ssym-inverse $r$ from 0.578 to 0.434;
-(ii) validation-$r$ peaks at epoch 5 ($r=0.400$) and then declines while
-test $r$ keeps rising, so validation-based early stopping selects a
-strictly worse checkpoint here (epoch-5 model: Ssym-inv $r=0.326$);
+training structures drops Ssym-inverse $r$ from 0.592 to 0.539;
+(ii) validation-$r$ peaks at epoch 10 ($r=0.446$) and then declines
+while test $r$ keeps rising, so validation-based early stopping selects
+a strictly worse checkpoint here (epoch-10 model: Ssym-inv $r=0.358$,
+vs $0.539$ at epoch 300);
 (iii) p53 remains out-of-family for the full-data model
-($r=0.155$, vs v1's 0.451). We therefore report the full-data epoch-300
+($r=-0.02$, vs v1's $0.426$). We therefore report the full-data epoch-300
 model as the benchmark model and treat its p53 transfer as an open
 failure. Figure~\ref{fig:curve} shows the training/validation curves.
 

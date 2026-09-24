@@ -1,0 +1,52 @@
+{
+ "tool": "AlphaFold Protein Structure DB (AF-P00441-F1-model_v6 downloaded, pLDDT from B-factors)",
+ "purpose": "test whether predicted |ddG| concentrates at low-confidence (disordered) regions - an OOD warning signal for scans without crystal structures",
+ "n_positions": 153,
+ "spearman_plddt_vs_mean_abs_ddg": {
+  "rho": 0.2954,
+  "p": 0.0002102315832325197
+ },
+ "low_confidence_positions_lt70": [],
+ "top_scan_candidates_plddt": [
+  {
+   "mutation": "GLY82ASN",
+   "ddg_corr": 5.8162,
+   "plddt": 98.75
+  },
+  {
+   "mutation": "GLY33TYR",
+   "ddg_corr": 5.6959,
+   "plddt": 98.88
+  },
+  {
+   "mutation": "GLY33TRP",
+   "ddg_corr": 5.3379,
+   "plddt": 98.88
+  },
+  {
+   "mutation": "GLY82LYS",
+   "ddg_corr": 5.1411,
+   "plddt": 98.75
+  },
+  {
+   "mutation": "GLY41TRP",
+   "ddg_corr": 5.0622,
+   "plddt": 98.69
+  },
+  {
+   "mutation": "GLY82HIS",
+   "ddg_corr": 4.9352,
+   "plddt": 98.75
+  },
+  {
+   "mutation": "GLY41ILE",
+   "ddg_corr": 4.8533,
+   "plddt": 98.69
+  },
+  {
+   "mutation": "GLY82LEU",
+   "ddg_corr": 4.8297,
+   "plddt": 98.75
+  }
+ ]
+}
