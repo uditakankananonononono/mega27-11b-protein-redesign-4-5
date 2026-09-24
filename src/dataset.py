@@ -83,3 +83,34 @@ def load_bench_tsv(path: str, skipped: list | None = None) -> list[MutationRecor
 def unique_structures(records: list[MutationRecord]) -> list[tuple[str, str]]:
     """Sorted unique (pdb_id, chain) pairs needed by a record set."""
     return sorted({(r.pdb_id, r.chain) for r in records})
+
+
+def split_by_group(records: list[MutationRecord], val_frac: float,
+                   seed: int = 0) -> tuple[list[int], list[int]]:
+    """Deterministic group-held-out split by PDB id.
+
+    Returns (train_idx, val_idx) index lists into `records`. Every mutation
+    of one PDB structure lands in exactly one side, so the validation side
+    measures generalization to unseen proteins (no per-position leakage).
+    With val_frac <= 0 the validation side is empty.
+    """
+    import numpy as np
+
+    n = len(records)
+    if val_frac <= 0 or n == 0:
+        return list(range(n)), []
+    groups: dict[str, list[int]] = {}
+    for i, r in enumerate(records):
+        groups.setdefault(r.pdb_id, []).append(i)
+    rng = np.random.default_rng(seed)
+    pdbs = sorted(groups)
+    rng.shuffle(pdbs)
+    target = val_frac * n
+    val_idx: list[int] = []
+    for p in pdbs:
+        if len(val_idx) >= target:
+            break
+        val_idx.extend(groups[p])
+    val_set = set(val_idx)
+    train_idx = [i for i in range(n) if i not in val_set]
+    return train_idx, sorted(val_idx)

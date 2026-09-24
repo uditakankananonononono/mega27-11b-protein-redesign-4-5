@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.contact_graph import (build_graph, local_subgraph,
                                mutated_features, residue_index)
-from src.dataset import load_bench_tsv
+from src.dataset import load_bench_tsv, split_by_group
 from src.gnn_ddg import GNNddG
 from src.gnn_ddg_v2 import GNNddGv2
 from src.pdb_fetch import load_structure
@@ -166,6 +166,12 @@ def main():
     ap.add_argument("--out", default="build/bench_results.json")
     ap.add_argument("--ckpt", default="build/ckpt.pkl")
     ap.add_argument("--resume", action="store_true")
+    ap.add_argument("--val-frac", type=float, default=0.0,
+                    help="hold out this fraction of S2648 (grouped by PDB) "
+                         "for validation-based checkpoint selection; "
+                         "never touches Ssym/P53")
+    ap.add_argument("--ckpt-best", default="",
+                    help="where to save the best-validation checkpoint")
     args = ap.parse_args()
 
     t0 = time.time()
@@ -177,11 +183,19 @@ def main():
     print(f"records: train {len(train_recs)}, ssym {len(ssym_recs)}, "
           f"p53 {len(p53_recs)}; tsv-skipped {len(skipped)}", flush=True)
 
+    tr_idx, va_idx = split_by_group(train_recs, args.val_frac,
+                                    seed=args.seed)
+    tr_recs = [train_recs[i] for i in tr_idx]
+    va_recs = [train_recs[i] for i in va_idx]
+    print(f"train/val split: {len(tr_recs)} train / {len(va_recs)} val "
+          f"(grouped by PDB, seed {args.seed})", flush=True)
     gc = GraphCache(arch=args.arch)
     print("building train graphs...", flush=True)
-    train_ex = [e for e in (gc.example(r) for r in train_recs) if e]
+    train_ex = [e for e in (gc.example(r) for r in tr_recs) if e]
+    val_ex = [e for e in (gc.example(r) for r in va_recs) if e]
     print(f"train examples: {len(train_ex)} "
-          f"({len(train_recs) - len(train_ex)} unmappable)", flush=True)
+          f"({len(tr_recs) - len(train_ex)} unmappable), "
+          f"val examples: {len(val_ex)}", flush=True)
     ssym_ex = [e for e in (gc.example(r) for r in ssym_recs) if e]
     p53_ex = [e for e in (gc.example(r) for r in p53_recs) if e]
     print(f"ssym examples: {len(ssym_ex)}, p53 examples: {len(p53_ex)}",
@@ -209,6 +223,9 @@ def main():
         start_epoch = ck["epoch"] + 1
         print(f"resumed from epoch {ck['epoch']}", flush=True)
     n = len(train_ex)
+    best_val_r, best_epoch = -2.0, 0
+    import copy
+    best_params = None
     for epoch in range(start_epoch, args.epochs + 1):
         order = rng.permutation(n)
         ep_loss, steps = 0.0, 0
@@ -216,8 +233,21 @@ def main():
             batch = [train_ex[j] for j in order[i:i + args.batch]]
             ep_loss += ddg_train_step(net, batch, args.lr, arch=args.arch)
             steps += 1
-        print(f"epoch {epoch:3d}/{args.epochs}  loss {ep_loss / steps:.4f}  "
-              f"({time.time() - t0:.0f}s)", flush=True)
+        msg = (f"epoch {epoch:3d}/{args.epochs}  loss "
+               f"{ep_loss / steps:.4f}")
+        if val_ex:
+            vp = [predict_ddg(net, e, arch=args.arch) for e in val_ex]
+            vt = [e[4] for e in val_ex]
+            vr = pearson(vp, vt)
+            msg += f"  val_r {vr:.4f}"
+            if vr > best_val_r:
+                best_val_r, best_epoch = vr, epoch
+                best_params = copy.deepcopy(net.params)
+                if args.ckpt_best:
+                    with open(args.ckpt_best, "wb") as fh:
+                        pickle.dump({"epoch": epoch, "val_r": vr,
+                                     "params": best_params}, fh)
+        print(msg + f"  ({time.time() - t0:.0f}s)", flush=True)
         with open(args.ckpt, "wb") as fh:
             pickle.dump({"epoch": epoch, "params": net.params,
                          "adam_m": net._adam_m, "adam_v": net._adam_v,
@@ -254,8 +284,30 @@ def main():
     p53_r, p53_e = aligned(p53_recs)
     pp, pt, _ = eval_set(p53_r, p53_e)
 
+    best_block = None
+    if best_params is not None:
+        final_params = net.params
+        net.params = best_params
+        sp_b, st_b, sd_b = eval_set(ssym_r, ssym_e)
+        pp_b, pt_b, _ = eval_set(p53_r, p53_e)
+        p_dir_b = [p for p, m in zip(sp_b, dir_mask) if m]
+        t_dir_b = [t for t, m in zip(st_b, dir_mask) if m]
+        p_inv_b = [p for p, m in zip(sp_b, inv_mask) if m]
+        t_inv_b = [t for t, m in zip(st_b, inv_mask) if m]
+        best_block = {
+            "epoch": best_epoch, "val_pearson": best_val_r,
+            "ssym_inv": {"pearson": pearson(p_inv_b, t_inv_b),
+                         "rmse": rmse(p_inv_b, t_inv_b), "n": len(p_inv_b)},
+            "ssym_dir": {"pearson": pearson(p_dir_b, t_dir_b),
+                         "rmse": rmse(p_dir_b, t_dir_b)},
+            "p53": {"pearson": pearson(pp_b, pt_b),
+                    "rmse": rmse(pp_b, pt_b)},
+        }
+        net.params = final_params
+
     results = {
         "config": vars(args),
+        "best_val": best_block,
         "n_train": len(train_ex), "n_ssym": len(ssym_e),
         "n_p53": len(p53_e), "n_unmappable": len(unmappable),
         "unmappable": unmappable,
