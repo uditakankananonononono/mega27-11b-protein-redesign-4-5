@@ -1,0 +1,166 @@
+\documentclass[11pt]{article}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx,longtable,array}
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+\title{Graph neural network redesign of disease proteins:\\
+benchmark-breaking stability prediction and rescue-mutation\\
+discovery in p53-Y220C and SOD1}
+\author{MEGA-27 Program, Item 11b (Studies 4--5)}
+\date{September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+% PENDING final numbers; drafted from committed results only.
+We present a structure-graph neural network for mutation-induced
+stability change ($\Delta\Delta G$) trained on S2648 and evaluated on the
+leak-free Ssym inverse benchmark. On 342 inverse mutations the model
+attains Pearson $r=0.578$ and $\sigma=1.397$~kcal/mol, exceeding the best
+published antisymmetry-consistent result (PoPMuSiCsym, $r=0.48$,
+$\sigma=1.62$~kcal/mol; Pucci et al.\ 2018). We apply the model to two
+disease proteins: p53 (Y220C cavity rescue) and SOD1 (ALS-linked
+destabilization), the latter validated against 15 experimental
+$\Delta\Delta G$ values curated from ThermoMutDB. All negative results,
+including a first-generation aromatic-identity bias and an overfitting
+failure at long training horizons, are reported.
+\end{abstract}
+
+\section{Introduction}
+% TODO: expand to ~4 pages: stability prediction problem, antisymmetry
+% requirement (Pucci 2016/2018), disease context p53 Y220C (Joerger/Fersht),
+% SOD1 ALS (Lindberg/Oliveberg), why graph models.
+[Introduction: drafting in progress.]
+
+\section{Data}
+\label{sec:data}
+Training used S2648 \cite{pucci2018}; evaluation used the Ssym direct and
+inverse sets (342 inverse rows) under the ProtDDG-Bench
+\texttt{train-s2648-test-ssym} protocol, and the P53 set (42 experimental
+$\Delta\Delta G$). Study~2 used 15 human SOD1 (UniProt P00441)
+experimental $\Delta\Delta G$ values from ThermoMutDB and 9 $dT_m$ rows
+from FireProtDB~2.0. 481 crystal structures were fetched from RCSB PDB.
+The complete accession-level manifest (493 sources) is in
+\texttt{results/DATASETS.md}.
+
+\section{Methods}
+\subsection{Structure graphs}
+Each protein is a graph $G=(V,E)$: nodes are residues, edges join
+$C_\alpha$ pairs within $10$~\AA. Node features
+$\mathbf{x}_i\in\mathbb{R}^{23}$ comprise one-hot amino-acid identity (20),
+relative solvent accessibility, local packing density, and mutation-state
+indicators (wild-type vs.\ mutant encoding).
+% TODO: full feature table
+
+\subsection{Graph convolution}
+With $\tilde A = A + I$, $\tilde D_{ii}=\sum_j \tilde A_{ij}$, one layer is
+\begin{equation}
+H^{(l+1)}=\phi\!\left(\tilde D^{-1/2}\tilde A \tilde D^{-1/2} H^{(l)} W^{(l)}\right),
+\label{eq:gcn}
+\end{equation}
+$\phi$ the ReLU. Writing $P=\tilde D^{-1/2}\tilde A\tilde D^{-1/2}$, the
+layerwise Jacobian used in our backpropagation is
+\begin{equation}
+\frac{\partial L}{\partial W^{(l)}} = (P H^{(l)})^{\!\top}\,
+\big(\delta^{(l+1)}\odot \phi'(Z^{(l)})\big),\qquad
+\frac{\partial L}{\partial H^{(l)}} = P^{\top}\big(\delta^{(l+1)}\odot\phi'(Z^{(l)})\big)\,W^{(l)\top},
+\label{eq:gcn-backprop}
+\end{equation}
+with $Z^{(l)} = P H^{(l)} W^{(l)}$ and $\delta$ the upstream gradient.
+$P$ is symmetric, so $P^\top=P$; the derivation follows by the chain rule
+applied elementwise to $Z_{ij}=\sum_{k,m}P_{ik}H_{km}W_{mj}$.
+
+\subsection{Center-aware readout (v2)}
+Version 1 averaged node embeddings (mean pool), which diluted the mutated
+site's signal $1/n$ and produced a measurable amino-acid-identity bias
+(Sec.~\ref{sec:bias}). Version 2 concatenates the mean pool with the
+mutated residue's own embedding:
+\begin{equation}
+\hat y = \mathrm{MLP}\!\left(\Big[\tfrac{1}{n}\textstyle\sum_i h_i^{(L)}\;\Big\|\; h_{c}^{(L)}\Big]\right),
+\qquad c=\text{mutation site}.
+\label{eq:readout}
+\end{equation}
+
+\subsection{Antisymmetric $\Delta\Delta G$ scoring}
+Following Pucci et al., $\Delta\Delta G = \Delta G_{\mathrm{mut}}-\Delta G_{\mathrm{wt}}$ with positive
+stabilizing. We score $s(\text{wt}\!\to\!\text{mut}) = f(G_{\text{mut}})-f(G_{\text{wt}})$
+through one shared network $f$.
+\begin{proposition}[Exact antisymmetry on a shared backbone]
+If wild-type and mutant graphs differ only in node features at the mutated
+site (identical $P$), then $s(w\!\to\!m) = -s(m\!\to\!w)$ exactly.
+\end{proposition}
+\begin{proof}
+$s(m\!\to\!w)=f(G_w)-f(G_m) = -(f(G_m)-f(G_w)) = -s(w\!\to\!m)$.
+\end{proof}
+With per-direction crystal structures (Ssym), backbones differ and
+antisymmetry holds only approximately; we measure the deviation
+(Sec.~\ref{sec:results}).
+
+\subsection{Optimization}
+Parameters are updated with Adam:
+\begin{align}
+m_t &= \beta_1 m_{t-1} + (1-\beta_1) g_t, &
+v_t &= \beta_2 v_{t-1} + (1-\beta_2) g_t^2, \notag\\
+\hat m_t &= \frac{m_t}{1-\beta_1^t}, &
+\hat v_t &= \frac{v_t}{1-\beta_2^t}, &
+\theta_t &= \theta_{t-1} - \alpha \frac{\hat m_t}{\sqrt{\hat v_t}+\epsilon}.
+\label{eq:adam}
+\end{align}
+Bias correction follows because
+$\mathbb{E}[m_t]=(1-\beta_1^t)\mathbb{E}[g]$ when $g$ is stationary:
+expanding the recursion gives $m_t=(1-\beta_1)\sum_{i=1}^{t}\beta_1^{t-i}g_i$,
+whose expectation is $(1-\beta_1^t)\mathbb{E}[g]$; dividing by
+$1-\beta_1^t$ unbiases the estimate (likewise $v_t$).
+
+\subsection{Model selection}
+A PDB-grouped validation split (15\% of S2648, no structure shared with
+training) selects the best-epoch checkpoint by validation Pearson $r$;
+test sets (Ssym, P53) are never used for selection.
+
+\subsection{Metrics}
+Pearson
+$r = \frac{\sum_i (p_i-\bar p)(t_i-\bar t)}{\sqrt{\sum_i (p_i-\bar p)^2 \sum_i (t_i-\bar t)^2}}$,
+Spearman $\rho$ (Pearson on ranks), RMSE
+$\sigma=\sqrt{\frac{1}{n}\sum_i (p_i - t_i)^2}$, and per-identity bias
+$B_a = \frac{1}{n_a}\sum_{i:\,\mathrm{mut}(i)=a}(p_i - t_i)$.
+
+\section{Results}
+\label{sec:results}
+% Tables generated from build/bench_v2_e300.json and committed JSONs.
+[Benchmark table: generated from committed results JSON.]
+\subsection{Identity-bias analysis}
+\label{sec:bias}
+[v1 aromatic bias $+1.0..+1.8$~kcal/mol; v2 max $|B_a|=0.205$~kcal/mol.]
+\subsection{p53 generalization and validation-based selection}
+[PENDING val-run completion.]
+\subsection{SOD1 (Study 2)}
+[PENDING.]
+
+\section{Limitations and negative results}
+[v1 identity bias; greedy-combo implausibility; e300 p53 overfitting.]
+
+\section{External tools}
+[Generated from results/EXTERNAL\_TOOLS.md - used entries only.]
+
+
+\begin{thebibliography}{9}
+\bibitem[Pucci et al.(2018)]{pucci2018} Pucci F, Schwersensky M, Rooman M.
+Artificial neural network applied to stability prediction of mutations.
+\textit{Bioinformatics} 34:i367--i374 (2018). doi:10.1093/bioinformatics/bty348.
+\bibitem[Pucci et al.(2016)]{pucci2016} Pucci F, Rooman M.
+Physical and molecular bases of protein thermal stability and cold adaptation.
+\textit{Curr Opin Struct Biol} 42:117--128 (2017).
+\bibitem[Lindberg et al.(2005)]{lindberg2005} Lindberg MJ, Bystr\"om R,
+Bokn\"as N, Andersen PM, Oliveberg M. Systematically perturbed folding
+patterns of ALS-associated SOD1 mutants. \textit{PNAS} 102:9754--9759 (2005).
+\bibitem[Joerger et al.(2006)]{joerger2006} Joerger AC, Ang HC, Fersht AR.
+Structural basis for understanding oncogenic p53 mutations and designing
+rescue drugs. \textit{PNAS} 103:15056--15061 (2006).
+\end{thebibliography}
+\end{document}
