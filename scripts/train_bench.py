@@ -21,6 +21,7 @@ from src.contact_graph import (build_graph, local_subgraph,
                                mutated_features, residue_index)
 from src.dataset import load_bench_tsv
 from src.gnn_ddg import GNNddG
+from src.gnn_ddg_v2 import GNNddGv2
 from src.pdb_fetch import load_structure
 
 BENCH = "data/bench/protddg-bench"
@@ -57,17 +58,26 @@ class GraphCache:
                 self.graphs[key] = None
         return self.graphs[key]
 
+    def __init__(self, cache_dir="data/pdb", cutoff=10.0, arch="v1"):
+        self.cache_dir = cache_dir
+        self.cutoff = cutoff
+        self.arch = arch
+        self.graphs = {}
+        self.feat_cache = {}
+        self.missing = []
+
     def example(self, rec):
-        """(norm_adj, wt_feats, mut_feats, ddg) or None if unmappable.
+        """(norm_adj, wt_feats, mut_feats, center, ddg) or None.
 
         Uses a capped local subgraph around the mutation site (bounded
-        memory on huge chains); tensors cached as float32.
+        memory on huge chains); tensors cached as float32. For arch=v2 the
+        features also carry node degree and distance-to-center.
         """
         key = (rec.pdb_id, rec.chain, rec.position, rec.mut_aa3)
         if key in self.feat_cache:
-            na, wf, mf = self.feat_cache[key]
+            na, wf, mf, center = self.feat_cache[key]
             return (na.astype(np.float64), wf.astype(np.float64),
-                    mf.astype(np.float64), rec.ddg)
+                    mf.astype(np.float64), center, rec.ddg)
         try:
             atoms = load_structure(rec.pdb_id, self.cache_dir)
             g = local_subgraph(atoms, rec.chain, rec.position,
@@ -87,28 +97,41 @@ class GraphCache:
                                  f"{rec.wt_aa3}, structure has {actual}"))
             return None
         mf = mutated_features(g, rec.chain, rec.position, rec.mut_aa3)
+        center = g["center_local_idx"]
+        wf, mf2 = g["features"], mf
+        if self.arch == "v2":
+            deg = g["adj"].sum(axis=1, keepdims=True) / 50.0
+            dist = np.sqrt(((g["coords"] - g["coords"][center]) ** 2)
+                           .sum(axis=1, keepdims=True)) / 30.0
+            wf = np.concatenate([wf, deg, dist], axis=1)
+            mf2 = np.concatenate([mf2, deg, dist], axis=1)
         self.feat_cache[key] = (g["norm_adj"].astype(np.float32),
-                                g["features"].astype(np.float32),
-                                mf.astype(np.float32))
-        na, wf, mf = self.feat_cache[key]
+                                wf.astype(np.float32),
+                                mf2.astype(np.float32), center)
+        na, wf, mf, center = self.feat_cache[key]
         return (na.astype(np.float64), wf.astype(np.float64),
-                mf.astype(np.float64), rec.ddg)
+                mf.astype(np.float64), center, rec.ddg)
 
 
-def predict_ddg(net, ex):
-    y_mut = net.predict(ex[0], ex[2])
-    y_wt = net.predict(ex[0], ex[1])
-    return y_mut - y_wt
+def predict_ddg(net, ex, arch="v1"):
+    if arch == "v2":
+        return (net.predict(ex[0], ex[2], ex[3])
+                - net.predict(ex[0], ex[1], ex[3]))
+    return net.predict(ex[0], ex[2]) - net.predict(ex[0], ex[1])
 
 
-def ddg_train_step(net, batch, lr):
+def ddg_train_step(net, batch, lr, arch="v1"):
     """One Adam step; loss per example = 0.5((f(mut)-f(wt)) - t)^2."""
     accum = {k: np.zeros_like(v) for k, v in net.params.items()}
     loss = 0.0
     for ex in batch:
-        na, wf, mf, t = ex
-        ym, cm = net.forward(na, mf, cache=True)
-        yw, cw = net.forward(na, wf, cache=True)
+        na, wf, mf, center, t = ex
+        if arch == "v2":
+            ym, cm = net.forward(na, mf, center, cache=True)
+            yw, cw = net.forward(na, wf, center, cache=True)
+        else:
+            ym, cm = net.forward(na, mf, cache=True)
+            yw, cw = net.forward(na, wf, cache=True)
         cm["norm_adj_T"] = na.T
         cw["norm_adj_T"] = na.T
         pred = ym - yw
@@ -139,6 +162,7 @@ def main():
     ap.add_argument("--mlp-hidden", type=int, default=16)
     ap.add_argument("--batch", type=int, default=32)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--arch", choices=["v1", "v2"], default="v1")
     ap.add_argument("--out", default="build/bench_results.json")
     ap.add_argument("--ckpt", default="build/ckpt.pkl")
     ap.add_argument("--resume", action="store_true")
@@ -153,7 +177,7 @@ def main():
     print(f"records: train {len(train_recs)}, ssym {len(ssym_recs)}, "
           f"p53 {len(p53_recs)}; tsv-skipped {len(skipped)}", flush=True)
 
-    gc = GraphCache()
+    gc = GraphCache(arch=args.arch)
     print("building train graphs...", flush=True)
     train_ex = [e for e in (gc.example(r) for r in train_recs) if e]
     print(f"train examples: {len(train_ex)} "
@@ -166,8 +190,12 @@ def main():
     print(f"unmappable rows: {len(unmappable)}", flush=True)
 
     import pickle
-    net = GNNddG(in_dim=21, hidden=args.hidden, mlp_hidden=args.mlp_hidden,
-                 seed=args.seed)
+    if args.arch == "v2":
+        net = GNNddGv2(in_dim=23, hidden=args.hidden,
+                       mlp_hidden=args.mlp_hidden, seed=args.seed)
+    else:
+        net = GNNddG(in_dim=21, hidden=args.hidden,
+                     mlp_hidden=args.mlp_hidden, seed=args.seed)
     rng = np.random.default_rng(args.seed)
     start_epoch = 1
     if args.resume and os.path.exists(args.ckpt):
@@ -186,7 +214,7 @@ def main():
         ep_loss, steps = 0.0, 0
         for i in range(0, n, args.batch):
             batch = [train_ex[j] for j in order[i:i + args.batch]]
-            ep_loss += ddg_train_step(net, batch, args.lr)
+            ep_loss += ddg_train_step(net, batch, args.lr, arch=args.arch)
             steps += 1
         print(f"epoch {epoch:3d}/{args.epochs}  loss {ep_loss / steps:.4f}  "
               f"({time.time() - t0:.0f}s)", flush=True)
@@ -199,7 +227,7 @@ def main():
     def eval_set(recs, exs):
         preds, targs, dirs = [], [], []
         for r, e in zip(recs, exs):
-            preds.append(predict_ddg(net, e))
+            preds.append(predict_ddg(net, e, arch=args.arch))
             targs.append(e[3])
             dirs.append(r.direction)
         return preds, targs, dirs
