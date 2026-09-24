@@ -53,6 +53,12 @@ def build_graph(atoms: list[Atom], chain: str | None = None,
     coords = np.array([[a.x, a.y, a.z] for a in trace], dtype=np.float64)
     residues = [(a.res_name, a.chain, a.res_seq) for a in trace]
 
+    return assemble_graph(residues, coords, cutoff)
+
+
+def assemble_graph(residues, coords, cutoff: float = 10.0) -> dict:
+    """Dense contact graph from a residue list and their coordinates."""
+    n = len(residues)
     diff = coords[:, None, :] - coords[None, :, :]
     dist = np.sqrt((diff ** 2).sum(axis=-1))
     adj = ((dist < cutoff) & (dist > 0.0)).astype(np.float64)
@@ -78,6 +84,46 @@ def build_graph(atoms: list[Atom], chain: str | None = None,
         "norm_adj": norm_adj,
         "features": feats,
     }
+
+
+def local_subgraph(atoms: list[Atom], chain: str, center_seq: int,
+                   min_nodes: int = 64, max_nodes: int = 256,
+                   start_radius: float = 8.0, radius_step: float = 2.0,
+                   max_radius: float = 30.0, cutoff: float = 10.0) -> dict:
+    """Contact graph of the local neighborhood around one residue.
+
+    ddG effects are local: residues are selected by C-alpha distance to the
+    mutation site - the radius grows from `start_radius` until at least
+    `min_nodes` are inside (or `max_radius`), and the set is capped at the
+    `max_nodes` nearest residues. Deterministic: the same inputs always
+    select the same nodes, and the center residue is always included.
+    This keeps memory bounded for very large chains (a dense N x N graph on
+    a 5888-residue chain needs hundreds of MB; a 256-node cap needs ~1 MB).
+    """
+    trace = ca_trace(atoms, chain=chain)
+    coords = np.array([[a.x, a.y, a.z] for a in trace], dtype=np.float64)
+    center = None
+    for i, a in enumerate(trace):
+        if a.res_seq == center_seq:
+            center = i
+            break
+    if center is None:
+        raise KeyError(f"residue {chain}:{center_seq} not in chain")
+    d = np.sqrt(((coords - coords[center]) ** 2).sum(axis=1))
+    radius = start_radius
+    while (d <= radius).sum() < min_nodes and radius < max_radius:
+        radius += radius_step
+    sel = np.nonzero(d <= radius)[0]
+    if len(sel) > max_nodes:
+        sel = np.argsort(d, kind="stable")[:max_nodes]
+    sel = np.sort(sel)  # canonical order: sequence order
+    residues = [(a.res_name, a.chain, a.res_seq)
+                for a in (trace[i] for i in sel)]
+    g = assemble_graph(residues, coords[sel], cutoff)
+    g["center_local_idx"] = int(np.nonzero(sel == center)[0][0])
+    g["subgraph_radius"] = float(radius)
+    g["parent_chain_size"] = len(trace)
+    return g
 
 
 def residue_index(graph: dict, chain: str, res_seq: int) -> int:

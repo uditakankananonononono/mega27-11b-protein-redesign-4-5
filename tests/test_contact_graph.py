@@ -67,3 +67,39 @@ def test_mutation_replaces_only_target_row():
     keep = [i for i in range(4) if i != idx]
     assert np.array_equal(mf[keep], g["features"][keep])
     assert np.array_equal(g["norm_adj"], g["norm_adj"])  # graph untouched
+
+
+def test_local_subgraph_selection_and_determinism():
+    from src.contact_graph import local_subgraph
+    # 40 residues on a line, 5 A apart
+    atoms = [
+        Atom(serial=i + 1, name="CA", res_name="ALA", chain="A",
+             res_seq=i + 1, x=5.0 * i, y=0.0, z=0.0, element="C")
+        for i in range(40)
+    ]
+    g = local_subgraph(atoms, "A", 20, min_nodes=8, max_nodes=12,
+                       start_radius=6.0, radius_step=5.0, max_radius=60.0)
+    # center always present, cap respected, centered on residue 20
+    seqs = [r[2] for r in g["residues"]]
+    assert 20 in seqs and len(seqs) <= 12
+    assert abs(seqs.index(20) - (len(seqs) - 1) / 2) <= 1  # roughly centered
+    assert g["residues"][g["center_local_idx"]][2] == 20
+    assert g["parent_chain_size"] == 40
+    # determinism
+    g2 = local_subgraph(atoms, "A", 20, min_nodes=8, max_nodes=12,
+                        start_radius=6.0, radius_step=5.0, max_radius=60.0)
+    assert [r[2] for r in g2["residues"]] == seqs
+    assert np.array_equal(g["norm_adj"], g2["norm_adj"])
+    # residue_index still locates the center in the subgraph
+    assert residue_index(g, "A", 20) == g["center_local_idx"]
+
+
+def test_local_subgraph_missing_center_raises():
+    from src.contact_graph import local_subgraph
+    atoms = [Atom(serial=1, name="CA", res_name="ALA", chain="A",
+                  res_seq=1, x=0.0, y=0.0, z=0.0, element="C")]
+    try:
+        local_subgraph(atoms, "A", 99)
+        assert False, "should have raised"
+    except KeyError:
+        pass
