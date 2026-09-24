@@ -3,7 +3,7 @@
 Status legend: USED = actually executed/queried in this project;
 STAGED = fetched and on disk, analysis pending; PLANNED = queued.
 
-## Used so far (13)
+## Used so far (15)
 1. RCSB PDB / data.rcsb.org - 481 WT+mutant structures downloaded, parsed (graph construction)
 2. ProtDDG-Bench (github.com/protddg-bench) - S2648/Ssym/P53 train-test protocol
 3. Pucci et al. 2018 Bioinformatics (bty348) published Table 1 - benchmark reference values (PoPMuSiCsym 0.48/1.62 etc.), verified from PDF
@@ -17,6 +17,8 @@ STAGED = fetched and on disk, analysis pending; PLANNED = queued.
 11. Google Drive - results delivery folder (bundle uploads)
 12. SoDCoD (fujisawagroup) - SOD1 mutant conformation metadata (lookup)
 13. FireProtDB OpenAPI/Swagger spec - API query construction
+14. matplotlib - paper figures (fig1 scatter, fig2 bias bars, fig3 curves)
+15. pdflatex / TeX Live (mathptmx) - paper PDF compilation
 
 ## Staged (on disk, analysis queued)
 14. ProtDDG-Bench subsets BROOM, KORPM, MYOGLOBIN, PTMUL, VB1432 (additional test sets)
@@ -26,7 +28,7 @@ Biopython, DSSP/mkdssp, FreeSASA, NCBI BLAST API, EBI Clustal Omega API,
 EBI InterProScan, AlphaFold DB, UniProt REST, HHpred, ConSurf, PROSITE,
 FoldX (if license permits), Rosetta (if installable), DDGun, INPS-MD,
 MAESTROweb, mCSM, SDM2, DUET, PremPS, ThermoNet, RaSP, ESM-1v (scoring),
-ProteinMPNN (scoring), PyMOL (figures), matplotlib (figures), pandas,
+ProteinMPNN (scoring), PyMOL (figures), pandas,
 scipy (stats: bootstrap CIs), scikit-learn (baselines), PDBrenum,
 PDBj, PDBe API, CATH, SCOPe, Pfam, ExPASy ProtParam, STRIDE, NACCESS-adapter.
 Target: 40 VERIFIED uses, each with a one-line "what it was used for" in the
