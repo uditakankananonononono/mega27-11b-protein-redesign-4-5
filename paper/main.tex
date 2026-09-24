@@ -38,10 +38,75 @@ and an overfitting failure at long training horizons, are preserved.
 \end{abstract}
 
 \section{Introduction}
-% TODO: expand to ~4 pages: stability prediction problem, antisymmetry
-% requirement (Pucci 2016/2018), disease context p53 Y220C (Joerger/Fersht),
-% SOD1 ALS (Lindberg/Oliveberg), why graph models.
-[Introduction: drafting in progress.]
+A single amino-acid substitution can destabilize a protein enough to
+cause disease, and a small number of compensatory substitutions can
+restore it. Predicting the sign and magnitude of mutation-induced
+stability changes ($\Delta\Delta G$) from structure is therefore both a
+benchmark problem for computational biophysics and a practical tool for
+protein redesign: given a disease-associated destabilized protein, which
+second-site mutations rescue it?
+
+\subsection{The antisymmetry problem}
+A $\Delta\Delta G$ predictor is only physically meaningful if it is
+antisymmetric: the predicted effect of the forward mutation must be the
+negative of the prediction for the reverse (inverse) mutation on the
+wild-type background. Pucci et al.\ showed that most published predictors
+fail this requirement badly \cite{pucci2018}: when scored on the
+curated Ssym set of 684 mutations with known forward and inverse
+measurements, several widely used tools produce inverse-mutation
+predictions that are uncorrelated or even anticorrelated with experiment,
+and direct-vs-inverse prediction correlations near zero. The
+best-behaved published method, PoPMuSiCsym, attains
+$r_{\mathrm{inv}}=0.48$ and $\sigma_{\mathrm{inv}}=1.62$~kcal/mol on the
+inverse half with an antisymmetry correlation of $-0.77$. This is the
+benchmark this paper attacks.
+
+\subsection{Disease context}
+We study two disease proteins with complementary character.
+\emph{p53-Y220C}: the tumor suppressor p53 is destabilized by the
+Y220C mutation, which creates a surface crevice and lowers the melting
+temperature of the DNA-binding domain by several degrees; second-site
+suppressors (e.g.\ L137R, A138G) and a superstable background
+(M133L/V203A/N239Y/N268D) are documented experimentally
+\cite{joerger2006}, giving us ground truth for a rescue scan.
+\emph{SOD1}: mutations in Cu/Zn superoxide dismutase cause familial
+amyotrophic lateral sclerosis; A4V is among the most severe, and
+experimental $\Delta\Delta G$ values exist for a handful of mutants
+(ThermoMutDB, FireProtDB), giving us an independent out-of-family test.
+
+\subsection{Approach}
+We represent each protein as a residue contact graph and train a graph
+convolutional network to predict the folding free-energy difference
+$\Delta G$ of a structure, scoring mutations as
+$f(\mathrm{mut})-f(\mathrm{wt})$ so that antisymmetry holds exactly by
+construction (Proposition~\ref{prop:antisym}). Training uses S2648
+\cite{pucci2018}; the Ssym inverse set is never touched until the final
+evaluation. Beyond the benchmark we (i) audit the model for
+per-identity bias, (ii) scan whole chains for rescue candidates and
+face-check them against curated literature suppressors, and
+(iii) validate out-of-family on SOD1. Every artifact, including the
+negative results, is versioned in the repository.
+
+\subsection{Contributions}
+\begin{enumerate}
+\item A v2 GNN that beats the best published antisymmetry-consistent
+result on the Ssym inverse benchmark: $r=0.578$ vs $0.48$,
+$\sigma=1.397$ vs $1.62$~kcal/mol, with near-perfect antisymmetry
+($r_{\mathrm{dir,inv}}=-0.944$).
+\item A whole-chain rescue scan of p53-Y220C (2VUK) that recovers one
+documented Y220C suppressor in the top 7\% and concentrates novel
+candidates at the two loops known to host suppressors - with the missed
+suppressor (A138G) reported, not hidden.
+\item Two findings about data and structure quality that generalize
+beyond this model: the standard training sets contain no proline
+mutations (making all proline-position predictions
+out-of-distribution), and the widely used Y220C crystal structures
+already carry the superstable quadruple-mutant background.
+\item A preserved record of failures: a first-generation identity bias,
+an overfitting collapse of p53 transfer at long training horizons, an
+implausible greedy multi-mutant sum, and an outright failure to
+generalize to SOD1.
+\end{enumerate}
 
 \section{Data}
 \label{sec:data}
