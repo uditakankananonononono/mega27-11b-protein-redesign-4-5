@@ -140,6 +140,8 @@ def main():
     ap.add_argument("--batch", type=int, default=32)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--out", default="build/bench_results.json")
+    ap.add_argument("--ckpt", default="build/ckpt.pkl")
+    ap.add_argument("--resume", action="store_true")
     args = ap.parse_args()
 
     t0 = time.time()
@@ -163,11 +165,23 @@ def main():
     unmappable = gc.missing
     print(f"unmappable rows: {len(unmappable)}", flush=True)
 
+    import pickle
     net = GNNddG(in_dim=21, hidden=args.hidden, mlp_hidden=args.mlp_hidden,
                  seed=args.seed)
     rng = np.random.default_rng(args.seed)
+    start_epoch = 1
+    if args.resume and os.path.exists(args.ckpt):
+        with open(args.ckpt, "rb") as fh:
+            ck = pickle.load(fh)
+        net.params = ck["params"]
+        net._adam_m = ck["adam_m"]
+        net._adam_v = ck["adam_v"]
+        net._adam_t = ck["adam_t"]
+        rng = ck["rng"]
+        start_epoch = ck["epoch"] + 1
+        print(f"resumed from epoch {ck['epoch']}", flush=True)
     n = len(train_ex)
-    for epoch in range(1, args.epochs + 1):
+    for epoch in range(start_epoch, args.epochs + 1):
         order = rng.permutation(n)
         ep_loss, steps = 0.0, 0
         for i in range(0, n, args.batch):
@@ -176,6 +190,10 @@ def main():
             steps += 1
         print(f"epoch {epoch:3d}/{args.epochs}  loss {ep_loss / steps:.4f}  "
               f"({time.time() - t0:.0f}s)", flush=True)
+        with open(args.ckpt, "wb") as fh:
+            pickle.dump({"epoch": epoch, "params": net.params,
+                         "adam_m": net._adam_m, "adam_v": net._adam_v,
+                         "adam_t": net._adam_t, "rng": rng}, fh)
 
     # --- evaluation ---
     def eval_set(recs, exs):

@@ -2,3 +2,11 @@ __pycache__/
 *.pyc
 .pytest_cache/
 build/status.log
+data/pdb/
+data/bench/protddg-bench/
+build/ckpt.pkl
+build/*.log
+build/*.bundle
+build/*.pdf
+build/*.txt
+build/*.json
