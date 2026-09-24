@@ -240,6 +240,28 @@ expanding the recursion gives $m_t=(1-\beta_1)\sum_{i=1}^{t}\beta_1^{t-i}g_i$,
 whose expectation is $(1-\beta_1^t)\mathbb{E}[g]$; dividing by
 $1-\beta_1^t$ unbiases the estimate (likewise $v_t$).
 
+The training objective is the mean squared error over a batch $\mathcal{B}$,
+egin{equation}
+L(\theta) = \frac{1}{|\mathcal{B}|}\sum_{i\in\mathcal{B}} (\hat y_i - y_i)^2,
+\qquad
+\frac{\partial L}{\partial \hat y_i} = \frac{2}{|\mathcal{B}|}(\hat y_i - y_i),
+\label{eq:loss}
+\end{equation}
+so the gradient is an unbiased estimate of the full-batch gradient and
+scales inversely with batch size; this is the $\delta$ injected at the
+readout in Eq.~\eqref{eq:gcn-backprop}. For the mean-pool branch of the
+readout (Eq.~\eqref{eq:readout}) the gradient distributes uniformly,
+\begin{equation}
+\frac{\partial L}{\partial h_i^{(L)}} =
+\frac{1}{n}\,\frac{\partial L}{\partial \bar h},
+\qquad
+\bar h = \frac{1}{n}\sum_j h_j^{(L)},
+\label{eq:poolgrad}
+\end{equation}
+because $\partial \bar h/\partial h_i = I/n$; the center branch receives
+the full Jacobian at the mutated site instead, which is exactly why the
+identity bias concentrated there (Sec.~\ref{sec:bias}).
+
 \begin{table}[ht]
 \centering
 \caption{Hyperparameters (both architectures).}
@@ -306,6 +328,33 @@ where $r^{*(b)}$ is Eq.~\eqref{eq:pearson} evaluated on a uniform
 resample with replacement of the test pairs; the interval is exact for
 the empirical distribution and first-order accurate for the sampling
 distribution \cite{efron1994}.
+
+As a distribution-sensitive cross-check we also report the Fisher
+$z$-interval: with $z = \mathrm{arctanh}\, r$ and
+$\mathrm{SE}(z)=1/\sqrt{n-3}$,
+\begin{equation}
+\mathrm{CI}_{95}(r) = \Big[\tanh\big(z - 1.96/\sqrt{n-3}\big),\;
+\tanh\big(z + 1.96/\sqrt{n-3}\big)\Big],
+\label{eq:fisherz}
+\end{equation}
+valid for bivariate-normal pairs; agreement between \eqref{eq:bootstrap}
+and \eqref{eq:fisherz} indicates the bootstrap is not driven by
+non-normality. Rank agreement uses Spearman's
+\begin{equation}
+\rho = 1 - \frac{6\sum_i d_i^2}{n(n^2-1)},
+\qquad d_i = \mathrm{rank}(p_i)-\mathrm{rank}(t_i),
+\label{eq:spearman}
+\end{equation}
+exact under no ties; ties (none in continuous $\Delta\Delta G$ beyond
+rounding) are handled by midranks. Absolute accuracy is summarised by the
+mean absolute error
+\begin{equation}
+\mathrm{MAE} = \frac{1}{n}\sum_i |p_i - t_i|,
+\label{eq:mae}
+\end{equation}
+which, unlike $\sigma$ in Eq.~\eqref{eq:rmse}, is linear in the residuals
+and therefore robust to the heavy right tail of $|\Delta\Delta G|$
+(Appendix G shows the per-protein MAE distribution).
 
 \section{Results}
 \label{sec:results}
@@ -692,6 +741,10 @@ the ledger and are not counted here.
 \input{appendix_sod1}
 \input{appendix_repro}
 \input{appendix_datasets}
+\input{appendix_perprotein}
+\input{appendix_scan_full}
+\input{appendix_sod1_scan}
+\input{appendix_positions}
 
 \begin{thebibliography}{9}
 \bibitem[Pucci et al.(2018)]{pucci2018} Pucci F, Schwersensky M, Rooman M.
