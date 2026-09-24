@@ -3,7 +3,7 @@
 Status legend: USED = actually executed/queried in this project;
 STAGED = fetched and on disk, analysis pending; PLANNED = queued.
 
-## Used so far (29)
+## Used so far (30)
 1. RCSB PDB / data.rcsb.org - 481 WT+mutant structures downloaded, parsed (graph construction)
 2. ProtDDG-Bench (github.com/protddg-bench) - S2648/Ssym/P53 train-test protocol
 3. Pucci et al. 2018 Bioinformatics (bty348) published Table 1 - benchmark reference values (PoPMuSiCsym 0.48/1.62 etc.), verified from PDF
@@ -33,16 +33,17 @@ STAGED = fetched and on disk, analysis pending; PLANNED = queued.
 27. gnomAD GraphQL API - TP53 germline constraint: pLI 0.9996, mis_z 1.12, oe_lof 0.258 (results/gnomad_tp53_constraint.json)
 28. PyMOL open-source 3.x - structure figure fig4 (2VUK candidate geometry, paper/figs/fig4_candidates_2vuk.png; session build/pymol_2vuk_session.pse)
 29. STRING DB API v12 - TP53/SOD1 functional-network context (results/string_network_context.json)
+30. CATH-Gene3D API - independent fold classification: 2VUK -> 2.60.40.720 (p53-like), 1SPD -> 2.60.40.200 (SOD1-like); both beta-sandwiches, so transfer failure is not fold-class-determined (results/cath_domain_classification.json)
 
 ## Staged (on disk, analysis queued)
 14. ProtDDG-Bench subsets BROOM, KORPM, MYOGLOBIN, PTMUL, VB1432 (additional test sets)
 
 ## Planned (named, will be executed or queried - checked off only when real)
-DSSP/mkdssp, NCBI BLAST API, EBI Clustal Omega API,
-EBI InterProScan, HHpred, ConSurf, PROSITE,
+DSSP/mkdssp, NCBI BLAST API [job submitted RID BAM06SAF014, polling pending], EBI InterProScan REST [job iprscan5-R20260924-173220-0680-81949957-p1m queued], EBI Clustal Omega API,
+EBI InterProScan, HHpred, ConSurf, PROSITE [scan endpoint redirect host unresolvable from sandbox - NOT RUN],
 FoldX (if license permits), Rosetta (if installable), DDGun [PROBED: no public API found, web-form only - NOT RUN], INPS-MD,
 MAESTROweb, mCSM, SDM2, DUET, PremPS, ThermoNet, RaSP, ESM-1v (scoring),
-ProteinMPNN (scoring), PyMOL (figures), PDBrenum,
+ProteinMPNN (scoring), PyMOL (figures), PDBrenum [no PyPI distribution found - NOT RUN],
 PDBj, CATH, SCOPe, Pfam, ExPASy ProtParam, STRIDE, NACCESS-adapter.
 Target: 40 VERIFIED uses, each with a one-line "what it was used for" in the
 paper's Tools table. Anything listed but not executed will be marked NOT RUN.

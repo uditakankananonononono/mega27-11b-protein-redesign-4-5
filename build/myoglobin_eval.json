@@ -1,0 +1,1239 @@
+{
+ "set": "ProtDDG-Bench MYOGLOBIN (sperm-whale myoglobin, 1BZ6 A)",
+ "model": {
+  "ckpt": "build/ckpt_v2.pkl",
+  "epoch": 300
+ },
+ "n_rows": 134,
+ "n_scored": 134,
+ "n_skipped": 0,
+ "skipped": [],
+ "pearson": 0.45545736532811626,
+ "rmse": 1.1730384884131073,
+ "mae": 0.8619962686567165,
+ "sign_accuracy": 0.7164179104477612,
+ "rows": [
+  {
+   "mutation": "I28A",
+   "pos": 28,
+   "wt3": "ILE",
+   "mut3": "ALA",
+   "exp": -2.06,
+   "pred": -2.7777,
+   "pred_corr": -2.6178
+  },
+  {
+   "mutation": "L29A",
+   "pos": 29,
+   "wt3": "LEU",
+   "mut3": "ALA",
+   "exp": -0.39,
+   "pred": -2.477,
+   "pred_corr": -2.3172
+  },
+  {
+   "mutation": "I30A",
+   "pos": 30,
+   "wt3": "ILE",
+   "mut3": "ALA",
+   "exp": -1.9,
+   "pred": -2.8988,
+   "pred_corr": -2.7389
+  },
+  {
+   "mutation": "L32A",
+   "pos": 32,
+   "wt3": "LEU",
+   "mut3": "ALA",
+   "exp": -2.04,
+   "pred": -2.2084,
+   "pred_corr": -2.0485
+  },
+  {
+   "mutation": "H24V",
+   "pos": 24,
+   "wt3": "HIS",
+   "mut3": "VAL",
+   "exp": -0.52,
+   "pred": -0.6989,
+   "pred_corr": -0.7714
+  },
+  {
+   "mutation": "H36Q",
+   "pos": 36,
+   "wt3": "HIS",
+   "mut3": "GLN",
+   "exp": -1.3,
+   "pred": -0.0911,
+   "pred_corr": -0.2179
+  },
+  {
+   "mutation": "H48Q",
+   "pos": 48,
+   "wt3": "HIS",
+   "mut3": "GLN",
+   "exp": -0.62,
+   "pred": -0.2754,
+   "pred_corr": -0.4021
+  },
+  {
+   "mutation": "H64Q",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "GLN",
+   "exp": -0.45,
+   "pred": 0.6641,
+   "pred_corr": 0.5373
+  },
+  {
+   "mutation": "H82Q",
+   "pos": 82,
+   "wt3": "HIS",
+   "mut3": "GLN",
+   "exp": -0.05,
+   "pred": 0.2468,
+   "pred_corr": 0.12
+  },
+  {
+   "mutation": "H93G",
+   "pos": 93,
+   "wt3": "HIS",
+   "mut3": "GLY",
+   "exp": 0.04,
+   "pred": 0.7461,
+   "pred_corr": 0.8211
+  },
+  {
+   "mutation": "H97Q",
+   "pos": 97,
+   "wt3": "HIS",
+   "mut3": "GLN",
+   "exp": -0.11,
+   "pred": 0.4609,
+   "pred_corr": 0.3341
+  },
+  {
+   "mutation": "H113Q",
+   "pos": 113,
+   "wt3": "HIS",
+   "mut3": "GLN",
+   "exp": -0.26,
+   "pred": -0.9218,
+   "pred_corr": -1.0486
+  },
+  {
+   "mutation": "H119F",
+   "pos": 119,
+   "wt3": "HIS",
+   "mut3": "PHE",
+   "exp": -0.68,
+   "pred": -0.1353,
+   "pred_corr": -0.0594
+  },
+  {
+   "mutation": "G129A",
+   "pos": 129,
+   "wt3": "GLY",
+   "mut3": "ALA",
+   "exp": 1.05,
+   "pred": 0.1432,
+   "pred_corr": 0.3031
+  },
+  {
+   "mutation": "V66A",
+   "pos": 66,
+   "wt3": "VAL",
+   "mut3": "ALA",
+   "exp": 0.75,
+   "pred": -0.0142,
+   "pred_corr": 0.1457
+  },
+  {
+   "mutation": "P88A",
+   "pos": 88,
+   "wt3": "PRO",
+   "mut3": "ALA",
+   "exp": 0.59,
+   "pred": 2.1912,
+   "pred_corr": 2.351
+  },
+  {
+   "mutation": "H116A",
+   "pos": 116,
+   "wt3": "HIS",
+   "mut3": "ALA",
+   "exp": 0.16,
+   "pred": -1.7869,
+   "pred_corr": -1.627
+  },
+  {
+   "mutation": "V13A",
+   "pos": 13,
+   "wt3": "VAL",
+   "mut3": "ALA",
+   "exp": -0.67,
+   "pred": -0.1124,
+   "pred_corr": 0.0475
+  },
+  {
+   "mutation": "T67A",
+   "pos": 67,
+   "wt3": "THR",
+   "mut3": "ALA",
+   "exp": -0.26,
+   "pred": -0.7665,
+   "pred_corr": -0.6066
+  },
+  {
+   "mutation": "S117A",
+   "pos": 117,
+   "wt3": "SER",
+   "mut3": "ALA",
+   "exp": -0.26,
+   "pred": -1.1218,
+   "pred_corr": -0.962
+  },
+  {
+   "mutation": "L11A",
+   "pos": 11,
+   "wt3": "LEU",
+   "mut3": "ALA",
+   "exp": -0.44,
+   "pred": 0.6659,
+   "pred_corr": 0.8258
+  },
+  {
+   "mutation": "L9A",
+   "pos": 9,
+   "wt3": "LEU",
+   "mut3": "ALA",
+   "exp": -0.41,
+   "pred": 0.6469,
+   "pred_corr": 0.8068
+  },
+  {
+   "mutation": "G23A",
+   "pos": 23,
+   "wt3": "GLY",
+   "mut3": "ALA",
+   "exp": -1.12,
+   "pred": 1.9484,
+   "pred_corr": 2.1083
+  },
+  {
+   "mutation": "L137A",
+   "pos": 137,
+   "wt3": "LEU",
+   "mut3": "ALA",
+   "exp": -1.78,
+   "pred": -1.4986,
+   "pred_corr": -1.3387
+  },
+  {
+   "mutation": "V114A",
+   "pos": 114,
+   "wt3": "VAL",
+   "mut3": "ALA",
+   "exp": -1.45,
+   "pred": -0.8122,
+   "pred_corr": -0.6523
+  },
+  {
+   "mutation": "T51A",
+   "pos": 51,
+   "wt3": "THR",
+   "mut3": "ALA",
+   "exp": -1.41,
+   "pred": 0.5813,
+   "pred_corr": 0.7412
+  },
+  {
+   "mutation": "L149A",
+   "pos": 149,
+   "wt3": "LEU",
+   "mut3": "ALA",
+   "exp": -1.6,
+   "pred": -1.053,
+   "pred_corr": -0.8931
+  },
+  {
+   "mutation": "I142A",
+   "pos": 142,
+   "wt3": "ILE",
+   "mut3": "ALA",
+   "exp": -1.92,
+   "pred": -1.7511,
+   "pred_corr": -1.5913
+  },
+  {
+   "mutation": "Q8A",
+   "pos": 8,
+   "wt3": "GLN",
+   "mut3": "ALA",
+   "exp": -0.89,
+   "pred": 0.9701,
+   "pred_corr": 1.13
+  },
+  {
+   "mutation": "Q8G",
+   "pos": 8,
+   "wt3": "GLN",
+   "mut3": "GLY",
+   "exp": 0.5,
+   "pred": -0.5887,
+   "pred_corr": -0.5137
+  },
+  {
+   "mutation": "E109A",
+   "pos": 109,
+   "wt3": "GLU",
+   "mut3": "ALA",
+   "exp": -0.17,
+   "pred": -1.7162,
+   "pred_corr": -1.5563
+  },
+  {
+   "mutation": "E109G",
+   "pos": 109,
+   "wt3": "GLU",
+   "mut3": "GLY",
+   "exp": 0.89,
+   "pred": -1.8855,
+   "pred_corr": -1.8105
+  },
+  {
+   "mutation": "K140A",
+   "pos": 140,
+   "wt3": "LYS",
+   "mut3": "ALA",
+   "exp": -0.35,
+   "pred": -0.5789,
+   "pred_corr": -0.419
+  },
+  {
+   "mutation": "L29F",
+   "pos": 29,
+   "wt3": "LEU",
+   "mut3": "PHE",
+   "exp": -0.13,
+   "pred": -0.4897,
+   "pred_corr": -0.4138
+  },
+  {
+   "mutation": "L29N",
+   "pos": 29,
+   "wt3": "LEU",
+   "mut3": "ASN",
+   "exp": -5.59,
+   "pred": -0.8544,
+   "pred_corr": -0.9161
+  },
+  {
+   "mutation": "F43V",
+   "pos": 43,
+   "wt3": "PHE",
+   "mut3": "VAL",
+   "exp": -2.66,
+   "pred": -0.9122,
+   "pred_corr": -0.9847
+  },
+  {
+   "mutation": "F43I",
+   "pos": 43,
+   "wt3": "PHE",
+   "mut3": "ILE",
+   "exp": -0.89,
+   "pred": -0.5521,
+   "pred_corr": -0.7429
+  },
+  {
+   "mutation": "H64Q",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "GLN",
+   "exp": -0.54,
+   "pred": 0.6641,
+   "pred_corr": 0.5373
+  },
+  {
+   "mutation": "H64A",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "ALA",
+   "exp": 0.58,
+   "pred": 0.4101,
+   "pred_corr": 0.57
+  },
+  {
+   "mutation": "H64L",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "LEU",
+   "exp": 1.05,
+   "pred": 1.1562,
+   "pred_corr": 1.1622
+  },
+  {
+   "mutation": "H64F",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "PHE",
+   "exp": 1.51,
+   "pred": 0.4968,
+   "pred_corr": 0.5727
+  },
+  {
+   "mutation": "V68F",
+   "pos": 68,
+   "wt3": "VAL",
+   "mut3": "PHE",
+   "exp": 0.82,
+   "pred": -0.431,
+   "pred_corr": -0.3551
+  },
+  {
+   "mutation": "V68A",
+   "pos": 68,
+   "wt3": "VAL",
+   "mut3": "ALA",
+   "exp": -0.93,
+   "pred": -0.6199,
+   "pred_corr": -0.46
+  },
+  {
+   "mutation": "V68Q",
+   "pos": 68,
+   "wt3": "VAL",
+   "mut3": "GLN",
+   "exp": -2.42,
+   "pred": 0.2021,
+   "pred_corr": 0.0753
+  },
+  {
+   "mutation": "V68N",
+   "pos": 68,
+   "wt3": "VAL",
+   "mut3": "ASN",
+   "exp": -3.81,
+   "pred": -0.823,
+   "pred_corr": -0.8847
+  },
+  {
+   "mutation": "V68S",
+   "pos": 68,
+   "wt3": "VAL",
+   "mut3": "SER",
+   "exp": -2.99,
+   "pred": -0.3307,
+   "pred_corr": -0.3259
+  },
+  {
+   "mutation": "V68T",
+   "pos": 68,
+   "wt3": "VAL",
+   "mut3": "THR",
+   "exp": -1.67,
+   "pred": -0.6707,
+   "pred_corr": -0.6412
+  },
+  {
+   "mutation": "I107F",
+   "pos": 107,
+   "wt3": "ILE",
+   "mut3": "PHE",
+   "exp": 0.58,
+   "pred": 0.1906,
+   "pred_corr": 0.2665
+  },
+  {
+   "mutation": "I107V",
+   "pos": 107,
+   "wt3": "ILE",
+   "mut3": "VAL",
+   "exp": -1.09,
+   "pred": -0.378,
+   "pred_corr": -0.4505
+  },
+  {
+   "mutation": "I107T",
+   "pos": 107,
+   "wt3": "ILE",
+   "mut3": "THR",
+   "exp": -2.23,
+   "pred": -2.2496,
+   "pred_corr": -2.2201
+  },
+  {
+   "mutation": "I28L",
+   "pos": 28,
+   "wt3": "ILE",
+   "mut3": "LEU",
+   "exp": -0.55,
+   "pred": -0.5122,
+   "pred_corr": -0.5063
+  },
+  {
+   "mutation": "I28M",
+   "pos": 28,
+   "wt3": "ILE",
+   "mut3": "MET",
+   "exp": -0.56,
+   "pred": -0.8828,
+   "pred_corr": -0.8133
+  },
+  {
+   "mutation": "I28V",
+   "pos": 28,
+   "wt3": "ILE",
+   "mut3": "VAL",
+   "exp": 0.04,
+   "pred": -1.0974,
+   "pred_corr": -1.17
+  },
+  {
+   "mutation": "I28A",
+   "pos": 28,
+   "wt3": "ILE",
+   "mut3": "ALA",
+   "exp": -1.33,
+   "pred": -2.7777,
+   "pred_corr": -2.6178
+  },
+  {
+   "mutation": "I111L",
+   "pos": 111,
+   "wt3": "ILE",
+   "mut3": "LEU",
+   "exp": -0.64,
+   "pred": -0.977,
+   "pred_corr": -0.971
+  },
+  {
+   "mutation": "I111M",
+   "pos": 111,
+   "wt3": "ILE",
+   "mut3": "MET",
+   "exp": -1.14,
+   "pred": -1.4407,
+   "pred_corr": -1.3711
+  },
+  {
+   "mutation": "I111A",
+   "pos": 111,
+   "wt3": "ILE",
+   "mut3": "ALA",
+   "exp": -1.84,
+   "pred": -2.9197,
+   "pred_corr": -2.7598
+  },
+  {
+   "mutation": "I142L",
+   "pos": 142,
+   "wt3": "ILE",
+   "mut3": "LEU",
+   "exp": 0.63,
+   "pred": 1.278,
+   "pred_corr": 1.2839
+  },
+  {
+   "mutation": "I142M",
+   "pos": 142,
+   "wt3": "ILE",
+   "mut3": "MET",
+   "exp": 0.93,
+   "pred": -0.5397,
+   "pred_corr": -0.4701
+  },
+  {
+   "mutation": "I142V",
+   "pos": 142,
+   "wt3": "ILE",
+   "mut3": "VAL",
+   "exp": -0.12,
+   "pred": -0.2046,
+   "pred_corr": -0.2771
+  },
+  {
+   "mutation": "I142A",
+   "pos": 142,
+   "wt3": "ILE",
+   "mut3": "ALA",
+   "exp": -1.1,
+   "pred": -1.7511,
+   "pred_corr": -1.5913
+  },
+  {
+   "mutation": "L29I",
+   "pos": 29,
+   "wt3": "LEU",
+   "mut3": "ILE",
+   "exp": -1.12,
+   "pred": -1.4805,
+   "pred_corr": -1.6714
+  },
+  {
+   "mutation": "L29M",
+   "pos": 29,
+   "wt3": "LEU",
+   "mut3": "MET",
+   "exp": 0.12,
+   "pred": -0.4215,
+   "pred_corr": -0.352
+  },
+  {
+   "mutation": "L29V",
+   "pos": 29,
+   "wt3": "LEU",
+   "mut3": "VAL",
+   "exp": -1.72,
+   "pred": -2.4073,
+   "pred_corr": -2.4799
+  },
+  {
+   "mutation": "L29A",
+   "pos": 29,
+   "wt3": "LEU",
+   "mut3": "ALA",
+   "exp": -2.37,
+   "pred": -2.477,
+   "pred_corr": -2.3172
+  },
+  {
+   "mutation": "L69I",
+   "pos": 69,
+   "wt3": "LEU",
+   "mut3": "ILE",
+   "exp": -0.02,
+   "pred": 0.3267,
+   "pred_corr": 0.1358
+  },
+  {
+   "mutation": "L69M",
+   "pos": 69,
+   "wt3": "LEU",
+   "mut3": "MET",
+   "exp": -0.0,
+   "pred": 0.0278,
+   "pred_corr": 0.0974
+  },
+  {
+   "mutation": "L69V",
+   "pos": 69,
+   "wt3": "LEU",
+   "mut3": "VAL",
+   "exp": -0.1,
+   "pred": -0.3378,
+   "pred_corr": -0.4103
+  },
+  {
+   "mutation": "L69A",
+   "pos": 69,
+   "wt3": "LEU",
+   "mut3": "ALA",
+   "exp": -1.18,
+   "pred": -1.8843,
+   "pred_corr": -1.7244
+  },
+  {
+   "mutation": "L135I",
+   "pos": 135,
+   "wt3": "LEU",
+   "mut3": "ILE",
+   "exp": -1.54,
+   "pred": -1.1821,
+   "pred_corr": -1.373
+  },
+  {
+   "mutation": "L135M",
+   "pos": 135,
+   "wt3": "LEU",
+   "mut3": "MET",
+   "exp": -0.79,
+   "pred": -0.6151,
+   "pred_corr": -0.5455
+  },
+  {
+   "mutation": "L135V",
+   "pos": 135,
+   "wt3": "LEU",
+   "mut3": "VAL",
+   "exp": -2.25,
+   "pred": -1.0939,
+   "pred_corr": -1.1665
+  },
+  {
+   "mutation": "L49I",
+   "pos": 49,
+   "wt3": "LEU",
+   "mut3": "ILE",
+   "exp": -0.8,
+   "pred": -0.7935,
+   "pred_corr": -0.9844
+  },
+  {
+   "mutation": "A130L",
+   "pos": 130,
+   "wt3": "ALA",
+   "mut3": "LEU",
+   "exp": -2.3,
+   "pred": -0.8713,
+   "pred_corr": -0.8654
+  },
+  {
+   "mutation": "A130K",
+   "pos": 130,
+   "wt3": "ALA",
+   "mut3": "LYS",
+   "exp": -3.7,
+   "pred": -1.8998,
+   "pred_corr": -1.9159
+  },
+  {
+   "mutation": "F123T",
+   "pos": 123,
+   "wt3": "PHE",
+   "mut3": "THR",
+   "exp": -3.5,
+   "pred": -2.1172,
+   "pred_corr": -2.0878
+  },
+  {
+   "mutation": "E4A",
+   "pos": 4,
+   "wt3": "GLU",
+   "mut3": "ALA",
+   "exp": -0.35,
+   "pred": -0.0757,
+   "pred_corr": 0.0842
+  },
+  {
+   "mutation": "K133A",
+   "pos": 133,
+   "wt3": "LYS",
+   "mut3": "ALA",
+   "exp": -0.05,
+   "pred": 0.2153,
+   "pred_corr": 0.3752
+  },
+  {
+   "mutation": "D122A",
+   "pos": 122,
+   "wt3": "ASP",
+   "mut3": "ALA",
+   "exp": -0.1,
+   "pred": -1.0603,
+   "pred_corr": -0.9005
+  },
+  {
+   "mutation": "E18A",
+   "pos": 18,
+   "wt3": "GLU",
+   "mut3": "ALA",
+   "exp": -0.95,
+   "pred": 0.992,
+   "pred_corr": 1.1519
+  },
+  {
+   "mutation": "K77A",
+   "pos": 77,
+   "wt3": "LYS",
+   "mut3": "ALA",
+   "exp": 0.2,
+   "pred": -0.3422,
+   "pred_corr": -0.1823
+  },
+  {
+   "mutation": "D20A",
+   "pos": 20,
+   "wt3": "ASP",
+   "mut3": "ALA",
+   "exp": -0.5,
+   "pred": -0.2291,
+   "pred_corr": -0.0692
+  },
+  {
+   "mutation": "R118A",
+   "pos": 118,
+   "wt3": "ARG",
+   "mut3": "ALA",
+   "exp": -0.65,
+   "pred": -2.5505,
+   "pred_corr": -2.3906
+  },
+  {
+   "mutation": "D44A",
+   "pos": 44,
+   "wt3": "ASP",
+   "mut3": "ALA",
+   "exp": 0.25,
+   "pred": -0.2798,
+   "pred_corr": -0.1199
+  },
+  {
+   "mutation": "D60A",
+   "pos": 60,
+   "wt3": "ASP",
+   "mut3": "ALA",
+   "exp": -0.15,
+   "pred": -0.1642,
+   "pred_corr": -0.0043
+  },
+  {
+   "mutation": "K56A",
+   "pos": 56,
+   "wt3": "LYS",
+   "mut3": "ALA",
+   "exp": -0.35,
+   "pred": -0.0898,
+   "pred_corr": 0.0701
+  },
+  {
+   "mutation": "R139A",
+   "pos": 139,
+   "wt3": "ARG",
+   "mut3": "ALA",
+   "exp": -0.45,
+   "pred": -1.7678,
+   "pred_corr": -1.6079
+  },
+  {
+   "mutation": "W7F",
+   "pos": 7,
+   "wt3": "TRP",
+   "mut3": "PHE",
+   "exp": -0.9,
+   "pred": -0.3235,
+   "pred_corr": -0.2476
+  },
+  {
+   "mutation": "W14F",
+   "pos": 14,
+   "wt3": "TRP",
+   "mut3": "PHE",
+   "exp": -1.1,
+   "pred": -0.759,
+   "pred_corr": -0.6831
+  },
+  {
+   "mutation": "M131A",
+   "pos": 131,
+   "wt3": "MET",
+   "mut3": "ALA",
+   "exp": -2.2,
+   "pred": -2.0477,
+   "pred_corr": -1.8878
+  },
+  {
+   "mutation": "F123K",
+   "pos": 123,
+   "wt3": "PHE",
+   "mut3": "LYS",
+   "exp": -2.1,
+   "pred": -1.8172,
+   "pred_corr": -1.8333
+  },
+  {
+   "mutation": "A130K",
+   "pos": 130,
+   "wt3": "ALA",
+   "mut3": "LYS",
+   "exp": -2.1,
+   "pred": -1.8998,
+   "pred_corr": -1.9159
+  },
+  {
+   "mutation": "A130L",
+   "pos": 130,
+   "wt3": "ALA",
+   "mut3": "LEU",
+   "exp": -0.9,
+   "pred": -0.8713,
+   "pred_corr": -0.8654
+  },
+  {
+   "mutation": "H36Q",
+   "pos": 36,
+   "wt3": "HIS",
+   "mut3": "GLN",
+   "exp": -0.8,
+   "pred": -0.0911,
+   "pred_corr": -0.2179
+  },
+  {
+   "mutation": "V68T",
+   "pos": 68,
+   "wt3": "VAL",
+   "mut3": "THR",
+   "exp": -0.6,
+   "pred": -0.6707,
+   "pred_corr": -0.6412
+  },
+  {
+   "mutation": "V13A",
+   "pos": 13,
+   "wt3": "VAL",
+   "mut3": "ALA",
+   "exp": -0.0,
+   "pred": -0.1124,
+   "pred_corr": 0.0475
+  },
+  {
+   "mutation": "L115A",
+   "pos": 115,
+   "wt3": "LEU",
+   "mut3": "ALA",
+   "exp": -1.4,
+   "pred": -2.772,
+   "pred_corr": -2.6121
+  },
+  {
+   "mutation": "F123A",
+   "pos": 123,
+   "wt3": "PHE",
+   "mut3": "ALA",
+   "exp": -1.1,
+   "pred": 0.0855,
+   "pred_corr": 0.2454
+  },
+  {
+   "mutation": "L135A",
+   "pos": 135,
+   "wt3": "LEU",
+   "mut3": "ALA",
+   "exp": -1.7,
+   "pred": -2.7189,
+   "pred_corr": -2.5591
+  },
+  {
+   "mutation": "L11A",
+   "pos": 11,
+   "wt3": "LEU",
+   "mut3": "ALA",
+   "exp": -0.6,
+   "pred": 0.6659,
+   "pred_corr": 0.8258
+  },
+  {
+   "mutation": "F106A",
+   "pos": 106,
+   "wt3": "PHE",
+   "mut3": "ALA",
+   "exp": -0.7,
+   "pred": -1.5319,
+   "pred_corr": -1.3721
+  },
+  {
+   "mutation": "L137A",
+   "pos": 137,
+   "wt3": "LEU",
+   "mut3": "ALA",
+   "exp": -0.3,
+   "pred": -1.4986,
+   "pred_corr": -1.3387
+  },
+  {
+   "mutation": "A15L",
+   "pos": 15,
+   "wt3": "ALA",
+   "mut3": "LEU",
+   "exp": 0.1,
+   "pred": -0.1328,
+   "pred_corr": -0.1269
+  },
+  {
+   "mutation": "A125L",
+   "pos": 125,
+   "wt3": "ALA",
+   "mut3": "LEU",
+   "exp": 0.6,
+   "pred": -0.5675,
+   "pred_corr": -0.5615
+  },
+  {
+   "mutation": "A144L",
+   "pos": 144,
+   "wt3": "ALA",
+   "mut3": "LEU",
+   "exp": 0.4,
+   "pred": 0.1664,
+   "pred_corr": 0.1723
+  },
+  {
+   "mutation": "I28A",
+   "pos": 28,
+   "wt3": "ILE",
+   "mut3": "ALA",
+   "exp": -0.53,
+   "pred": -2.7777,
+   "pred_corr": -2.6178
+  },
+  {
+   "mutation": "I28F",
+   "pos": 28,
+   "wt3": "ILE",
+   "mut3": "PHE",
+   "exp": -0.28,
+   "pred": -0.0744,
+   "pred_corr": 0.0015
+  },
+  {
+   "mutation": "L32W",
+   "pos": 32,
+   "wt3": "LEU",
+   "mut3": "TRP",
+   "exp": -0.53,
+   "pred": -0.7376,
+   "pred_corr": -0.6768
+  },
+  {
+   "mutation": "L32A",
+   "pos": 32,
+   "wt3": "LEU",
+   "mut3": "ALA",
+   "exp": -0.47,
+   "pred": -2.2084,
+   "pred_corr": -2.0485
+  },
+  {
+   "mutation": "L32F",
+   "pos": 32,
+   "wt3": "LEU",
+   "mut3": "PHE",
+   "exp": -0.07,
+   "pred": -0.7098,
+   "pred_corr": -0.6339
+  },
+  {
+   "mutation": "H64F",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "PHE",
+   "exp": 0.81,
+   "pred": 0.4968,
+   "pred_corr": 0.5727
+  },
+  {
+   "mutation": "H64A",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "ALA",
+   "exp": 0.49,
+   "pred": 0.4101,
+   "pred_corr": 0.57
+  },
+  {
+   "mutation": "H64W",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "TRP",
+   "exp": 0.47,
+   "pred": 1.458,
+   "pred_corr": 1.5188
+  },
+  {
+   "mutation": "H64Q",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "GLN",
+   "exp": 0.02,
+   "pred": 0.6641,
+   "pred_corr": 0.5373
+  },
+  {
+   "mutation": "H64Y",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "TYR",
+   "exp": 0.52,
+   "pred": 2.4941,
+   "pred_corr": 2.4521
+  },
+  {
+   "mutation": "H64L",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "LEU",
+   "exp": 0.61,
+   "pred": 1.1562,
+   "pred_corr": 1.1622
+  },
+  {
+   "mutation": "H64I",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "ILE",
+   "exp": 0.38,
+   "pred": 0.0771,
+   "pred_corr": -0.1138
+  },
+  {
+   "mutation": "H64V",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "VAL",
+   "exp": 0.36,
+   "pred": -0.0199,
+   "pred_corr": -0.0925
+  },
+  {
+   "mutation": "H64T",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "THR",
+   "exp": 0.23,
+   "pred": 0.0201,
+   "pred_corr": 0.0496
+  },
+  {
+   "mutation": "H64N",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "ASN",
+   "exp": -0.33,
+   "pred": 0.5587,
+   "pred_corr": 0.497
+  },
+  {
+   "mutation": "H64R",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "ARG",
+   "exp": -0.08,
+   "pred": 0.9991,
+   "pred_corr": 0.872
+  },
+  {
+   "mutation": "H64G",
+   "pos": 64,
+   "wt3": "HIS",
+   "mut3": "GLY",
+   "exp": -0.04,
+   "pred": -2.1237,
+   "pred_corr": -2.0487
+  },
+  {
+   "mutation": "T67F",
+   "pos": 67,
+   "wt3": "THR",
+   "mut3": "PHE",
+   "exp": 0.19,
+   "pred": -0.1493,
+   "pred_corr": -0.0734
+  },
+  {
+   "mutation": "T67Q",
+   "pos": 67,
+   "wt3": "THR",
+   "mut3": "GLN",
+   "exp": 0.23,
+   "pred": 0.2816,
+   "pred_corr": 0.1549
+  },
+  {
+   "mutation": "T67P",
+   "pos": 67,
+   "wt3": "THR",
+   "mut3": "PRO",
+   "exp": -0.85,
+   "pred": -4.1545,
+   "pred_corr": -4.1545
+  },
+  {
+   "mutation": "V68F",
+   "pos": 68,
+   "wt3": "VAL",
+   "mut3": "PHE",
+   "exp": 0.38,
+   "pred": -0.431,
+   "pred_corr": -0.3551
+  },
+  {
+   "mutation": "V68L",
+   "pos": 68,
+   "wt3": "VAL",
+   "mut3": "LEU",
+   "exp": 0.42,
+   "pred": -0.6259,
+   "pred_corr": -0.62
+  },
+  {
+   "mutation": "V68W",
+   "pos": 68,
+   "wt3": "VAL",
+   "mut3": "TRP",
+   "exp": -0.07,
+   "pred": 0.6345,
+   "pred_corr": 0.6953
+  },
+  {
+   "mutation": "V68I",
+   "pos": 68,
+   "wt3": "VAL",
+   "mut3": "ILE",
+   "exp": 0.35,
+   "pred": -0.829,
+   "pred_corr": -1.0198
+  },
+  {
+   "mutation": "V68A",
+   "pos": 68,
+   "wt3": "VAL",
+   "mut3": "ALA",
+   "exp": -0.6,
+   "pred": -0.6199,
+   "pred_corr": -0.46
+  },
+  {
+   "mutation": "V68Y",
+   "pos": 68,
+   "wt3": "VAL",
+   "mut3": "TYR",
+   "exp": -0.17,
+   "pred": 0.4887,
+   "pred_corr": 0.4467
+  },
+  {
+   "mutation": "V68T",
+   "pos": 68,
+   "wt3": "VAL",
+   "mut3": "THR",
+   "exp": -0.57,
+   "pred": -0.6707,
+   "pred_corr": -0.6412
+  },
+  {
+   "mutation": "I107F",
+   "pos": 107,
+   "wt3": "ILE",
+   "mut3": "PHE",
+   "exp": 0.12,
+   "pred": 0.1906,
+   "pred_corr": 0.2665
+  },
+  {
+   "mutation": "I107A",
+   "pos": 107,
+   "wt3": "ILE",
+   "mut3": "ALA",
+   "exp": -0.43,
+   "pred": -2.3039,
+   "pred_corr": -2.144
+  }
+ ],
+ "leakage_audit": {
+  "train_rows_same_protein_1BVC": 41,
+  "exact_mutation_overlap": 53,
+  "same_position_overlap": 85,
+  "verdict": "CONTAMINATED as out-of-family: S2648 contains 41 rows on myoglobin (1BVC). Full-set r=0.455 is NOT an out-of-family transfer result.",
+  "excluding_exact_overlap": {
+   "n": 81,
+   "pearson": 0.2877515122281629,
+   "rmse": 1.3337637294698723
+  },
+  "excluding_same_position": {
+   "n": 49,
+   "pearson": 0.24055793007682927,
+   "rmse": 1.2541978005311374
+  }
+ }
+}

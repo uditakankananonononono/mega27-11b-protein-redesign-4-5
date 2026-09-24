@@ -440,6 +440,22 @@ structure (133, 203, 239, 268).}
 \label{fig:struct}
 \end{figure}
 
+\subsection{Generalization gradient: the MYOGLOBIN audit}
+Evaluating the benchmark checkpoint on the ProtDDG-Bench MYOGLOBIN set
+(134 mutations on sperm-whale myoglobin, 1BZ6) gives $r=0.455$ -
+apparently strong transfer. A leakage audit rejects that reading:
+S2648 contains 41 training rows on the same protein (structure 1BVC),
+covering 53 of the 134 test mutations exactly and 85 at the same
+position. On decontaminated subsets the correlation drops to
+$r=0.288$ ($n=81$, exact-overlap removed) and $r=0.241$ ($n=49$,
+position-disjoint). Performance therefore forms a monotone gradient
+with distance from the training families: in-family $0.46$,
+same-protein unseen positions $0.24$-$0.29$, out-of-family p53
+$-0.02$, out-of-family SOD1 $-0.15$ (Sec.~\ref{sec:sod1}). The
+gradient is falsifiable: any new family should land at the
+out-of-family level unless the protein or a close homolog is in S2648
+(\texttt{results/myoglobin\_eval.md}).
+
 \subsection{SOD1 (Study 2)}
 \label{sec:sod1}
 Validation against 8 unique ThermoMutDB SOD1 $\Delta\Delta G$
@@ -615,7 +631,9 @@ proline positions are out of distribution because the training data
 contain no proline mutations; (5) SOD1 $\Delta\Delta G$ prediction
 fails outright ($r=-0.15$, $n=8$); (6) the documented Y220C suppressor
 A138G is missed; (7) scan magnitudes are inflated and only ranks should
-be read.
+be read; (8) the apparently strong MYOGLOBIN result ($r=0.455$) is
+contaminated by 41 same-protein training rows and drops to
+$0.24$-$0.29$ when decontaminated.
 
 \section{External tools}
 \label{sec:tools}

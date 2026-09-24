@@ -1,0 +1,44 @@
+{
+ "tool": "CATH-Gene3D API (cathdb.info)",
+ "purpose": "independent fold classification of the two study structures",
+ "entries": [
+  {
+   "domain": "2vukA00",
+   "superfamily": "2.60.40.720",
+   "name": null,
+   "raw_keys": [
+    "combs_segments",
+    "superfamily_id",
+    "atom_length",
+    "go_terms",
+    "pdb_segments",
+    "funfam_number",
+    "s35_id",
+    "ssg9_number",
+    "domain_id",
+    "combs_sequence",
+    "cath_id",
+    "ec_terms"
+   ]
+  },
+  {
+   "domain": "1spdA00",
+   "superfamily": "2.60.40.200",
+   "name": null,
+   "raw_keys": [
+    "residues",
+    "ssg5_number",
+    "atom_sequence",
+    "pdb_code",
+    "cath_id",
+    "ec_terms",
+    "ssg9_number",
+    "domain_id",
+    "combs_sequence",
+    "funfam_number",
+    "s35_id",
+    "atom_length"
+   ]
+  }
+ ]
+}
