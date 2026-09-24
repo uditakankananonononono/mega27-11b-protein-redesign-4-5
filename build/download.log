@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/sandbox/mega27-11b-protein-redesign-4-5/scripts/download_pdbs.py", line 44, in <module>
+    main()
+  File "/home/sandbox/mega27-11b-protein-redesign-4-5/scripts/download_pdbs.py", line 23, in main
+    wanted |= set(unique_structures(load_bench_tsv(path)))
+  File "/home/sandbox/mega27-11b-protein-redesign-4-5/src/dataset.py", line 62, in load_bench_tsv
+    wt3, pos, mt3 = parse_mutation(row[3])
+  File "/home/sandbox/mega27-11b-protein-redesign-4-5/src/dataset.py", line 48, in parse_mutation
+    return AA1_TO_3[wt], int(pos), AA1_TO_3[mt]
+ValueError: invalid literal for int() with base 10: '27C'
