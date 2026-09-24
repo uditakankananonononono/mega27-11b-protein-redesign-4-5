@@ -1,0 +1,823 @@
+Bioinformatics, 34(21), 2018, 3659–3665
+doi: 10.1093/bioinformatics/bty348
+Advance Access Publication Date: 26 April 2018
+Original Paper
+
+Quantification of biases in predictions of protein
+stability changes upon mutations
+Fabrizio Pucci1,*, Katrien V. Bernaerts1,2, Jean Marc Kwasigroch1 and
+Marianne Rooman1
+1
+
+Department of BioModeling BioInformatics & BioProcesses, Université Libre de Bruxelles, 1050 Brussels,
+Belgium and 2Department of Biobased Materials, Maastricht University, 6200MD Maastricht, The Netherlands
+
+*To whom correspondence should be addressed.
+Associate Editor: Alfonso Valencia
+Received on December 22, 2017; revised on March 28, 2018; editorial decision on April 23, 2018; accepted on April 25, 2018
+
+Abstract
+Motivation: Bioinformatics tools that predict protein stability changes upon point mutations have
+made a lot of progress in the last decades and have become accurate and fast enough to make computational mutagenesis experiments feasible, even on a proteome scale. Despite these achievements,
+they still suffer from important issues that must be solved to allow further improving their performances and utilizing them to deepen our insights into protein folding and stability mechanisms. One of
+these problems is their bias toward the learning datasets which, being dominated by destabilizing
+mutations, causes predictions to be better for destabilizing than for stabilizing mutations.
+Results: We thoroughly analyzed the biases in the prediction of folding free energy changes upon
+point mutations (DDG 0 ) and proposed some unbiased solutions. We started by constructing a dataset Ssym of experimentally measured DDG 0 s with an equal number of stabilizing and destabilizing
+mutations, by collecting mutations for which the structure of both the wild-type and mutant protein
+is available. On this balanced dataset, we assessed the performances of 15 widely used DDG 0 predictors. After the astonishing observation that almost all these methods are strongly biased toward
+destabilizing mutations, especially those that use black-box machine learning, we proposed an elegant way to solve the bias issue by imposing physical symmetries under inverse mutations on the
+model structure, which we implemented in PoPMuSiCsym. This new predictor constitutes an efficient trade-off between accuracy and absence of biases. Some final considerations and suggestions for further improvement of the predictors are discussed.
+Contact: fapucci@ulb.ac.be
+Supplementary information: Supplementary data are available at Bioinformatics online.
+Note: The article 10.1093/bioinformatics/bty340/, published alongside this paper, also addresses
+the problem of biases in protein stability change predictions.
+
+1 Introduction
+De novo protein design is well known to be an important challenge
+in protein science. Its achievement would have a considerable impact on a wide series of academic and industrial applications that
+range from drug design in medicinal chemistry to the development
+of multi-component protein nanomaterials (Coluzza, 2017; Huang
+et al., 2016; Zanghellini, 2014). This goal is far from being reached,
+
+even though valuable developments have recently been made.
+Mutational studies with both experimental and computational
+techniques have thoroughly deepened our understanding of the
+mechanisms that drive the folding process. In particular, a lot of
+computational methods have been developed in the last decades to
+predict in an efficient way how an amino acid substitution impacts
+protein stability (Alford et al., 2017; Capriotti et al., 2005;
+
+C The Author(s) 2018. Published by Oxford University Press. All rights reserved. For permissions, please e-mail: journals.permissions@oup.com
+V
+
+3659
+
+Downloaded from https://academic.oup.com/bioinformatics/article-abstract/34/21/3659/4987874 by Universite Libre de Bruxelles user on 20 May 2019
+
+Structural bioinformatics
+
+3660
+
+measured by its folding free energy DG0 , i.e. the Gibbs free energy
+difference between the unfolded and folded states:
+DG0 ¼ G0 ðunfoldedÞ  G0 ðfoldedÞ
+
+The impact of an amino acid substitution on the protein stability is
+characterized by the change of DG0 upon mutation:
+DDG0dir ¼ DG0 ðmutantÞ  DG0 ðwild  typeÞ
+
+2.1 Folding stability changes upon mutations
+Under the assumption that the protein folding process is a reversible,
+two-state transition—and thus that the protein does not precipitate
+or aggregate—the thermodynamic stability of a protein can be
+
+(2)
+
+With these conventions, negative values of DDG0dir indicate destabilizing mutations while positive DDG0dir values are associated with
+stabilizing substitutions. These quantities depend on different
+thermodynamic and environmental variables such as the temperature and the pH. They are often defined either at room temperature
+
+Tr ¼ 25 C or at the melting temperature Tm of the wild-type protein. Sometimes, they are not directly measured but derived from
+DTm measures in differential scanning calorimetry (DSC) experiments, by utilizing the fact that these two quantities are correlated,
+even though this is only true in a first approximation [see Pucci et al.
+(2016) and Watson and Raleigh (2017) for further details]. All these
+dependencies and approximations make the datasets of the experimentally annotated mutations quite noisy, which in turn impacts the
+accuracy of the predictors that are trained on them.
+
+2.2 Assessing predictors through bias evaluation
+The change in folding free energy upon mutations is by definition
+antisymmetric with respect to the exchange between the mutant and
+wild-type residues, assuming that the folding of both the wild-type
+and mutant proteins is a reversible two-state process. This means
+that the folding free energy DDG0inv of an inverse mutation, from mutant to wild-type, is equal to minus that of the direct substitution,
+from wild-type to mutant:
+DDG0inv ¼ DDG0dir
+
+(3)
+
+Predictions obtained by computational methods usually do not satisfy this equality, since they are trained on experimental datasets
+dominated by destabilizing mutations. For example, two of the
+widely used mutation datasets for model training, S2648 (Dehouck
+et al., 2009) and Q3421 (Quan et al., 2016), exhibit an average
+DDG0 value of 1.01 and 1.13 kcal/mol, respectively. This distortion is learnt by the model and then reproduced in the prediction
+phase. Note that Equation (3) cannot be satisfied exactly by the predictors that only consider the wild-type and not the mutant structure,
+but this approximation has usually a small impact when coarsegrained structural representations are used, except in the rare cases
+where single-site mutations cause large structural rearrangements.
+In this paper we constructed a new mutation dataset Ssym which
+is balanced with respect to stabilizing and destabilizing mutations
+(see Section 2.3), and used it for assessing the performance of 15
+prediction methods (Section 2.4) and for quantifying their bias that
+tends to favor destabilizing mutations. We used the following measures, the former two to estimate the predictors’ accuracy and the latter two the bias:
+•
+
+2 Materials and methods
+
+(1)
+
+rdir and rdir are the root mean square deviation and the linear
+correlation coefficient between the predicted and experimental
+DDG0 values for the direct mutations in Ssym , from wild-type to
+mutant. Note that these mutations belong to the training dataset
+of the methods tested, so that the predictions are likely to be
+overfitted and rdir and rdir to be underestimated and overestimated, respectively.
+
+Downloaded from https://academic.oup.com/bioinformatics/article-abstract/34/21/3659/4987874 by Universite Libre de Bruxelles user on 20 May 2019
+
+Chen et al., 2013; Cheng et al., 2006; Dehouck et al., 2009, 2011;
+Giollo et al., 2014; Guerois et al., 2002; Kellogg et al., 2011; Laimer
+et al., 2016; Masso and Vaisman, 2008, 2014; Pandurangan et al.,
+2017; Parthiban et al., 2006; Pires et al., 2014a, b; Quan et al.,
+2016). They allow limiting extensive mutagenesis experiments and
+thus save time and money.
+The most accurate methods among these are structure based.
+They use the three-dimensional (3D) structure of the wild-type protein as input for predicting how the folding free energy DG0 gets
+modified upon point mutations (DDG0 ). All these methods are based
+on a large variety of models that range from pure machine learning
+algorithms to more biophysics-oriented approaches where the energetic contributions are appropriately combined. Their average performances, measured by the root mean square deviation between
+experimental and predicted DDG0 values for datasets that contain
+on the order of two thousand entries, are reported to be between 1.0
+and 1.5 kcal/mol [for previous comparisons of the methods’ performances, see Potapov et al. (2009) and Khan and Vihinen (2010)].
+These results are astonishing if one considers that, despite the complexity of the problem, some of the above-mentioned tools predict
+the DDG0 of one mutation in less than a minute. This opens the way
+to perform computational mutagenesis experiments at the proteomic
+scale with reasonable accuracy.
+Unfortunately, these methods suffer from different drawbacks.
+Like all machine learning approaches, they are prone to overfitting
+problems (Cawley and Talbot, 2010; Hawkins, 2004), and their
+results therefore tend to be biased toward the training datasets. The
+analysis and the correction of biases are of primary importance to
+get more accurate and reliable methods. However, it is a non-trivial
+task since biases are usually hidden and require careful work on the
+model structures and on the cleaning of the training datasets.
+A known bias in protein stability prediction comes from the fact
+that the ensemble of experimentally characterized mutations and as
+a consequence, the training datasets, are dominated by destabilizing
+mutations. This implies that the predictors tend to be more accurate
+for destabilizing than for stabilizing mutations, which is a crucial
+issue given that the latter are the focus of protein design applications. This issue has been reported in a few investigations (Fariselli
+et al., 2015; Pucci et al., 2015; Thiltgen and Goldstein, 2012), but
+there is not yet a common, generally accepted, way to overcome it.
+Moreover, biases are not limited to this feature but can involve other
+characteristics such as the kind of protein or the type of wild-type
+and mutant amino acids, since not all substitutions are sufficiently
+sampled in the training dataset.
+In this paper, we go further into this investigation, and assess the
+performances of different predictors on a new dataset of mutations
+with experimentally characterized DDG0 values and with known 3D
+structures of both the wild-type and mutant proteins. This dataset is
+by construction balanced with respect to stabilizing and destabilizing mutations. We showed that imposing physical symmetries to the
+model structures is an efficient and elegant way to solve the bias
+problem, as already suggested in a preliminary study (Pucci et al.,
+2015).
+
+F.Pucci et al.
+
+Biases in protein stability prediction
+•
+
+•
+
+rinv and rinv are the root mean square deviation and the linear
+correlation coefficient between the predicted and experimental
+DDG0 values for the inverse mutations in Ssym , from mutant to
+wild-type. These mutations do not belong to the training datasets
+and thus constitute an independent test set.
+rdir;inv is the linear correlation coefficient between the predicted
+DDG0 values of the direct and the inverse mutations. A non-biased
+prediction that satisfies Equation (3) has rdir;inv equal to 1.
+A previously used criterion to estimate the bias is the parameter d
+defined as (Thiltgen and Goldstein, 2012):
+d ¼ DDG0inv þ DDG0dir
+
+(4)
+
+A perfectly non-biased tool should have d ¼ 0 for every mutation.
+We used here its average value hdi taken over all mutations that belong to Ssym .
+
+2.3 Dataset construction
+We created a manually curated dataset Ssym , by selecting mutations
+from the Protherm database (Bava et al., 2004) and checking them
+on the basis of the original literature. It contains mutations with experimental DDG0 values for which the 3D structures of both the
+wild-type and mutant proteins are solved by X-ray crystallography
+with a resolution of 2.5 Å at most.
+Sometimes, different DDG0 values are available for the same mutation. We selected the DDG0 measured under the environmental
+conditions closest to the standard conditions (pH ¼ 7, T ¼ 25 C).
+Note that they are frequently measured at the melting temperature
+of the wild-type protein.
+We ended up with a dataset of 684 mutations, half of which are
+direct mutations inserted in 15 wild-type proteins, while the remaining half are inverse mutations inserted in 342 different mutant proteins. These mutations are given in Supplementary Information.
+
+2.4 Prediction methods analyzed
+We selected the DDG0 predictors that are among the most renowned
+in terms of speed and accuracy. We list them below and briefly explain their characteristics.
+1. PoPMuSiC v2.1 (Dehouck et al., 2009): based on standard statistical potentials, combined with sigmoidal weights that depend
+on the solvent accessibility of the mutated residues.
+2. SDM (Pandurangan et al., 2017): uses conformationally constrained environment-specific substitution tables to calculate
+the change in thermodynamic stability between the wild-type
+and the mutant proteins.
+3. CUPSAT (Parthiban et al., 2006): uses torsion angle potentials
+and structural environment-specific atom potentials.
+4. Rosetta (Kellogg et al., 2011): generates a 3D structural model
+of the mutated protein from the wild-type structure, and computes the difference in energy between them, with as energy
+function the sum of a large series of empirical physics-based energy contributions [Coulomb electrostatic, Lennard-Jones
+atomic interactions, etc. (Alford et al., 2017)].
+5. FoldX v3.0 (Guerois et al., 2002): uses a full atomistic description of the protein structure and is based on FOLDEF, an empirical force field developed as a linear combination of different
+empirical energy terms (van der Waals, solvation, electrostatic,
+hydrogen bonds, etc.).
+6. I-Mutant v3.0 (Capriotti et al., 2005): a tool based on a support vector machine (SVM) that combines protein sequence
+and structure information.
+
+7. iSTABLE (Chen et al., 2013): an integrated predictor, that
+combines, using an SVM algorithm, sequence information with
+predictions from different methods (I-Mutant, AUTOMUTE,
+MUPRO, PoPMuSiC and CUPSAT).
+8. NeEMO (Giollo et al., 2014): uses an effective representation
+of proteins based on residue interaction networks (RINs) and
+combines the extracted information through a neural network.
+9. AUTO-MUTE (Masso and Vaisman, 2008): uses as main ingredient four-body, knowledge-based, statistical contact potentials
+that are combined with machine learning tools (random forest
+and SVM).
+10. STRUM (Quan et al., 2016): combines physics- and
+knowledge-based energy functions derived from protein structure models obtained by I-TASSER (Roy et al., 2010), through
+gradient boosting regression.
+11. MAESTRO (Laimer et al., 2016): uses statistical energy functions as main features, and combines them with a multi-agent
+method that includes a linear regression, an artificial neural
+network and an SVM.
+12. mCSM (Pires et al., 2014b): a machine learning method that
+utilizes graph-based distance patterns between atoms as well as
+the residue type.
+13. DUET (Pires et al., 2014a): a consensus prediction method
+obtained by combining mCSM and SDM using an SVM
+algorithm.
+14. MUPRO (Cheng et al., 2006): uses an SVM approach that
+takes into account sequence information only.
+All the tools in this list utilize the 3D structure of the wild-type
+protein as input, except the last one which is based on the protein sequence only. The first five predictors are based on combinations of
+energy contributions and do not use machine learning, or use machine learning just to identify the parameters of a pre-established
+model structure. The last nine predictors are true machine learning
+methods.
+Some predictors require as input the pH at which the change in
+folding free energy is computed (method 11) or both the pH and
+the temperature (methods 5–10), while the others do not ask for the
+specification of the environmental conditions, assuming standard
+conditions.
+
+2.5 Designing unbiased prediction models
+Two approaches can be devised to solve the bias problem and recover predictions that satisfy Equation (3). One solution is to train
+the model on a balanced dataset that contains, for each mutation,
+both the direct and inverse versions, from wild-type to mutant and
+from mutant to wild-type. However, this requires knowing the 3D
+structure of the mutant proteins, which is only available for a subset
+of mutations: our dataset Ssym contains 684 mutations, whereas the
+training datasets for which only the wild-type structure is requested
+contain about 3000 mutations. The datasets can be increased by
+including mutant structures obtained through comparative modeling, but this introduces noise into the data. Note that this is the only
+solution in the case of pure machine learning approaches where the
+model structure is not established a priori.
+When the prediction model is pre-established and not obtained
+through a black-box machine learning technique, it is possible to
+identify the terms in the model structure that are responsible for the
+symmetry breaking and appropriately correct them. This is exactly
+what we did in Pucci et al. (2015), where the PoPMuSiCsym model, a
+symmetrized version of PoPMuSiC v2.1, was presented.
+
+Downloaded from https://academic.oup.com/bioinformatics/article-abstract/34/21/3659/4987874 by Universite Libre de Bruxelles user on 20 May 2019
+
+•
+
+3661
+
+3662
+
+F.Pucci et al.
+
+The model structure of the original PoPMuSiC v2.1 is a combination of 16 contributions:
+DDG ¼
+
+13
+X
+
+an ðAÞDDWn þ a14 ðAÞDVþ þ a15 ðAÞDV þ a16 ðAÞ; (5)
+
+n¼1
+
+DV6 ¼ 6DV hðV Þ:
+
+(6)
+
+where hðV Þ is the Heaviside function. These two terms represent, respectively, the positive and negative difference in volume between
+the mutant and wild-type amino acids. They provide a description
+of the impact of the creation of a cavity or the accommodation of
+stress inside the protein structure. The last term in Equation (5) is an
+energy independent term.
+Now, imposing that the model structure satisfies the symmetry
+relation of Equation (3) yields the two constraints:
+a14 ðAÞ ¼ a15 ðAÞ;
+
+a16 ðAÞ ¼ 0
+
+(7)
+
+These constraints were introduced into the model structure
+[Equation (5)] and defined a new version of the PoPMuSiC predictor, in which the 14 remaining ai ðAÞ parameters were optimized on
+PoPMuSiC’s original S2648 training dataset. This new version is
+called PoPMuSiCsym (Pucci et al., 2015).
+
+3 Results
+We tested 15 DDG0 predictors on a common, balanced, dataset
+Ssym of 684 single-site mutations, in order to evaluate their performances and, more importantly, their degree of bias with respect
+to the DDG0 symmetry between direct and inverse mutations
+[Equation (3)]. Table 1 contains the values of the root mean square
+deviations r and the linear correlation coefficients r, reported separately for the direct and inverse mutations. The importance of the
+Table 1. Bias analysis of all the mutations belonging to the dataset
+Ssym
+
+Note: The standard deviations rdir and rinv and the values of hdi are in
+kcal/mol. The methods are ranked according to their performance on the independent test set of inverse mutations, more specifically on the basis of rinv .
+The best values in each column are underlined
+
+Downloaded from https://academic.oup.com/bioinformatics/article-abstract/34/21/3659/4987874 by Universite Libre de Bruxelles user on 20 May 2019
+
+The 13 terms in DDWi are changes in folding free energy upon mutation computed using different knowledge-based statistical potentials
+[see Dehouck et al. (2009) for details], ai (i ¼ 116) are sigmoidal
+coefficients that depend on the solvent accessibility A of the mutated
+residues, and DV6 are volume terms defined as:
+
+bias is evaluated by two parameters, the correlation coefficient
+rdirinv between the direct and inverse mutations and the d parameter
+defined in Equation (4).
+As clearly seen in Table 1 and Figure 1, all the tested methods
+are biased toward the training dataset, except PoPMuSiCsym which
+has been explicitly designed to avoid this bias. If we focus on direct
+mutations, the best performing method is MUPRO, a sequencebased machine learning method, with a rdir of 0.95 and a rdir of
+about 0.8. Remember, however, that all the direct mutations are
+part of the methods’ training datasets, and these results are thus likely to be affected by overfitting problems. In contrast, the inverse
+mutations do not belong to the methods’ training sets and can thus
+be considered as constituting an independent test set. The best performing predictors on the inverse mutations are PoPMuSiCsym,
+MAESTRO, FoldX and PoPMuSiC v2.1.
+It is important to note that the black-box machine learning
+techniques suffer in general more from the bias issue than the other
+methods that use a more physics-based approach. For example, if one
+overlooks PoPMuSiCsym, the least biased predictor is SDM, which
+belongs to the physics-based class of predictors, with a correlation coefficient rdirinv of about 0.8 and a hdi value of about 0.3.
+However, some physics-based methods are also strongly biased.
+The point is that such methods can avoid biases only if their model
+structure is adequately constrained to avoid them. More specifically,
+the current PoPMuSiC v2.1 version already shows a good performance compared with other predictors, but the implementation of the
+physical constraints of Equation (7) in PoPMuSiCsym spectacularly
+improves rinv by more than 25% and yields a zero hdi value.
+Note that despite the symmetry constraints, there are still some
+outliers in PoPMuSiCsym with respect to the expected DDG0 symmetry between direct and inverse mutations, as shown in Figure 2.
+These outliers actually correspond to mutations that cannot be predicted simply from the wild-type structure. Indeed, they provoke significant structural rearrangements to avoid steric clashes, empty
+cavities or other unfavorable conformations. In these cases, both the
+wild-type and mutant structures should be considered in the DDG0
+estimation. These issues explain why PoPMuSiCsym does not
+perfectly satisfy the symmetry relation of Equation (3) despite its
+symmetric model structure; the rdirinv correlation is indeed equal to
+–0.77 rather than –1.0.
+We also analyzed the bias effect separately for core and surface
+residues. Table 2 reports the results for the best performing methods. In general, the predictions are biased for both surface and core
+mutations. To correctly interpret these results, we have to remember
+that mutations in the core have on the average a larger effect on the
+protein structure and stability. In the Ssym dataset for example, the
+mean of the absolute values of the DDG0 s is equal to 1.75 kcal/mol
+for core mutations and approximatively half (0.96 kcal/mol) for surface mutations. As a consequence, the hdi values of the different
+methods tend to be worse in the core whereas the rdirinv correlations
+tend to be worse on the surface.
+According to our results, the least biased predictors are
+PoPMuSiCsym and SDM, for both core and surface mutations. But
+the performance of PoPMuSiCsym is generally better than that of
+SDM, especially when it is evaluated on the inverse mutation set
+which does not overlap with the methods’ training sets. The second
+best performing predictors on the set of inverse mutations is FoldX
+on core mutations and PoPMuSiC v2.1 on surface mutations.
+The bias was also compared between mutations in which
+an amino acid is replaced by a much larger or a much smaller amino
+acid, and mutations in which the wild-type and mutant amino acids
+have roughly the same size (Table 3). The volume differences can
+
+Biases in protein stability prediction
+
+3663
+
+Table 2. Bias analysis for the five best predictors according to the
+residue localization (core versus surface)
+Method
+
+Fig. 2. DDG 0 values (in kcal/mol) of all the mutations in Ssym predicted by
+PoPMuSiCsym. The outliers with respect to the symmetric prediction fall in the
+(green) ellipsoid. They correspond to the four pairs of direct and inverse mutations: (1EY0 K116G; 1KAB G116K), (1EY0 P117A; 1SYG A117P), (1EY0 P117G;
+1SYC G117P) and (1EY0 P117G; 1SYC G117P), (1EY0 P117T; 1SYE T117P)
+
+indeed be another source of bias for some of the prediction methods.
+Here also, PoPMuSiCsym is the least biased predictor and the best
+performing on the set of inverse mutations, both for mutations with
+and without significant size difference. The next least biased
+
+Core residues
+PoPMuSiCsym
+FoldX
+SDM
+MAESTRO
+PoPMuSiC v2.1
+Surface residues
+PoPMuSiCsym
+PoPMuSiC v2.1
+MAESTRO
+FoldX
+SDM
+
+rdir
+
+rdir
+
+rinv
+
+rinv
+
+rdirinv
+
+hdi
+
+1.92
+1.50
+1.75
+1.55
+1.31
+
+0.56
+0.64
+0.62
+0.49
+0.65
+
+1.99
+2.27
+2.52
+2.57
+2.74
+
+0.52
+0.52
+0.49
+0.47
+0.51
+
+0.89
+0.37
+0.90
+0.58
+0.79
+
+0.03
+0.60
+0.56
+0.82
+1.09
+
+1.16
+1.09
+1.14
+1.61
+1.72
+
+0.42
+0.45
+0.39
+0.60
+0.18
+
+1.15
+1.42
+1.50
+2.00
+2.02
+
+0.48
+0.29
+0.25
+0.18
+0.16
+
+0.62
+0.27
+0.14
+0.39
+0.63
+
+0.03
+0.35
+0.35
+0.35
+0.08
+
+Note: The standard deviations rdir and rinv and the values of hdi are in
+kcal/mol. The predictors are ranked according to the smallest rinv scores,
+computed on the set of inverse mutations which constitutes an independent
+test set, with no overlap with the methods’ training datasets. The best values
+in each column are underlined
+
+predictor is SDM, and the next best performing predictors are
+MAESTRO and SDM for substitutions with large volume changes,
+and MAESTRO and FoldX for small volume changes.
+
+Downloaded from https://academic.oup.com/bioinformatics/article-abstract/34/21/3659/4987874 by Universite Libre de Bruxelles user on 20 May 2019
+
+0
+Fig. 1. DDG 0 values (in kcal/mol) of all the mutations in Ssym predicted by the 15 tools analyzed. The DDGdir
+values of the direct mutations (wild-type ! mutant)
+0
+values of the associated inverse mutations (mutant ! wild-type) are reported on the y-axis. The lines represent the bisecare given on the x-axis, and the DDGinv
+tors of the second and fourth quadrants; the perfectly symmetric predictions are on that line
+
+3664
+
+F.Pucci et al.
+
+Table 3. Bias analysis for the five best predictors according to the
+difference in volume between wild-type and mutant residues
+Method
+
+rdir
+
+rinv
+
+rinv
+
+rdirinv
+
+hdi
+
+0.53
+0.59
+0.61
+0.60
+0.70
+
+2.13
+2.77
+2.77
+2.90
+2.90
+
+0.52
+0.36
+0.47
+0.41
+0.32
+
+0.73
+0.67
+0.54
+0.27
+0.51
+
+0.07
+0.60
+0.72
+0.84
+1.02
+
+0.42
+0.40
+0.60
+0.51
+0.40
+
+1.41
+1.82
+1.83
+1.90
+2.10
+
+0.40
+0.25
+0.36
+0.20
+0.28
+
+0.78
+0.22
+0.46
+0.08
+0.80
+
+0.02
+0.53
+0.35
+0.61
+0.22
+
+•
+
+Note: The standard deviations rdir and rinv and the values of hdi are in
+kcal/mol. The predictors are ranked according to the smallest rinv scores,
+computed on the set of inverse mutations which constitutes an independent
+test set, with no overlap with the methods’ training datasets. The best values
+in each column are underlined
+
+•
+
+•
+
+4 Discussion
+In this paper, we thoroughly investigated the DDG0 symmetry
+breaking issue and extensively discussed the fact that computational
+methods tend to predict the mutations more often as destabilizing
+than as stabilizing since the training datasets are dominated by
+destabilizing residue substitutions. Even though this problem was already described in the literature (Thiltgen and Goldstein, 2012;
+Fariselli et al., 2015; Pucci et al., 2015), a quantitative measure of
+the violation of the symmetry between the direct and the inverse
+substitutions by existing predictors was lacking. This gap has been
+filled in this paper, in which we quantified and discussed the performance and biases of 15 of the most efficient available tools. Our
+results can be summarized as follows:
+•
+
+•
+
+•
+
+All tested methods are biased toward destabilizing mutations. As
+a proof of this statement, we observed a prediction error on the
+set of direct mutations (dominated by destabilizing mutations,
+representing 75% of the dataset entries) which is larger by a factor of about two than the prediction error on the set of inverse
+mutations (dominated by 75% stabilizing mutations). Indeed,
+rdir is equal to 0.94–1.75 kcal/mol, and rinv to 2.09–2.88 kcal/
+mol. This effect is amplified for the substitutions in the core with
+respect to surface mutations.
+Predictions that use black-box machine learning techniques
+tend to be more biased than the others. Indeed, four of the top
+five prediction tools, PoPMuSiCsym, PoPMuSiC v2.1, FoldX
+and SDM, use biophysics-oriented models that combine energy
+contributions in a coherent way. In contrast, the fifth tool,
+MAESTRO, uses statistical potentials and other biophysical
+features combined through several kinds of machine learning
+methods.
+Imposing biophysical constraints on the model structure (when
+accessible) is an elegant and simple way to solve completely the
+bias problem. Indeed, from the analysis of the different folding
+free energy contributions, it is quite simple to avoid all the terms
+that violate the symmetry. Relying on symmetry principles in
+the construction of a model is a common and well-known
+strategy used in physics, which also pays off here, as shown
+by the spectacular improvement of the d and rdirinv values of
+PoPMuSiCsym.
+
+•
+
+We would like to draw the attention on the training datasets.
+Most DDG0 predictors use S2648 (Dehouck et al., 2009) or
+Q3421 (Quan et al., 2016) as training sets. These sets are manually curated and based on data coming from the ProTherm database
+(Bava et al., 2004), which has not been updated since more than 5
+years. As many experimental data have been published since then,
+especially from deep mutagenesis scanning experiments (Fowler
+and Fields, 2014), it would be extremely useful to collect them
+into a new, extended and manually curated database.
+The bias toward destabilizing mutations in the usual learning sets
+should be taken into account in the evaluation of the methods’ performances. A possibility is to systematically test new methods on
+Ssym , the dataset described in this paper that contains both the direct
+and inverse versions of each mutation and is thus by construction
+balanced with respect to stabilizing and destabilizing mutations.
+The predictors possibly also suffer from other hidden biases. For
+example, some types of mutations could be insufficiently sampled
+in the learning set, with the consequence that the predictor could
+learn incorrect trends. We would like to stress once more that
+testing predictors in cross validation is insufficient to correctly
+evaluate them with respect to the learning dataset biases.
+We would also like to underline the issues related to the addition
+of more and more features to the predictors. From one side, it
+allows taking into account the huge complexity of the problem,
+but from the other side it increases the risk of overfitting and
+biasing. Moreover, when features are added on top of other features, for example in the case of metapredictors, the performances are difficult to evaluate in genuine cross validation and
+should be carefully analyzed.
+
+The improvement that the above analyses are expected to bring
+is crucial in view of addressing even more challenging issues such as
+the prediction of the changes in folding free energy upon multiple
+mutations. Indeed, even though it remains costly, the wide screening
+of single-site mutations can be performed experimentally in a reasonable time, via techniques such as deep mutational scanning
+(Fowler and Fields, 2014). Computational methods capable of predicting only point mutations could thus become less impacting in
+the protein design field in the near future and the attention should
+be more focused on the development of predictors that are able to
+predict the effect of multiple mutations. Such predictions would
+moreover be more likely to fulfill the requirements of improving
+protein stability in biotechnological applications, which are frequently impossible to satisfy by single-point mutations only, but require combinations of mutations to achieve, for example, high
+energetic stabilization while maintaining the solubility and activity
+of the protein unaltered.
+
+Aknowledgement
+We thank Nathalie Ruth for running some of the prediction programs.
+
+Funding
+The Belgian Fund for Scientific Research (FNRS) is acknowledged for financial support through a PDR research project. F.P. is Postdoctoral researcher
+and M.R. Research Director at the FNRS.
+Conflict of Interest: none declared.
+
+Downloaded from https://academic.oup.com/bioinformatics/article-abstract/34/21/3659/4987874 by Universite Libre de Bruxelles user on 20 May 2019
+
+Large volume changes
+2.04
+PoPMuSiCsym
+SDM
+1.78
+MAESTRO
+1.63
+FoldX
+1.89
+1.33
+PoPMuSiC v2.1
+Small volume changes
+1.40
+PoPMuSiCsym
+MAESTRO
+1.26
+FoldX
+1.44
+PoPMuSiC v2.1
+1.17
+SDM
+1.72
+
+rdir
+
+Besides the necessity of getting rid of the DDG0 symmetry biases,
+other issues need to be tackled to improve the protein stability prediction methods:
+
+Biases in protein stability prediction
+
+References
+
+Khan,S. and Vihinen,M. (2010) Performance of protein stability predictors.
+Hum. Mutat., 31, 675–684.
+Laimer,J. et al. (2016) MAESTROweb: a web server for structure based protein stability prediction. Bioinformatics, 16, 116.
+Masso,M. and Vaisman,I.I. (2008) Accurate prediction of stability changes in
+protein mutants by combining machine learning with structure based computational mutagenesis. Bioinformatics, 24, 2002–2009.
+Masso,M. and Vaisman,I.I. (2014) AUTO-MUTE 2.0: a portable framework
+with enhanced capabilities for predicting protein functional consequences
+upon mutation. Adv. Bioinformatics, 2014, 1, 278385.
+Pandurangan,A.P. et al. (2017) SDM: a server for predicting effects of mutations on protein stability. Nucleic Acids Res., 45, W229–W235.
+Parthiban,V. et al. (2006) CUPSAT: prediction of protein stability upon point
+mutations. Nucleic Acids Res., 34, W239–W242.
+Pires,D. et al. (2014a) DUET: a server for predicting effects of mutations on
+protein stability using an integrated computational approach. Nucleic Acids
+Res., 42, W314–W319.
+Pires,D. et al. (2014b) mCSM: predicting the effects of mutations in proteins
+using graph-based signatures. Bioinformatics, 30, 335–342.
+Potapov,V. et al. (2009) Assessing computational methods for predicting protein stability upon mutation: good on average but not in the details. Protein
+Eng. Des. Sel., 22, 553–560.
+Pucci,F. et al. (2015) Symmetry principles in optimization problems: an application to protein stability prediction. IFAC-PapersOnLine, 48, 458–463.
+Pucci,F. et al. (2016) High-quality thermodynamic data on the stability
+changes of proteins upon single-site mutations. J. Phys. Chem. Ref. Data,
+45, 023104.
+Quan,L. et al. (2016) STRUM: structure-based prediction of protein stability
+changes upon single-point mutation. Bioinformatics, 32, 2936–2946.
+Roy,A. et al. (2010) I-TASSER: a unified platform for automated protein structure and function prediction. Nat. Protoc., 5, 725–738.
+Thiltgen,G. and Goldstein,R.A. (2012) Assessing predictors of changes in protein stability upon mutation using self-consistency. PLoS One, 7, e46084.
+Watson,M.D. and Raleigh,D.P. (2017) Size-dependent relationships between
+protein stability and thermal unfolding temperature have important implications for analysis of protein energetics and high-throughput assays
+of protein-ligand interactions. J. Phys. Chem. B, doi: 10.1021/
+acs.jpcb.7b05684.
+Zanghellini,A. (2014) De novo computational enzyme design. Curr. Opin.
+Biotechnol., 29, 132–138.
+
+Downloaded from https://academic.oup.com/bioinformatics/article-abstract/34/21/3659/4987874 by Universite Libre de Bruxelles user on 20 May 2019
+
+Alford,R.F. et al. (2017) The Rosetta all-atom energy function for macromolecular modeling and design. J. Chem. Theory Comput., 13, 3031–3048.
+Bava,K.A. et al. (2004) ProTherm, version 4.0: thermodynamic database for
+proteins and mutants. Nucleic Acids Res., 32, D120–D121.
+Capriotti,E. et al. (2005) I-mutant2.0: predicting stability changes upon mutation from the protein sequence or structure. Nucleic Acids Res., 33,
+W306–W310.
+Cawley,G.C. and Talbot,N.L. (2010) On over-fitting in model selection and
+subsequent selection bias in performance evaluation. J. Mach. Learn. Res.,
+11, 2079–2107.
+Chen,C.W. et al. (2013) iStable: off-the-shelf predictor integration for predicting protein stability changes. BMC Bioinformatics, 14, S5.
+Cheng,J. et al. (2006) Prediction of protein stability changes for single site
+mutations using support vector machines. Proteins Struct. Funct.
+Bioinformatics, 62, 1125–1132.
+Coluzza,I. (2017) Computational protein design: a review. J. Phys. Condens.
+Matter, 29, 143001.
+Dehouck,Y. et al. (2009) Fast and accurate predictions of protein stability
+changes upon mutations using statistical potentials and neural networks:
+poPMuSiC-2.0. Bioinformatics, 25, 2537–2543.
+Dehouck,Y. et al. (2011) PoPMuSiC 2.1: a web server for the estimation of
+protein stability changes upon mutation and sequence optimality. BMC
+Bioinformatics, 12, 151.
+Fariselli,P. et al. (2015) INPS: predicting the impact of non-synonymous variations on protein stability from sequence. Bioinformatics, 31, 2816–2821.
+Fowler,D.M. and Fields,S. (2014) Deep mutational scanning: a new style of
+protein science. Nat. Methods, 11, 801–807.
+Giollo,M. et al. (2014) NeEMO: a method using residue interaction networks to
+improve prediction of protein stability upon mutation. BMC Genomics, 15, S7.
+Guerois,R. et al. (2002) Predicting changes in the stability of proteins and protein complexes: a study of more than 1000 mutations. J. Mol. Biol., 320,
+369–387.
+Hawkins,D.M. (2004) The problem of overfitting. J. Chem. Inf. Comput. Sci.,
+44, 1–12.
+Huang,P.S. et al. (2016) The coming of age of de novo protein design. Nature,
+537, 320–327.
+Kellogg,E.H. et al. (2011) Role of conformational sampling in computing
+mutation-induced changes in protein structure and stability. Proteins, 79,
+830–838.
+
+3665
+
+

@@ -8,3 +8,20 @@ Traceback (most recent call last):
   File "/home/sandbox/mega27-11b-protein-redesign-4-5/src/dataset.py", line 48, in parse_mutation
     return AA1_TO_3[wt], int(pos), AA1_TO_3[mt]
 ValueError: invalid literal for int() with base 10: '27C'
+[20/481] ok so far
+[40/481] ok so far
+[60/481] ok so far
+[80/481] ok so far
+[100/481] ok so far
+[120/481] ok so far
+[140/481] ok so far
+[160/481] ok so far
+[180/481] ok so far
+[200/481] ok so far
+[220/481] ok so far
+[240/481] ok so far
+[260/481] ok so far
+[280/481] ok so far
+[300/481] ok so far
+[320/481] ok so far
+[340/481] ok so far

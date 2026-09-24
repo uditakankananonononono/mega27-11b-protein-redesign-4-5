@@ -1,0 +1,27 @@
+# Published predictor performance on the Ssym benchmark (684 mutations).
+# Source: Pucci F, Schwersensky M, Rooman M. "Quantification of biases in
+# predictions of protein stability changes upon mutations." Bioinformatics
+# 34(21):3659-3665, 2018. doi:10.1093/bioinformatics/bty348 (PMID 29718106).
+# Values transcribed 2026-09-24 from the published PDF (ULiege repository
+# copy, build/pucci2018_bty348.pdf), Table 1, page 3662.
+# sigma_dir/inv in kcal/mol; r = Pearson correlation; r_dir_inv = direct-vs-
+# inverse prediction correlation (perfect antisymmetry = -1.0); <delta> =
+# mean antisymmetry violation in kcal/mol (perfect = 0.0).
+# Inverse mutations constitute the independent test set (not in any method's
+# training data); methods are ranked by sigma_inv in the source table.
+method	sigma_dir	r_dir	sigma_inv	r_inv	r_dir_inv	delta_mean
+PoPMuSiCsym	1.58	0.48	1.62	0.48	-0.77	0.03
+MAESTRO	1.36	0.52	2.09	0.32	-0.34	-0.58
+FoldX	1.56	0.63	2.13	0.39	-0.38	-0.47
+PoPMuSiC_v2.1	1.21	0.63	2.18	0.25	-0.29	-0.71
+SDM	1.74	0.51	2.28	0.32	-0.75	-0.32
+iSTABLE	1.10	0.72	2.28	-0.08	-0.05	-0.60
+I-Mutant_v3.0	1.23	0.62	2.32	-0.04	0.02	-0.68
+NeEMO	1.08	0.72	2.35	0.02	0.09	-0.60
+DUET	1.20	0.63	2.38	0.13	-0.21	-0.84
+mCSM	1.23	0.61	2.43	0.14	-0.26	-0.91
+MUPRO	0.94	0.79	2.51	0.07	-0.02	-0.97
+STRUM	1.05	0.75	2.51	-0.15	0.34	-0.87
+Rosetta	2.31	0.69	2.61	0.43	-0.41	-0.69
+AUTOMUTE	1.07	0.73	2.61	-0.01	-0.06	-0.99
+CUPSAT	1.71	0.39	2.88	0.05	-0.54	-0.72

@@ -48,8 +48,14 @@ def parse_mutation(mut: str) -> tuple[str, int, str]:
     return AA1_TO_3[wt], int(pos), AA1_TO_3[mt]
 
 
-def load_bench_tsv(path: str) -> list[MutationRecord]:
-    """Load a ProtDDG-Bench TSV (comment header starts with #)."""
+def load_bench_tsv(path: str, skipped: list | None = None) -> list[MutationRecord]:
+    """Load a ProtDDG-Bench TSV (comment header starts with #).
+
+    Rows whose mutation string carries a PDB insertion code (e.g. L27CN on
+    1LVE) cannot be mapped by the fixed-column parser, which discards
+    iCodes. They are skipped and recorded in `skipped` (if a list is given)
+    as (row, reason) pairs - documented data cleaning, never silent.
+    """
     records = []
     with open(path) as fh:
         reader = csv.reader((ln for ln in fh if not ln.startswith("#")),
@@ -58,12 +64,18 @@ def load_bench_tsv(path: str) -> list[MutationRecord]:
             if len(row) < 5:
                 continue
             row = [c.strip() for c in row]
-            pdb_id, chain = split_pdb_chain(row[2])
-            wt3, pos, mt3 = parse_mutation(row[3])
+            try:
+                pdb_id, chain = split_pdb_chain(row[2])
+                wt3, pos, mt3 = parse_mutation(row[3])
+                ddg = float(row[4])
+            except ValueError as err:
+                if skipped is not None:
+                    skipped.append((row, str(err)))
+                continue
             direction = row[8] if len(row) > 8 else ""
             records.append(MutationRecord(
                 pdb_id=pdb_id, chain=chain, wt_aa3=wt3, position=pos,
-                mut_aa3=mt3, ddg=float(row[4]), direction=direction,
+                mut_aa3=mt3, ddg=ddg, direction=direction,
             ))
     return records
 
