@@ -1,0 +1,10 @@
+mutation	pdbs	ddG	dTm	Tm	pH	dataset	pmid	doi	title
+T3D	1AZV|1SPD		-1.7	79.8	7.4	ProTherm	27667694	10.1016/j.str.2016.08.011	A Phosphomimetic Mutation Stabilizes SOD1 and Rescues Cell Viability i
+T3D	1AZV|1SPD		-4.0	77.0	7.4	ProTherm	27667694	10.1016/j.str.2016.08.011	A Phosphomimetic Mutation Stabilizes SOD1 and Rescues Cell Viability i
+T3D;A5V	1AZV|1SPD		0.9	82.4	7.4	ProTherm	27667694	10.1016/j.str.2016.08.011	A Phosphomimetic Mutation Stabilizes SOD1 and Rescues Cell Viability i
+T3D;A5V	1AZV|1SPD		-4.0	77.0	7.4	ProTherm	27667694	10.1016/j.str.2016.08.011	A Phosphomimetic Mutation Stabilizes SOD1 and Rescues Cell Viability i
+A5V	1AZV|1SPD		3.63	95.29	7.4	ProTherm	25762331	10.1016/j.bpj.2015.01.014	Arresting amyloid with coulomb's law: acetylation of ALS-linked SOD1 b
+C7A	1AZV|1SPD			81.3	7.8	ProTherm	2254318		Contribution of conformational stability and reversibility of unfoldin
+C7A;C112S	1AZV|1SPD			81.7	7.8	ProTherm	2254318		Contribution of conformational stability and reversibility of unfoldin
+D91A	1AZV|1SPD		-7.17	84.49	7.4	ProTherm	25762331	10.1016/j.bpj.2015.01.014	Arresting amyloid with coulomb's law: acetylation of ALS-linked SOD1 b
+C112S	1AZV|1SPD			82.8	7.8	ProTherm	2254318		Contribution of conformational stability and reversibility of unfoldin
