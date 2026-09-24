@@ -1,0 +1,24 @@
+# Known p53 second-site suppressor / stabilizing mutations (novelty reference
+# for the rescue-scan discovery claim). Sources:
+#  [1] Basu et al. 2023, Signal Transduct Target Ther, "Targeting p53 pathways"
+#      Table 4 (nature.com/articles/s41392-023-01347-1/tables/4) - suppressor rows
+#  [2] Joerger, Ang, Fersht 2006 PNAS 103:15056 (superstable quadruple mutant)
+#  [3] Joerger, Allen, Fersht 2004 JBC (superstable p53 core domain)
+# For Y220C specifically, documented suppressors: A138G, L137R (ref 540 in [1]).
+# The "stabilized background" M133L/V203A/N239Y/N268D is from [2,3].
+mutation	note	source
+A138G	Y220C second-site suppressor	[1]
+L137R	Y220C second-site suppressor	[1]
+M133L	superstable background mutation	[2,3]
+V203A	superstable background mutation	[2,3]
+N239Y	superstable background; restores stability to WT levels	[1,2,3]
+N268D	superstable background; stabilizes global fold	[1,2,3]
+H178Y	G245S suppressor	[1]
+H168R	R249S suppressor	[1]
+T123P	G245S suppressor	[1]
+S240N	G245S suppressor	[1]
+N235K	suppressor (see [1] Table 4)	[1]
+N263Y	suppressor (see [1] Table 4)	[1]
+T123A	suppressor (see [1] Table 4)	[1]
+V143A	suppressor (see [1] Table 4)	[1]
+V157F	suppressor (see [1] Table 4)	[1]
