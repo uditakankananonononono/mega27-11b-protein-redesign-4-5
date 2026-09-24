@@ -1,0 +1,26 @@
+{
+ "tool": "Reactome Content Service REST (reactome.org/ContentService/data/mapping/UniProt/P00441/pathways)",
+ "query": "UniProt P00441 (human SOD1) -> Reactome pathway mapping",
+ "n_pathways": 3,
+ "species": [
+  "Homo sapiens"
+ ],
+ "pathways": [
+  {
+   "stId": "R-HSA-114608",
+   "name": "Platelet degranulation "
+  },
+  {
+   "stId": "R-HSA-3299685",
+   "name": "Detoxification of Reactive Oxygen Species"
+  },
+  {
+   "stId": "R-HSA-8950505",
+   "name": "Gene and protein expression by JAK-STAT signaling after Interleukin-12 stimulation"
+  }
+ ],
+ "interpretation": {
+  "core_function_confirmed": true,
+  "note": "SOD1 mapped to Detoxification of Reactive Oxygen Species (R-HSA-3299685) - the canonical SOD1 function; also in broader pathways. Independent pathway-level confirmation that SOD1 stability/rescue candidates act on the primary ROS-detox enzyme."
+ }
+}

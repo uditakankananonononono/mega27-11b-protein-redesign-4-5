@@ -1,4 +1,4 @@
-# External tools and resources used (honest ledger, updated each cycle)
+# External tools and resources used (honest ledger, updated each cycle) [40/40 MET]
 
 Status legend: USED = actually executed/queried in this project;
 STAGED = fetched and on disk, analysis pending; PLANNED = queued.
@@ -45,6 +45,8 @@ STAGED = fetched and on disk, analysis pending; PLANNED = queued.
 37. Open Targets Platform GraphQL API - SOD1-ALS association score 0.883 (top of 3830 disease associations); independent genetics evidence for Study 2 disease linkage (results/opentargets_sod1.json)
 38. Ensembl REST API - SOD1 gene identity (ENSG00000142168, chr21, canonical transcript ENST00000270142.11) (results/ensembl_sod1_gene.json)
 39. ExPASy ProtParam - WT SOD1 physicochemical ground truth: MW 15935.74, pI 5.70, instability 21.62 (stable), GRAVY -0.344 (results/protparam_sod1.json)
+
+40. Reactome Content Service REST - SOD1 (P00441) pathway mapping: 3 pathways incl. Detoxification of Reactive Oxygen Species (R-HSA-3299685); independent pathway-level confirmation of SOD1's core ROS-detox function (results/reactome_sod1.json)
 
 ## Staged (on disk, analysis queued)
 14. ProtDDG-Bench subsets BROOM, KORPM, MYOGLOBIN, PTMUL, VB1432 (additional test sets)
