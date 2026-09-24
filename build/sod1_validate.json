@@ -1,0 +1,111 @@
+{
+ "model": {
+  "ckpt": "build/ckpt_v2.pkl",
+  "epoch": 300,
+  "arch": "v2"
+ },
+ "eval_rows": [
+  {
+   "mutation": "A4V",
+   "pdb_wt": "3ECU",
+   "n_measurements": 1,
+   "exp_ddg": -7.2,
+   "structure_wt": "ALA",
+   "wt_match": true,
+   "pred_ddg": 0.068
+  },
+  {
+   "mutation": "C111S",
+   "pdb_wt": "1SPD",
+   "n_measurements": 1,
+   "exp_ddg": 0.8,
+   "structure_wt": "CYS",
+   "wt_match": true,
+   "pred_ddg": 1.107
+  },
+  {
+   "mutation": "C6A",
+   "pdb_wt": "1SPD",
+   "n_measurements": 1,
+   "exp_ddg": 0.1,
+   "structure_wt": "CYS",
+   "wt_match": true,
+   "pred_ddg": -3.026
+  },
+  {
+   "mutation": "E100G",
+   "pdb_wt": "1N18",
+   "n_measurements": 2,
+   "exp_ddg": -2.45,
+   "structure_wt": "GLU",
+   "wt_match": true,
+   "pred_ddg": 0.133
+  },
+  {
+   "mutation": "G85R",
+   "pdb_wt": "1N18",
+   "n_measurements": 2,
+   "exp_ddg": -1.3,
+   "structure_wt": "GLY",
+   "wt_match": true,
+   "pred_ddg": 0.854
+  },
+  {
+   "mutation": "H46R",
+   "pdb_wt": "1N18",
+   "n_measurements": 2,
+   "exp_ddg": 1.35,
+   "structure_wt": "HIS",
+   "wt_match": true,
+   "pred_ddg": -0.637
+  },
+  {
+   "mutation": "H46R",
+   "pdb_wt": "3ECU",
+   "n_measurements": 2,
+   "exp_ddg": 0.8,
+   "structure_wt": "HIS",
+   "wt_match": true,
+   "pred_ddg": -0.679
+  },
+  {
+   "mutation": "V148I",
+   "pdb_wt": "1N18",
+   "n_measurements": 2,
+   "exp_ddg": 0.25,
+   "structure_wt": "VAL",
+   "wt_match": true,
+   "pred_ddg": 2.651
+  }
+ ],
+ "stats": {
+  "n": 8,
+  "pearson": -0.05,
+  "spearman": -0.143,
+  "mae": 2.663,
+  "sign_accuracy": 0.25
+ },
+ "caveats": [
+  "n is tiny (<=8 unique mutants); correlations are exploratory",
+  "1N18 is a C6A/C111S pseudo-WT background: its rows measure stabilization on top of an already-stabilized scaffold",
+  "structures 1SPD/3ECU/1N18 differ in metallation and crystallographic background; ddG across references is not strictly commensurate"
+ ],
+ "known_stabilizer_scan_ranks": [
+  {
+   "mutation": "C111S",
+   "evidence": "ddG +0.8 (ThermoMutDB)",
+   "ddg_corr": 1.1089,
+   "rank": 719,
+   "of": 2812,
+   "rank_pct": 25.57
+  },
+  {
+   "mutation": "C6A",
+   "evidence": "ddG +0.1 (ThermoMutDB)",
+   "ddg_corr": -3.0663,
+   "rank": 2756,
+   "of": 2812,
+   "rank_pct": 98.01
+  }
+ ]
+}
