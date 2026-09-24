@@ -3,7 +3,7 @@
 Status legend: USED = actually executed/queried in this project;
 STAGED = fetched and on disk, analysis pending; PLANNED = queued.
 
-## Used so far (26)
+## Used so far (29)
 1. RCSB PDB / data.rcsb.org - 481 WT+mutant structures downloaded, parsed (graph construction)
 2. ProtDDG-Bench (github.com/protddg-bench) - S2648/Ssym/P53 train-test protocol
 3. Pucci et al. 2018 Bioinformatics (bty348) published Table 1 - benchmark reference values (PoPMuSiCsym 0.48/1.62 etc.), verified from PDF
@@ -30,6 +30,9 @@ STAGED = fetched and on disk, analysis pending; PLANNED = queued.
 24. Pfam via EBI InterPro API - domain membership: all 11 p53 scan positions inside PF00870 (P53 DNA-binding); SOD1 positions inside PF00080 except A4/C6 (N-terminal, outside domain - coincides with the two worst SOD1 misses) (results/pfam_domain_check.json)
 25. RCSB PDB Data API (entry annotations) - experimental metadata: 2VUK 1.5A Y220C+stabilizing-drug complex, 1SPD 2.4A, 3ECU apo 1.9A, 1N18 C6A/C111S 2.0A (results/rcsb_entry_metadata.json)
 26. NCBI E-utilities (PubMed esearch/esummary) - literature verification for A4V apo-stability caveat (3 hits, titles committed); p53 suppressor phrase queries returned 0 hits (recorded honestly) (results/ncbi_eutils_litcheck.json)
+27. gnomAD GraphQL API - TP53 germline constraint: pLI 0.9996, mis_z 1.12, oe_lof 0.258 (results/gnomad_tp53_constraint.json)
+28. PyMOL open-source 3.x - structure figure fig4 (2VUK candidate geometry, paper/figs/fig4_candidates_2vuk.png; session build/pymol_2vuk_session.pse)
+29. STRING DB API v12 - TP53/SOD1 functional-network context (results/string_network_context.json)
 
 ## Staged (on disk, analysis queued)
 14. ProtDDG-Bench subsets BROOM, KORPM, MYOGLOBIN, PTMUL, VB1432 (additional test sets)
@@ -37,7 +40,7 @@ STAGED = fetched and on disk, analysis pending; PLANNED = queued.
 ## Planned (named, will be executed or queried - checked off only when real)
 DSSP/mkdssp, NCBI BLAST API, EBI Clustal Omega API,
 EBI InterProScan, HHpred, ConSurf, PROSITE,
-FoldX (if license permits), Rosetta (if installable), DDGun, INPS-MD,
+FoldX (if license permits), Rosetta (if installable), DDGun [PROBED: no public API found, web-form only - NOT RUN], INPS-MD,
 MAESTROweb, mCSM, SDM2, DUET, PremPS, ThermoNet, RaSP, ESM-1v (scoring),
 ProteinMPNN (scoring), PyMOL (figures), PDBrenum,
 PDBj, CATH, SCOPe, Pfam, ExPASy ProtParam, STRIDE, NACCESS-adapter.

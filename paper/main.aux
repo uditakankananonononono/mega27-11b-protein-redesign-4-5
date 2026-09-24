@@ -1,0 +1,113 @@
+\relax 
+\citation{pucci2018}
+\citation{joerger2006}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}The antisymmetry problem}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Disease context}{1}{}\protected@file@percent }
+\citation{pucci2018}
+\citation{pucci2018}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Approach}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Contributions}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Data}{2}{}\protected@file@percent }
+\newlabel{sec:data}{{2}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Methods}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Structure graphs}{3}{}\protected@file@percent }
+\newlabel{eq:graph}{{1}{3}}
+\newlabel{eq:features}{{2}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Graph convolution}{3}{}\protected@file@percent }
+\newlabel{eq:gcn}{{3}{3}}
+\newlabel{eq:gcn-backprop}{{4}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Center-aware readout (v2)}{3}{}\protected@file@percent }
+\newlabel{eq:readout}{{5}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Antisymmetric $\Delta \Delta G$ scoring}{3}{}\protected@file@percent }
+\newlabel{prop:antisym}{{1}{3}}
+\newlabel{eq:antisymdev}{{6}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Optimization}{4}{}\protected@file@percent }
+\newlabel{eq:adam}{{7}{4}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Hyperparameters (both architectures).}}{4}{}\protected@file@percent }
+\newlabel{tab:hp}{{1}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Model selection}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Metrics}{4}{}\protected@file@percent }
+\newlabel{eq:pearson}{{8}{4}}
+\newlabel{eq:rmse}{{9}{4}}
+\citation{efron1994}
+\newlabel{eq:bias}{{10}{5}}
+\newlabel{eq:biascorr}{{11}{5}}
+\newlabel{eq:bootstrap}{{12}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{5}{}\protected@file@percent }
+\newlabel{sec:results}{{4}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Benchmark: Ssym inverse}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Identity-bias analysis}{5}{}\protected@file@percent }
+\newlabel{sec:bias}{{4.2}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}p53 generalization and validation-based selection}{5}{}\protected@file@percent }
+\newlabel{sec:val}{{4.3}{5}}
+\citation{joerger2006}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Ssym benchmark. Published values from Pucci et al.\ 2018 Table\nobreakspace  {}1 (verified against the published PDF); this work in bold. $\sigma $ in kcal/mol.}}{6}{}\protected@file@percent }
+\newlabel{tab:bench}{{2}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Rescue scan on p53-Y220C (2VUK)}{6}{}\protected@file@percent }
+\newlabel{sec:scan}{{4.4}{6}}
+\newlabel{eq:scan}{{13}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Predicted vs experimental $\Delta \Delta G$ on the 342 Ssym inverse mutations (v2, epoch 300, trained on full S2648).}}{7}{}\protected@file@percent }
+\newlabel{fig:scatter}{{1}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}SOD1 (Study 2)}{7}{}\protected@file@percent }
+\newlabel{sec:sod1}{{4.5}{7}}
+\newlabel{eq:signacc}{{14}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{7}{}\protected@file@percent }
+\newlabel{sec:discussion}{{5}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Why antisymmetry is the binding constraint}{7}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Per-mutant-identity mean residual (predicted $-$ experimental) on S2648 for the v1 and v2 models.}}{8}{}\protected@file@percent }
+\newlabel{fig:bias}{{2}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces SOD1 validation rows (ThermoMutDB measurements vs v2 predictions; duplicates across temperatures averaged). The model fails on this family - the table is the paper's central negative result.}}{8}{}\protected@file@percent }
+\newlabel{tab:sod1}{{3}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Identity bias is measurable, and therefore correctable}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Transfer across protein families remains the open problem}{8}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Training loss and grouped-validation Pearson $r$ over 300 epochs (validation run).}}{9}{}\protected@file@percent }
+\newlabel{fig:curve}{{3}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Structure background is not a detail}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}What single-chain contact graphs cannot see}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Usable tool: \texttt  {gnn-ddg}}{9}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 2VUK p53 core domain (PyMOL render). Yellow: Y220C lesion (C220). Green: documented suppressor sites (137, 138, 168, 178). Red: top novel-candidate positions (240, 241, 243, 245, 246, 247, 273). Marine: superstable-background positions already mutated in the structure (133, 203, 239, 268).}}{10}{}\protected@file@percent }
+\newlabel{fig:struct}{{4}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Recommended use}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}External cross-checks}{10}{}\protected@file@percent }
+\newlabel{sec:crosscheck}{{6}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations and negative results}{11}{}\protected@file@percent }
+\newlabel{sec:limits}{{7}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}External tools}{11}{}\protected@file@percent }
+\newlabel{sec:tools}{{8}{11}}
+\gdef \LT@i {\LT@entry 
+    {2}{22.95pt}\LT@entry 
+    {1}{140.0374pt}\LT@entry 
+    {1}{282.30118pt}}
+\@writefile{toc}{\contentsline {section}{Appendix A}{12}{}\protected@file@percent }
+\gdef \LT@ii {\LT@entry 
+    {1}{79.83429pt}\LT@entry 
+    {1}{55.49318pt}\LT@entry 
+    {1}{73.42883pt}\LT@entry 
+    {1}{73.42883pt}}
+\@writefile{toc}{\contentsline {section}{Appendix B}{13}{}\protected@file@percent }
+\gdef \LT@iii {\LT@entry 
+    {1}{35.11528pt}\LT@entry 
+    {2}{74.04242pt}\LT@entry 
+    {1}{48.0246pt}\LT@entry 
+    {1}{46.68857pt}}
+\gdef \LT@iv {\LT@entry 
+    {1}{35.11528pt}\LT@entry 
+    {2}{72.82697pt}\LT@entry 
+    {1}{48.0246pt}\LT@entry 
+    {1}{46.68857pt}}
+\@writefile{toc}{\contentsline {section}{Appendix C}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Appendix E}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Appendix F}{15}{}\protected@file@percent }
+\gdef \LT@v {\LT@entry 
+    {2}{353.32976pt}\LT@entry 
+    {2}{255.64644pt}\LT@entry 
+    {2}{258.96362pt}\LT@entry 
+    {2}{346.41002pt}}
+\@writefile{toc}{\contentsline {section}{Appendix D}{16}{}\protected@file@percent }
+\bibcite{pucci2018}{Pucci et al.(2018)}
+\bibcite{pucci2016}{Pucci et al.(2016)}
+\bibcite{lindberg2005}{Lindberg et al.(2005)}
+\bibcite{efron1994}{Efron and Tibshirani(1994)}
+\bibcite{joerger2006}{Joerger et al.(2006)}
+\gdef \@abspage@last{19}

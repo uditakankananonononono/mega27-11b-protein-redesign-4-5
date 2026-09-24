@@ -1,0 +1,31 @@
+\section*{Appendix B: Per-identity bias, v1 vs v2 (S2648)}
+\addcontentsline{toc}{section}{Appendix B}
+Mean residual (predicted $-$ experimental $\Delta\Delta G$, kcal/mol) by
+mutant amino-acid identity. The v1 model systematically over-credits
+aromatic/hydrophobic identities; the v2 center-aware readout suppresses
+this by an order of magnitude.
+\begin{longtable}{l r r r}
+\hline
+Mutant identity & $n$ (S2648) & v1 mean resid & v2 mean resid \\ \hline
+\endhead
+ALA & 744 & +0.195 & -0.160 \\
+ARG & 51 & +0.459 & +0.127 \\
+ASN & 73 & +0.354 & +0.062 \\
+ASP & 74 & +0.327 & -0.022 \\
+CYS & 66 & +0.604 & -0.072 \\
+GLN & 89 & +0.086 & +0.127 \\
+GLU & 66 & +0.297 & -0.021 \\
+GLY & 307 & +0.368 & -0.075 \\
+HIS & 50 & +0.603 & -0.003 \\
+ILE & 118 & +1.001 & +0.191 \\
+LEU & 155 & +0.656 & -0.006 \\
+LYS & 70 & +0.257 & +0.016 \\
+MET & 51 & +0.501 & -0.070 \\
+PHE & 182 & +0.602 & -0.076 \\
+SER & 129 & +0.535 & -0.005 \\
+THR & 106 & +0.805 & -0.029 \\
+TRP & 40 & +1.038 & -0.061 \\
+TYR & 52 & +0.882 & +0.042 \\
+VAL & 221 & +0.877 & +0.073 \\
+\hline
+\end{longtable}

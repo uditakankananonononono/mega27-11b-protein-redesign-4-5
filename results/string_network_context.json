@@ -1,0 +1,66 @@
+{
+ "tool": "STRING DB API v12",
+ "purpose": "functional-network context: confirm TP53/SOD1 partner landscape for interpreting candidate surfaces",
+ "partners": [
+  {
+   "a": "PPP1R13B",
+   "b": "TP53",
+   "score": "0.986"
+  },
+  {
+   "a": "TP53",
+   "b": "SOD1",
+   "score": "0.514"
+  },
+  {
+   "a": "TP53",
+   "b": "C10orf90",
+   "score": "0.568"
+  },
+  {
+   "a": "TP53",
+   "b": "ANG",
+   "score": "0.692"
+  },
+  {
+   "a": "TP53",
+   "b": "SETD9",
+   "score": "0.752"
+  },
+  {
+   "a": "TP53",
+   "b": "VENTX",
+   "score": "0.77"
+  },
+  {
+   "a": "TP53",
+   "b": "PRIMA1",
+   "score": "0.798"
+  },
+  {
+   "a": "TP53",
+   "b": "ZNF420",
+   "score": "0.799"
+  },
+  {
+   "a": "TP53",
+   "b": "MAGEA2B",
+   "score": "0.839"
+  },
+  {
+   "a": "TP53",
+   "b": "ZNF385A",
+   "score": "0.91"
+  },
+  {
+   "a": "TP53",
+   "b": "TP53AIP1",
+   "score": "0.945"
+  },
+  {
+   "a": "TP53",
+   "b": "HIPK1",
+   "score": "0.967"
+  }
+ ]
+}

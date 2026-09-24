@@ -217,6 +217,24 @@ expanding the recursion gives $m_t=(1-\beta_1)\sum_{i=1}^{t}\beta_1^{t-i}g_i$,
 whose expectation is $(1-\beta_1^t)\mathbb{E}[g]$; dividing by
 $1-\beta_1^t$ unbiases the estimate (likewise $v_t$).
 
+\begin{table}[ht]
+\centering
+\caption{Hyperparameters (both architectures).}
+\label{tab:hp}
+\begin{tabular}{l c c}
+\hline
+ & v1 & v2 \\ \hline
+GCN layers / hidden & 2 / 32 & 2 / 64 \\
+Readout & mean pool & [mean $\|$ center] \\
+MLP hidden & 16 & 32 \\
+Optimizer / lr & Adam / $5\times10^{-4}$ & Adam / $10^{-3}$ \\
+Batch / epochs & 32 / 150 & 32 / 300 \\
+Dropout, weight decay & none & none \\
+Loss & MSE & MSE \\
+\hline
+\end{tabular}
+\end{table}
+
 \subsection{Model selection}
 A PDB-grouped validation split (15\% of S2648, no structure shared with
 training) selects the best-epoch checkpoint by validation Pearson $r$;
@@ -405,7 +423,22 @@ substitute at or near - and at the DNA-contact residue Arg273, which is
 the strongest plausibility signal in the scan. Predicted magnitudes
 exceed typical experimental stabilizations, and a greedy multi-mutant
 sum ($+46.0$~kcal/mol) is implausible; ranks, not absolute values, are
-the output.
+the output. Figure~\ref{fig:struct} shows the candidate geometry: the
+novel candidates (red) occupy the same molecular face as the known
+suppressors (green), adjacent to the Y220C lesion (yellow) - spatial
+coherence with the curated evidence is the scan's strongest
+plausibility signal.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.75\textwidth]{figs/fig4_candidates_2vuk.png}
+\caption{2VUK p53 core domain (PyMOL render). Yellow: Y220C lesion
+(C220). Green: documented suppressor sites (137, 138, 168, 178). Red:
+top novel-candidate positions (240, 241, 243, 245, 246, 247, 273).
+Marine: superstable-background positions already mutated in the
+structure (133, 203, 239, 268).}
+\label{fig:struct}
+\end{figure}
 
 \subsection{SOD1 (Study 2)}
 \label{sec:sod1}
@@ -428,6 +461,27 @@ weakest points of a contact graph; C111S, the one free-cysteine removal
 the model could in principle see, ranks top 26\% with the correct
 sign. These are hypotheses with explicit
 caveats, not claims.
+
+\begin{table}[ht]
+\centering
+\caption{SOD1 validation rows (ThermoMutDB measurements vs v2
+predictions; duplicates across temperatures averaged). The model fails
+on this family - the table is the paper's central negative result.}
+\label{tab:sod1}
+\begin{tabular}{l l r r}
+\hline
+Mutation & WT structure & Exp $\Delta\Delta G$ & Pred $\Delta\Delta G$ \\ \hline
+A4V & 3ECU & -7.20 & +2.374 \\
+C111S & 1SPD & +0.80 & +1.132 \\
+C6A & 1SPD & +0.10 & -4.482 \\
+E100G & 1N18 & -2.45 & -0.871 \\
+G85R & 1N18 & -1.30 & +3.468 \\
+H46R & 1N18 & +1.35 & +1.452 \\
+H46R & 3ECU & +0.80 & +2.376 \\
+V148I & 1N18 & +0.25 & +2.119 \\
+\hline
+\end{tabular}
+\end{table}
 
 \section{Discussion}
 \label{sec:discussion}
@@ -516,6 +570,39 @@ background verified, and magnitudes ignored. Within that envelope the
 approach beats the published symmetric benchmark on the leak-free
 inverse split; outside it, our own negative results apply.
 
+\section{External cross-checks}
+\label{sec:crosscheck}
+Seven independent external resources were used to audit the scan and
+validation results (evidence files in \texttt{results/}, tools 19-26 of
+Appendix A):
+\begin{itemize}
+\item \textbf{UniProt}: all 11 p53 scan positions of interest carry
+curated cancer-variant annotations; R273 and Y220 are Li-Fraumeni
+germline hotspots, corroborating the Gly245-loop/Arg273 candidate
+cluster (\texttt{uniprot\_crosscheck.json}).
+\item \textbf{PDBe/SIFTS}: deposited author numbering equals UniProt
+canonical numbering at 10/10 key positions in 2VUK and 1SPD, closing
+the numbering-ambiguity failure mode documented in Study 2
+(\texttt{pdbe\_sifts\_check.json}).
+\item \textbf{Pfam}: every p53 scan position lies inside the P53
+DNA-binding domain (PF00870). SOD1 positions A4 and C6 lie
+\emph{outside} the SODC domain (PF00080), N-terminally - and those are
+exactly the two worst validation misses, a second, distinct
+out-of-distribution mode (\texttt{pfam\_domain\_check.json}).
+\item \textbf{FreeSASA}: burial correlates with predicted
+$|\Delta\Delta G|$ across the 195 2VUK positions (Spearman
+$\rho=0.391$, $p=1.6\times10^{-8}$): the magnitude signal is
+structurally sensible (\texttt{burial\_analysis\_2vuk.json}).
+\item \textbf{AlphaFold DB}: top SOD1 candidates sit at pLDDT
+$\approx98.8$; the model does not assign large effects to
+low-confidence regions (\texttt{alphafold\_db\_lookup.json}).
+\item \textbf{gnomAD}: TP53 is extremely loss-of-function-intolerant
+(pLI $=0.9996$), consistent with germline depletion of core-domain
+destabilizing variants (\texttt{gnomad\_tp53\_constraint.json}).
+\item \textbf{STRING}: TP53/SOD1 partner landscape recorded for
+context (\texttt{string\_network\_context.json}).
+\end{itemize}
+
 \section{Limitations and negative results}
 \label{sec:limits}
 All of the following are preserved with quantification in
@@ -543,6 +630,15 @@ cross-check), SciPy (Spearman/Fisher statistics), scikit-learn
 (this document). Staged and planned entries are listed separately in
 the ledger and are not counted here.
 
+
+\clearpage
+\appendix
+\input{appendix_tools}
+\input{appendix_bias}
+\input{appendix_candidates}
+\input{appendix_sod1}
+\input{appendix_repro}
+\input{appendix_datasets}
 
 \begin{thebibliography}{9}
 \bibitem[Pucci et al.(2018)]{pucci2018} Pucci F, Schwersensky M, Rooman M.

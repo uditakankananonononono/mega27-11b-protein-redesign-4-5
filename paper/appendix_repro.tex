@@ -1,0 +1,33 @@
+\section*{Appendix F: Reproducibility}
+\addcontentsline{toc}{section}{Appendix F}
+\subsection*{Environment}
+Python 3.10, NumPy, SciPy, scikit-learn, pandas, Biopython, FreeSASA
+2.2.1, PyMOL open-source, matplotlib, TeX Live (mathptmx). CPU-only; no
+GPU. Sandbox: 2 CPU / 2 GB RAM.
+\subsection*{Exact commands}
+\begin{itemize}
+\item Training (benchmark model): \texttt{python3 scripts/train\_bench.py
+--arch v2 --epochs 300 --hidden 64 --mlp-hidden 32 --lr 0.001 --batch 32
+--seed 0 --ckpt build/ckpt\_v2.pkl --out build/bench\_v2\_e300.json}
+\item v1 model: same with \texttt{--arch v1 --epochs 150 --hidden 32
+--mlp-hidden 16 --lr 0.0005}.
+\item Validation-split study: \texttt{--val-frac 0.15 --val-every 5}
+(PDB-grouped split, seed 0).
+\item Bias: \texttt{scripts/bias\_measure.py}; scans:
+\texttt{scripts/rescue\_scan\_v2\_whole.py} (2VUK, 1SPD);
+validation: \texttt{scripts/sod1\_validate.py}; statistics:
+\texttt{scripts/stats\_and\_baselines.py} (5000-resample bootstrap,
+seed fixed); figures: \texttt{scripts/make\_figures.py}.
+\item Tool CLI: \texttt{tools/gnn-ddg scan --pdb 2VUK --chain A}.
+\item Tests: \texttt{python3 -m pytest tests/} (27 hermetic tests,
+no network).
+\end{itemize}
+\subsection*{Leakage protocol}
+S2648/Ssym share no exact (structure, position, WT, mutant) rows on the
+inverse split (verified: 0/342 overlap, committed in
+\texttt{results/ssym\_benchmark\_v2\_e300.json}). Direct-split overlap
+with published training sets is expected and is why the inverse split is
+the reported benchmark. Checkpoints, predictions and every quoted
+number regenerate deterministically from the committed scripts with the
+seeds above; the altloc parser bug and its superseded artifacts are
+preserved in \texttt{build/superseded\_altloc/} as an audit trail.

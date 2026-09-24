@@ -1,0 +1,9 @@
+{
+ "tool": "gnomAD GraphQL API",
+ "purpose": "germline constraint context for TP53 (missense z-score) - interprets why germline variation at scan positions is depleted",
+ "result": {
+  "mis_z": 1.121638987172852,
+  "oe_lof": 0.2582140811696815,
+  "pli": 0.999595868281925
+ }
+}
