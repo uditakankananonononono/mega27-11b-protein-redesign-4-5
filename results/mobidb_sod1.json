@@ -1,0 +1,32 @@
+{
+ "tool": "MobiDB API (mobidb.org/api/download?acc=)",
+ "purpose": "disorder annotation of SOD1: are scan positions in disordered regions (model-blind zones)?",
+ "queried_at": "2026-09-24T16:43:24.831537+00:00",
+ "results": {
+  "acc": "P00441",
+  "length": 154,
+  "note": "P00441 reviewed entry retrieved from MobiDB; raw record committed at results/raw/mobidb_P00441.json",
+  "keys": [
+   "acc",
+   "curated-disorder-disprot",
+   "curated-disorder-merge",
+   "curated-disorder-priority",
+   "curated-lip-merge",
+   "curated-lip-mfib",
+   "curated-lip-priority",
+   "derived-fixed-th_90",
+   "derived-lip-flipper-5dli_A",
+   "derived-lip-flipper-5dli_B",
+   "derived-lip-flipper-5dli_C",
+   "derived-lip-flipper-5dli_D",
+   "derived-lip-flipper-5dli_E",
+   "derived-lip-flipper-5dli_F",
+   "derived-lip-flipper-5dli_G",
+   "derived-lip-flipper-5dli_H",
+   "derived-lip-flipper-5iiw_A",
+   "derived-lip-flipper-5iiw_B",
+   "derived-lip-flipper-5iiw_C",
+   "derived-lip-flipper-5iiw_D"
+  ]
+ }
+}

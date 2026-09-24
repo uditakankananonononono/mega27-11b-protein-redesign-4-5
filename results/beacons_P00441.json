@@ -1,0 +1,12 @@
+{
+ "tool": "3D-Beacons API (EBI, www.ebi.ac.uk/pdbe/pdbe-kb/3dbeacons/api)",
+ "purpose": "model-provider registry check for SOD1 P00441",
+ "queried_at": "2026-09-24T16:43:24.831537+00:00",
+ "results": {
+  "n_structures_returned": 1,
+  "providers": [
+   "SWISS-MODEL"
+  ],
+  "note": "API returned 1 modeled-structure record (SWISS-MODEL provider) for P00441 on this query"
+ }
+}

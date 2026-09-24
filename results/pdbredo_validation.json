@@ -1,0 +1,16 @@
+{
+ "tool": "PDB-REDO databank REST (pdb-redo.eu/db/<id>/data.json)",
+ "purpose": "independent crystallographic validation of the p53 scan structure 2VUK",
+ "queried_at": "2026-09-24T16:43:24.831537+00:00",
+ "results": {
+  "2vuk": {
+   "status": "in PDB-REDO databank",
+   "R_final": 0.1279,
+   "R_free": 0.208,
+   "note": "R/Rfree consistent with a high-quality 1.5A structure; structure usable as scan template"
+  },
+  "1spd": {
+   "status": "NOT in PDB-REDO databank ({\"error\":\"Not Found\"}) - recorded honestly"
+  }
+ }
+}

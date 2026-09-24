@@ -1,0 +1,13 @@
+{
+ "tool": "Ensembl REST API (rest.ensembl.org/lookup/symbol)",
+ "purpose": "gene-level identity of SOD1 locus for Study 2 (genomic context of ALS variants)",
+ "queried_at": "2026-09-24T16:43:24.831537+00:00",
+ "results": {
+  "id": "ENSG00000142168",
+  "display_name": "SOD1",
+  "seq_region": "21",
+  "start": 31659617,
+  "end": 31668931,
+  "canonical_transcript": "ENST00000270142.11"
+ }
+}

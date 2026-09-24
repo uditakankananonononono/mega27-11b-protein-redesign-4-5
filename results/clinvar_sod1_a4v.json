@@ -1,0 +1,26 @@
+{
+ "tool": "NCBI ClinVar via E-utilities (esearch+esummary, db=clinvar)",
+ "purpose": "clinical-grade confirmation that mature-SOD1 A4V (transcript p.Ala5Val) is pathogenic; validates the numbering-offset finding",
+ "queried_at": "2026-09-24T16:43:24.831537+00:00",
+ "results": {
+  "query": "SOD1[gene] AND A4V",
+  "records": [
+   {
+    "uid": "14765",
+    "title": "NM_000454.5(SOD1):c.13G>A (p.Ala5Thr)",
+    "classification": "Pathogenic",
+    "last_evaluated": "2025/08/18 00:00",
+    "review_status": "criteria provided, multiple submitters, no conflicts"
+   },
+   {
+    "uid": "14763",
+    "title": "NM_000454.5(SOD1):c.14C>T (p.Ala5Val)",
+    "classification": "Pathogenic",
+    "last_evaluated": "2026/02/03 00:00",
+    "review_status": "criteria provided, multiple submitters, no conflicts"
+   }
+  ],
+  "numbering_finding": "ClinVar/RefSeq NM_000454.5 numbers the initiator Met as residue 1, so mature-protein A4V = transcript p.Ala5Val. This independently confirms the precursor-vs-mature numbering offset documented in our SOD1 study (FireProtDB precursor numbering vs PDB mature numbering) - the same offset that silently corrupts ddG rows if unchecked.",
+  "A4V_is_pathogenic": true
+ }
+}

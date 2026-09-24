@@ -1,0 +1,1 @@
+{"header":{"type":"esearch","version":"0.3"},"esearchresult":{"count":"2","retmax":"2","retstart":"0","idlist":["14765","14763"],"translationset":[],"translationstack":[{"term":"SOD1[gene]","field":"gene","count":"395","explode":"N"},{"term":"A4V[All Fields]","field":"All Fields","count":"224","explode":"N"},"AND"],"querytranslation":"SOD1[gene] AND A4V[All Fields]"}}

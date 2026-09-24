@@ -1,0 +1,36 @@
+{
+ "tool": "Open Targets Platform GraphQL API",
+ "purpose": "independent genetics evidence that SOD1 is a bona fide ALS drug target (Study 2 disease linkage)",
+ "queried_at": "2026-09-24T16:43:24.831537+00:00",
+ "results": {
+  "target": "SOD1",
+  "ensembl_id": "ENSG00000142168",
+  "n_associated_diseases": 3830,
+  "top_associations": [
+   {
+    "disease": "amyotrophic lateral sclerosis",
+    "score": 0.883
+   },
+   {
+    "disease": "spastic tetraplegia and axial hypotonia, progressive",
+    "score": 0.69
+   },
+   {
+    "disease": "motor neuron disorder",
+    "score": 0.595
+   },
+   {
+    "disease": "neurodegenerative disease",
+    "score": 0.555
+   },
+   {
+    "disease": "familial amyotrophic lateral sclerosis",
+    "score": 0.502
+   },
+   {
+    "disease": "sporadic amyotrophic lateral sclerosis",
+    "score": 0.495
+   }
+  ]
+ }
+}

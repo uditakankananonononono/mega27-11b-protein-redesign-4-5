@@ -1,0 +1,13 @@
+{
+ "tool": "ExPASy ProtParam (web.expasy.org/cgi-bin/protparam, CGI POST of SOD1 sequence)",
+ "purpose": "physicochemical ground truth for WT SOD1: reference values for mutant-property deltas",
+ "queried_at": "2026-09-24T16:43:24.831537+00:00",
+ "results": {
+  "molecular_weight": "15935.74",
+  "theoretical_pI": "5.70",
+  "instability_index": "21.62",
+  "instability_class": "stable",
+  "gravy": "-0.344",
+  "aliphatic_index": "78.44"
+ }
+}

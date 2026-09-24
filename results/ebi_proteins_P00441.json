@@ -1,0 +1,26 @@
+{
+ "tool": "EBI Proteins API (www.ebi.ac.uk/proteins/api/proteins/P00441)",
+ "purpose": "feature-table cross-check of SOD1 annotations (sites, variants, secondary structure)",
+ "queried_at": "2026-09-24T16:43:24.831537+00:00",
+ "results": {
+  "accession": "P00441",
+  "id": "SODC_HUMAN",
+  "sequence_length": 154,
+  "feature_type_counts": {
+   "INIT_MET": 1,
+   "CHAIN": 1,
+   "BINDING": 8,
+   "MOD_RES": 12,
+   "LIPID": 1,
+   "DISULFID": 1,
+   "CROSSLNK": 1,
+   "VARIANT": 81,
+   "MUTAGEN": 14,
+   "CONFLICT": 2,
+   "STRAND": 22,
+   "HELIX": 5,
+   "TURN": 2
+  },
+  "n_features": 151
+ }
+}

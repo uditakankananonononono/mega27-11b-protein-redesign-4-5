@@ -1,0 +1,23 @@
+{
+ "tool": "NCBI dbSNP via E-utilities (esummary, db=snp)",
+ "purpose": "population frequency of SOD1 A4V (rs121912442): how rare is the ALS allele?",
+ "queried_at": "2026-09-24T16:43:24.831537+00:00",
+ "results": {
+  "rsid": "rs121912442",
+  "global_mafs": [
+   {
+    "study": "GnomAD_exomes",
+    "freq": "T=0.000003/2"
+   },
+   {
+    "study": "PAGE_STUDY",
+    "freq": "T=0.000013/1"
+   },
+   {
+    "study": "ALFA",
+    "freq": "T=0.000031/1"
+   }
+  ],
+  "note": "A4V allele frequency ~3e-6 (gnomAD exomes) - ultra-rare, consistent with fully penetrant familial ALS mutation"
+ }
+}

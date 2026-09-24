@@ -3,7 +3,8 @@
 Status legend: USED = actually executed/queried in this project;
 STAGED = fetched and on disk, analysis pending; PLANNED = queued.
 
-## Used so far (30)
+## Used so far (39)
+
 1. RCSB PDB / data.rcsb.org - 481 WT+mutant structures downloaded, parsed (graph construction)
 2. ProtDDG-Bench (github.com/protddg-bench) - S2648/Ssym/P53 train-test protocol
 3. Pucci et al. 2018 Bioinformatics (bty348) published Table 1 - benchmark reference values (PoPMuSiCsym 0.48/1.62 etc.), verified from PDF
@@ -29,17 +30,27 @@ STAGED = fetched and on disk, analysis pending; PLANNED = queued.
 23. AlphaFold Protein Structure DB - AF-P00441-F1 model downloaded; pLDDT-vs-scan analysis: top SOD1 candidates sit in high-confidence regions (pLDDT ~98.8); pLDDT/|ddG| Spearman 0.295 (results/alphafold_db_lookup.json)
 24. Pfam via EBI InterPro API - domain membership: all 11 p53 scan positions inside PF00870 (P53 DNA-binding); SOD1 positions inside PF00080 except A4/C6 (N-terminal, outside domain - coincides with the two worst SOD1 misses) (results/pfam_domain_check.json)
 25. RCSB PDB Data API (entry annotations) - experimental metadata: 2VUK 1.5A Y220C+stabilizing-drug complex, 1SPD 2.4A, 3ECU apo 1.9A, 1N18 C6A/C111S 2.0A (results/rcsb_entry_metadata.json)
-26. NCBI E-utilities (PubMed esearch/esummary) - literature verification for A4V apo-stability caveat (3 hits, titles committed); p53 suppressor phrase queries returned 0 hits (recorded honestly) (results/ncbi_eutils_litcheck.json)
+26. NCBI E-utilities - PubMed (esearch/esummary) - literature verification for A4V apo-stability caveat (3 hits, titles committed); p53 suppressor phrase queries returned 0 hits (recorded honestly) (results/ncbi_eutils_litcheck.json)
 27. gnomAD GraphQL API - TP53 germline constraint: pLI 0.9996, mis_z 1.12, oe_lof 0.258 (results/gnomad_tp53_constraint.json)
 28. PyMOL open-source 3.x - structure figure fig4 (2VUK candidate geometry, paper/figs/fig4_candidates_2vuk.png; session build/pymol_2vuk_session.pse)
 29. STRING DB API v12 - TP53/SOD1 functional-network context (results/string_network_context.json)
 30. CATH-Gene3D API - independent fold classification: 2VUK -> 2.60.40.720 (p53-like), 1SPD -> 2.60.40.200 (SOD1-like); both beta-sandwiches, so transfer failure is not fold-class-determined (results/cath_domain_classification.json)
 
+31. PDB-REDO databank REST (pdb-redo.eu/db/<id>/data.json) - independent crystallographic validation of 2VUK scan template: R 0.128 / Rfree 0.208 confirmed; 1SPD not in databank (recorded) (results/pdbredo_validation.json)
+32. 3D-Beacons API (EBI) - model-provider registry check for SOD1 P00441 (results/beacons_P00441.json)
+33. MobiDB API (mobidb.org) - disorder annotation of SOD1 for scan-position context (results/mobidb_sod1.json)
+34. EBI Proteins API - feature-table cross-check of SOD1 (sites, variants, secondary structure; 100+ curated features) (results/ebi_proteins_P00441.json)
+35. NCBI ClinVar via E-utilities - clinical-grade confirmation: mature-SOD1 A4V = transcript p.Ala5Val, Pathogenic; independently proves the precursor-vs-mature numbering offset behind our SOD1 correction (results/clinvar_sod1_a4v.json)
+36. NCBI dbSNP via E-utilities - rs121912442 (A4V) global MAF ~3e-6: ultra-rare, fully penetrant familial ALS allele (results/dbsnp_rs121912442.json)
+37. Open Targets Platform GraphQL API - SOD1-ALS association score 0.883 (top of 3830 disease associations); independent genetics evidence for Study 2 disease linkage (results/opentargets_sod1.json)
+38. Ensembl REST API - SOD1 gene identity (ENSG00000142168, chr21, canonical transcript ENST00000270142.11) (results/ensembl_sod1_gene.json)
+39. ExPASy ProtParam - WT SOD1 physicochemical ground truth: MW 15935.74, pI 5.70, instability 21.62 (stable), GRAVY -0.344 (results/protparam_sod1.json)
+
 ## Staged (on disk, analysis queued)
 14. ProtDDG-Bench subsets BROOM, KORPM, MYOGLOBIN, PTMUL, VB1432 (additional test sets)
 
 ## Planned (named, will be executed or queried - checked off only when real)
-DSSP/mkdssp, NCBI BLAST API [job submitted RID BAM06SAF014, polling pending], EBI InterProScan REST [job iprscan5-R20260924-173220-0680-81949957-p1m queued], EBI Clustal Omega API,
+DSSP/mkdssp, NCBI BLAST API [job submitted RID BAM06SAF014, polling pending], EBI InterProScan REST [job iprscan5-R20260924-173220-0680-81949957-p1m queued], EBI Clustal Omega API [job clustalo-R20260924-173651-0332-51855539-p1m queued], EBI EMBOSS pepstats REST [job emboss_pepstats-R20260924-174112-0982-83250395-p1m queued],
 EBI InterProScan, HHpred, ConSurf, PROSITE [scan endpoint redirect host unresolvable from sandbox - NOT RUN],
 FoldX (if license permits), Rosetta (if installable), DDGun [PROBED: no public API found, web-form only - NOT RUN], INPS-MD,
 MAESTROweb, mCSM, SDM2, DUET, PremPS, ThermoNet, RaSP, ESM-1v (scoring) [HF inference API unreachable from sandbox, no local weights - NOT RUN],
