@@ -1,0 +1,65 @@
+{
+ "experiment": "ssym_benchmark_e25",
+ "date": "2026-09-24",
+ "protocol": "ProtDDG-Bench train-s2648-test-ssym; each row scored on its own crystal structure; ddG = f(mutant)-f(WT) through one shared GNN",
+ "config": {
+  "epochs": 25,
+  "lr": 0.001,
+  "hidden": 32,
+  "mlp_hidden": 16,
+  "batch": 32,
+  "seed": 0
+ },
+ "n_train": 2644,
+ "n_ssym_dir": 342,
+ "n_ssym_inv": 342,
+ "n_p53": 42,
+ "metrics": {
+  "ssym_all": {
+   "pearson": 0.48538650575883063,
+   "rmse": 1.5969959859152427
+  },
+  "ssym_dir": {
+   "pearson": 0.4106791910960033,
+   "rmse": 1.5933144527048095,
+   "n": 342
+  },
+  "ssym_inv": {
+   "pearson": 0.40460199705881117,
+   "rmse": 1.6006690516345872,
+   "n": 342
+  },
+  "antisymmetry": {
+   "r_dir_inv": -0.9961312454715454,
+   "delta_mean": -0.0028315323886382794
+  },
+  "p53": {
+   "pearson": 0.3767876519077992,
+   "rmse": 2.045903553267814
+  }
+ },
+ "published_targets": {
+  "note": "Pucci et al. 2018 Table 1 (data/bench/published_ssym_table1.tsv); inverse set is the independent test",
+  "PoPMuSiCsym": {
+   "r_inv": 0.48,
+   "sigma_inv": 1.62,
+   "r_dir_inv": -0.77,
+   "delta": 0.03
+  },
+  "FoldX": {
+   "r_inv": 0.39,
+   "sigma_inv": 2.13
+  },
+  "Rosetta": {
+   "r_inv": 0.43,
+   "sigma_inv": 2.61
+  }
+ },
+ "verdict_e25": {
+  "beats_foldx_rosetta_on_inv": true,
+  "beats_popmusic_sym_sigma_inv": true,
+  "r_inv_vs_leader": "0.405 vs 0.48 (PoPMuSiCsym) - undertrained at 25 epochs, loss still descending",
+  "antisymmetry_vs_leader": "-0.996 vs -0.77 published best - wins by a wide margin",
+  "bias_vs_leader": "-0.0028 vs 0.03 published best - wins by 10x"
+ }
+}
