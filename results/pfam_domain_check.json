@@ -1,0 +1,108 @@
+{
+ "tool": "Pfam (EBI HMMER/Pfam API, pfam.xfam.org)",
+ "purpose": "verify scan-candidate positions fall inside annotated Pfam domains",
+ "checks": [
+  {
+   "acc": "P04637",
+   "name": "p53",
+   "domains": [
+    {
+     "pfam": "PF00870",
+     "name": "P53 DNA-binding domain",
+     "start": 100,
+     "end": 288
+    },
+    {
+     "pfam": "PF07710",
+     "name": "P53 tetramerisation motif",
+     "start": 319,
+     "end": 357
+    },
+    {
+     "pfam": "PF08563",
+     "name": "P53 transactivation motif",
+     "start": 6,
+     "end": 30
+    },
+    {
+     "pfam": "PF18521",
+     "name": "Transactivation domain 2",
+     "start": 35,
+     "end": 59
+    }
+   ],
+   "position_check": {
+    "133": [
+     "PF00870:P53 DNA-binding domain"
+    ],
+    "137": [
+     "PF00870:P53 DNA-binding domain"
+    ],
+    "138": [
+     "PF00870:P53 DNA-binding domain"
+    ],
+    "168": [
+     "PF00870:P53 DNA-binding domain"
+    ],
+    "178": [
+     "PF00870:P53 DNA-binding domain"
+    ],
+    "220": [
+     "PF00870:P53 DNA-binding domain"
+    ],
+    "240": [
+     "PF00870:P53 DNA-binding domain"
+    ],
+    "241": [
+     "PF00870:P53 DNA-binding domain"
+    ],
+    "245": [
+     "PF00870:P53 DNA-binding domain"
+    ],
+    "246": [
+     "PF00870:P53 DNA-binding domain"
+    ],
+    "273": [
+     "PF00870:P53 DNA-binding domain"
+    ]
+   }
+  },
+  {
+   "acc": "P00441",
+   "name": "SOD1",
+   "domains": [
+    {
+     "pfam": "PF00080",
+     "name": "Copper/zinc superoxide dismutase (SODC)",
+     "start": 15,
+     "end": 150
+    }
+   ],
+   "position_check": {
+    "4": "OUTSIDE annotated Pfam domains",
+    "6": "OUTSIDE annotated Pfam domains",
+    "33": [
+     "PF00080:Copper/zinc superoxide dismutase (SODC)"
+    ],
+    "41": [
+     "PF00080:Copper/zinc superoxide dismutase (SODC)"
+    ],
+    "46": [
+     "PF00080:Copper/zinc superoxide dismutase (SODC)"
+    ],
+    "82": [
+     "PF00080:Copper/zinc superoxide dismutase (SODC)"
+    ],
+    "85": [
+     "PF00080:Copper/zinc superoxide dismutase (SODC)"
+    ],
+    "111": [
+     "PF00080:Copper/zinc superoxide dismutase (SODC)"
+    ],
+    "148": [
+     "PF00080:Copper/zinc superoxide dismutase (SODC)"
+    ]
+   }
+  }
+ ]
+}

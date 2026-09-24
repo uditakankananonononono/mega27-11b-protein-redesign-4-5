@@ -1,0 +1,38 @@
+{
+ "tool": "RCSB PDB Data API (entry annotations)",
+ "purpose": "experimental metadata for structures used (method, resolution, ligands) - paper Data section",
+ "entries": [
+  {
+   "pdb": "2VUK",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": [
+    1.5
+   ],
+   "title": "Structure of the p53 core domain mutant Y220C bound to the stabilizing small-molecule drug"
+  },
+  {
+   "pdb": "1SPD",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": [
+    2.4
+   ],
+   "title": "AMYOTROPHIC LATERAL SCLEROSIS AND STRUCTURAL DEFECTS IN CU,ZN SUPEROXIDE DISMUTASE"
+  },
+  {
+   "pdb": "3ECU",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": [
+    1.9
+   ],
+   "title": "Crystal structure of human apo Cu,Zn Superoxide Dismutase (SOD1)"
+  },
+  {
+   "pdb": "1N18",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": [
+    2.0
+   ],
+   "title": "Thermostable mutant of Human Superoxide Dismutase, C6A, C111S"
+  }
+ ]
+}

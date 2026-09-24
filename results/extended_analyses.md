@@ -36,3 +36,24 @@ AF-P00441-F1 model downloaded; pLDDT extracted from B-factors. SOD1 has
 no low-confidence (<70) positions; the top 1SPD scan candidates sit at
 pLDDT ~98.8, i.e. the model is not hallucinating large effects in
 disordered regions. pLDDT-vs-|ddG| Spearman 0.295 (p=2.1e-4).
+
+## 5. Pfam/InterPro - domain membership (`pfam_domain_check.json`)
+All 11 p53 scan positions lie inside PF00870 (P53 DNA-binding domain,
+100-288) - the scan is operating on the right fold. For SOD1, all
+validation/scan positions lie inside PF00080 (SODC, 15-150) EXCEPT A4
+and C6, which are N-terminal to the annotated domain - and those are
+exactly the two worst validation misses (A4V, C6A). The model's
+training distribution is domain-core mutations; N-terminal tail
+positions are a second, distinct OOD mode.
+
+## 6. RCSB PDB Data API - structure metadata (`rcsb_entry_metadata.json`)
+2VUK: 1.5A X-ray, Y220C core domain bound to a stabilizing small
+molecule (scan used chain A only; the ligand is not part of the graph -
+caveat noted). 1SPD 2.4A, 3ECU (apo) 1.9A, 1N18 (C6A/C111S) 2.0A - the
+1N18 thermostable-double-mutant background is confirmed by its title.
+
+## 7. NCBI E-utilities - literature spot-check (`ncbi_eutils_litcheck.json`)
+PubMed confirms the apo-SOD1 destabilization literature behind the A4V
+caveat. Two narrowly-phrased p53 suppressor queries returned 0 hits
+(recorded as-is; suppressor evidence rests on the curated table
+`data/bench/known_p53_suppressors.tsv` and Europe PMC lookups instead).

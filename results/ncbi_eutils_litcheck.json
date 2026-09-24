@@ -1,0 +1,28 @@
+{
+ "tool": "NCBI E-utilities (esearch/esummary, PubMed)",
+ "purpose": "verify literature support for curated suppressors used as scan face-validity",
+ "queries": [
+  {
+   "query": "Y220C p53 rescue mutation second-site",
+   "context": "Y220C suppressor literature",
+   "n_hits": "0",
+   "top_titles": []
+  },
+  {
+   "query": "p53 Y220C second site suppressor",
+   "context": "L137R/A138G suppressor claims",
+   "n_hits": "0",
+   "top_titles": []
+  },
+  {
+   "query": "SOD1 A4V apo stability ALS",
+   "context": "A4V apo-measurement caveat",
+   "n_hits": "3",
+   "top_titles": [
+    "Decreased stability and increased formation of soluble aggregates by immature superoxide d",
+    "Structural changes to monomeric CuZn superoxide dismutase caused by the familial amyotroph",
+    "The effects of glutaredoxin and copper activation pathways on the disulfide and stability "
+   ]
+  }
+ ]
+}
