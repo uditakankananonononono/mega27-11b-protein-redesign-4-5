@@ -172,6 +172,8 @@ def main():
                          "never touches Ssym/P53")
     ap.add_argument("--ckpt-best", default="",
                     help="where to save the best-validation checkpoint")
+    ap.add_argument("--val-every", type=int, default=1,
+                    help="evaluate validation every N epochs (memory/time)")
     args = ap.parse_args()
 
     t0 = time.time()
@@ -196,10 +198,8 @@ def main():
     print(f"train examples: {len(train_ex)} "
           f"({len(tr_recs) - len(train_ex)} unmappable), "
           f"val examples: {len(val_ex)}", flush=True)
-    ssym_ex = [e for e in (gc.example(r) for r in ssym_recs) if e]
-    p53_ex = [e for e in (gc.example(r) for r in p53_recs) if e]
-    print(f"ssym examples: {len(ssym_ex)}, p53 examples: {len(p53_ex)}",
-          flush=True)
+    # eval-set graphs are built lazily at eval time (memory: holding
+    # train+val+ssym+p53 subgraphs simultaneously OOMs the 2GB sandbox)
     unmappable = gc.missing
     print(f"unmappable rows: {len(unmappable)}", flush=True)
 
@@ -225,6 +225,7 @@ def main():
     n = len(train_ex)
     best_val_r, best_epoch = -2.0, 0
     import copy
+    import gc as _gc
     best_params = None
     for epoch in range(start_epoch, args.epochs + 1):
         order = rng.permutation(n)
@@ -235,10 +236,13 @@ def main():
             steps += 1
         msg = (f"epoch {epoch:3d}/{args.epochs}  loss "
                f"{ep_loss / steps:.4f}")
-        if val_ex:
+        if val_ex and (epoch % args.val_every == 0
+                       or epoch == args.epochs):
             vp = [predict_ddg(net, e, arch=args.arch) for e in val_ex]
             vt = [e[4] for e in val_ex]
             vr = pearson(vp, vt)
+            del vp, vt
+            _gc.collect()
             msg += f"  val_r {vr:.4f}"
             if vr > best_val_r:
                 best_val_r, best_epoch = vr, epoch
@@ -252,6 +256,11 @@ def main():
             pickle.dump({"epoch": epoch, "params": net.params,
                          "adam_m": net._adam_m, "adam_v": net._adam_v,
                          "adam_t": net._adam_t, "rng": rng}, fh)
+
+    # free training subgraphs before building eval-set graphs (2GB sandbox)
+    n_train_final = len(train_ex)
+    del train_ex, val_ex
+    _gc.collect()
 
     # --- evaluation ---
     def eval_set(recs, exs):
@@ -308,7 +317,7 @@ def main():
     results = {
         "config": vars(args),
         "best_val": best_block,
-        "n_train": len(train_ex), "n_ssym": len(ssym_e),
+        "n_train": n_train_final, "n_ssym": len(ssym_e),
         "n_p53": len(p53_e), "n_unmappable": len(unmappable),
         "unmappable": unmappable,
         "ssym_all": {"pearson": pearson(sp, st), "rmse": rmse(sp, st)},
