@@ -1,5 +1,18 @@
 # Whole-chain rescue scan: 2VUK chain A with v2 GNN (epoch 300)
 
+> **POST-PARSER-FIX REGENERATION (2026-09-24 ~21:50 UTC+5:30).** After the
+> altloc-CA parser fix (`src/pdb_fetch.py ca_trace` dedupe), the scan was
+> regenerated: **195 positions x 19 = 3705 rows** (was 197/3743; pre-fix
+> artifacts in `build/superseded_altloc/`). Updated headline numbers from
+> `build/scan_2vuk_whole_v2.json` (post-fix):
+> WT=PRO rows masked: 266 (mean +3.26 kcal/mol, OOD as before);
+> L137R +3.43 (top 4.9%), H168R +3.55 (top 4.7%), H178Y +0.70 (35th pct),
+> A138G -0.45 (58th pct - still a miss, preserved);
+> top novel candidates now S240C +6.5, G245C +6.1, M246C +6.0, R273C +5.9,
+> S241C +5.6 (Gly245-loop / DNA-contact cluster);
+> greedy multi-mutant sum +46.0 kcal/mol (implausible, ranks only).
+> Numbers in the body below are the PRE-FIX run unless re-stated above.
+
 Script: `scripts/rescue_scan_v2_whole.py`. Data: `build/scan_2vuk_whole_v2.json`
 (3743 scored substitutions = 197 positions x 19). Model: `build/ckpt_v2.pkl`
 (the benchmark-winning full-data checkpoint). Rankings are reported raw and

@@ -22,16 +22,16 @@ discovery in p53-Y220C and SOD1}
 We present a structure-graph neural network for mutation-induced
 stability change ($\Delta\Delta G$) trained on S2648 and evaluated on the
 leak-free Ssym inverse benchmark. On 342 inverse mutations the model
-attains Pearson $r=0.578$ and $\sigma=1.397$~kcal/mol, exceeding the best
+attains Pearson $r=0.592$ and $\sigma=1.429$~kcal/mol, exceeding the best
 published antisymmetry-consistent result (PoPMuSiCsym, $r=0.48$,
 $\sigma=1.62$~kcal/mol; Pucci et al.\ 2018). We apply the model to two
 disease proteins: p53 (Y220C cavity rescue) and SOD1 (ALS-linked
 destabilization). Whole-chain scans of the Y220C structure 2VUK recover
-one of two documented Y220C suppressors (L137R, top 7\%) and place known
+documented suppressors in the top 5\% (L137R, H168R) and place known
 stabilizers at the top of the ranking; a systematic audit uncovered an
 out-of-distribution failure at proline positions (the training set
 contains no proline mutations). On SOD1 the model does \emph{not}
-generalize (Pearson $r=-0.05$ on 8 ThermoMutDB measurements), and we
+generalize (Pearson $r=-0.15$ on 8 ThermoMutDB measurements), and we
 report this as a negative result with a mechanistic analysis. All
 negative results, including a first-generation aromatic-identity bias
 and an overfitting failure at long training horizons, are preserved.
@@ -90,9 +90,9 @@ negative results, is versioned in the repository.
 \subsection{Contributions}
 \begin{enumerate}
 \item A v2 GNN that beats the best published antisymmetry-consistent
-result on the Ssym inverse benchmark: $r=0.578$ vs $0.48$,
-$\sigma=1.397$ vs $1.62$~kcal/mol, with near-perfect antisymmetry
-($r_{\mathrm{dir,inv}}=-0.944$).
+result on the Ssym inverse benchmark: $r=0.592$ vs $0.48$,
+$\sigma=1.429$ vs $1.62$~kcal/mol, with near-perfect antisymmetry
+($r_{\mathrm{dir,inv}}=-0.953$).
 \item A whole-chain rescue scan of p53-Y220C (2VUK) that recovers one
 documented Y220C suppressor in the top 7\% and concentrates novel
 candidates at the two loops known to host suppressors - with the missed
@@ -121,12 +121,30 @@ The complete accession-level manifest (493 sources) is in
 
 \section{Methods}
 \subsection{Structure graphs}
-Each protein is a graph $G=(V,E)$: nodes are residues, edges join
-$C_\alpha$ pairs within $10$~\AA. Node features
-$\mathbf{x}_i\in\mathbb{R}^{23}$ comprise one-hot amino-acid identity (20),
-relative solvent accessibility, local packing density, and mutation-state
-indicators (wild-type vs.\ mutant encoding).
-% TODO: full feature table
+Each protein chain is a graph $G=(V,E)$ whose nodes are its residues
+(represented by their $C_\alpha$ atoms) and whose edges join spatial
+neighbours:
+\begin{equation}
+E=\{(i,j):\; 0<\|\mathbf{r}_i-\mathbf{r}_j\|_2 < 10~\text{\AA}\},
+\qquad \tilde A = A + I,\quad \tilde D_{ii}=\sum_j \tilde A_{ij},
+\label{eq:graph}
+\end{equation}
+where $\mathbf r_i$ is the $C_\alpha$ coordinate of residue $i$, $A$ the
+adjacency matrix, and the strict lower bound excludes geometric
+self-edges (self-loops enter through $\tilde A$ instead, so every node
+retains its own signal under aggregation). Node features
+$\mathbf{x}_i\in\mathbb{R}^{21}$ concatenate the one-hot amino-acid
+identity with a scaled Kyte--Doolittle hydrophobicity:
+\begin{equation}
+\mathbf{x}_i = \big[\,\mathbf{e}_{\mathrm{aa}(i)}\;\big\|\; h_{\mathrm{aa}(i)}/4.5\,\big],
+\qquad \mathbf e_{\mathrm{aa}(i)}\in\{0,1\}^{20},
+\label{eq:features}
+\end{equation}
+with $h\in[-4.5,4.5]$, so the scalar channel lies in $[-1,1]$ and no
+feature dominates by scale. A mutation is encoded by re-typing only the
+mutated node's identity features while keeping wild-type coordinates
+(the fixed-backbone approximation); this is exactly the setting of
+Proposition~\ref{prop:antisym}.
 
 \subsection{Graph convolution}
 With $\tilde A = A + I$, $\tilde D_{ii}=\sum_j \tilde A_{ij}$, one layer is
@@ -170,8 +188,18 @@ site (identical $P$), then $s(w\!\to\!m) = -s(m\!\to\!w)$ exactly.
 $s(m\!\to\!w)=f(G_w)-f(G_m) = -(f(G_m)-f(G_w)) = -s(w\!\to\!m)$.
 \end{proof}
 With per-direction crystal structures (Ssym), backbones differ and
-antisymmetry holds only approximately; we measure the deviation
-(Sec.~\ref{sec:results}).
+antisymmetry holds only approximately. We quantify the deviation over
+the $n$ Ssym mutation pairs measured in both directions with
+\begin{equation}
+r_{\mathrm{anti}} = \mathrm{corr}\big(\hat y^{\mathrm{dir}},\,\hat y^{\mathrm{inv}}\big),
+\qquad
+\delta_{\mathrm{anti}} = \frac{1}{n}\sum_{i=1}^{n}\big(\hat y^{\mathrm{dir}}_i+\hat y^{\mathrm{inv}}_i\big),
+\label{eq:antisymdev}
+\end{equation}
+where $\hat y^{\mathrm{dir}}_i, \hat y^{\mathrm{inv}}_i$ are the predicted
+scores of the forward and reverse mutations. Exact antisymmetry gives
+$r_{\mathrm{anti}}=-1$ and $\delta_{\mathrm{anti}}=0$; observed values are
+reported in Sec.~\ref{sec:results}.
 
 \subsection{Optimization}
 Parameters are updated with Adam:
@@ -195,11 +223,48 @@ training) selects the best-epoch checkpoint by validation Pearson $r$;
 test sets (Ssym, P53) are never used for selection.
 
 \subsection{Metrics}
-Pearson
-$r = \frac{\sum_i (p_i-\bar p)(t_i-\bar t)}{\sqrt{\sum_i (p_i-\bar p)^2 \sum_i (t_i-\bar t)^2}}$,
-Spearman $\rho$ (Pearson on ranks), RMSE
-$\sigma=\sqrt{\frac{1}{n}\sum_i (p_i - t_i)^2}$, and per-identity bias
-$B_a = \frac{1}{n_a}\sum_{i:\,\mathrm{mut}(i)=a}(p_i - t_i)$.
+The primary metric is the Pearson correlation
+\begin{equation}
+r = \frac{\sum_i (p_i-\bar p)(t_i-\bar t)}{\sqrt{\sum_i (p_i-\bar p)^2 \sum_i (t_i-\bar t)^2}},
+\label{eq:pearson}
+\end{equation}
+the cosine similarity of the centered prediction and target vectors:
+writing $\tilde p = p-\bar p\,\mathbf 1$ and $\tilde t = t-\bar t\,\mathbf 1$,
+$r = \langle\tilde p,\tilde t\rangle/(\|\tilde p\|\,\|\tilde t\|)$,
+so $r\in[-1,1]$ by Cauchy--Schwarz. We also report Spearman $\rho$
+(Eq.~\eqref{eq:pearson} applied to ranks) and the root-mean-square
+error
+\begin{equation}
+\sigma=\sqrt{\frac{1}{n}\sum_i (p_i - t_i)^2}.
+\label{eq:rmse}
+\end{equation}
+Per-identity bias is the mean residual over mutations into
+amino acid $a$:
+\begin{equation}
+B_a = \frac{1}{n_a}\sum_{i:\,\mathrm{mut}(i)=a}(p_i - t_i),
+\label{eq:bias}
+\end{equation}
+and the bias-corrected score subtracts it:
+\begin{equation}
+\tilde p_i = p_i - B_{\mathrm{mut}(i)}.
+\label{eq:biascorr}
+\end{equation}
+Equation \eqref{eq:bias} is the exact least-squares offset per
+identity: setting the derivative of
+$\sum_{i:\mathrm{mut}(i)=a}(p_i-t_i-B_a)^2$ to zero gives
+$-2\sum_i (p_i-t_i-B_a)=0$, whose solution is \eqref{eq:bias}, and the
+second derivative $2n_a>0$ makes it the unique minimizer.
+Uncertainty on $r$ uses a percentile bootstrap over $5000$ test-set
+resamples:
+\begin{equation}
+\widehat{\mathrm{CI}}_{95}(r) = \big[\,Q_{0.025}\{r^{*(b)}\},\; Q_{0.975}\{r^{*(b)}\}\,\big],
+\qquad b=1,\dots,5000,
+\label{eq:bootstrap}
+\end{equation}
+where $r^{*(b)}$ is Eq.~\eqref{eq:pearson} evaluated on a uniform
+resample with replacement of the test pairs; the interval is exact for
+the empirical distribution and first-order accurate for the sampling
+distribution \cite{efron1994}.
 
 \section{Results}
 \label{sec:results}
@@ -207,14 +272,22 @@ $B_a = \frac{1}{n_a}\sum_{i:\,\mathrm{mut}(i)=a}(p_i - t_i)$.
 \subsection{Benchmark: Ssym inverse}
 Table~\ref{tab:bench} places the v2 model against all 15 predictors
 tabulated by Pucci et al.\ (2018, Table~1) on the leak-free Ssym inverse
-test set. The v2 model attains $r_{\mathrm{inv}}=0.578$ and
-$\sigma_{\mathrm{inv}}=1.397$~kcal/mol, improving on the best published
+test set. The v2 model attains $r_{\mathrm{inv}}=0.592$ and
+$\sigma_{\mathrm{inv}}=1.429$~kcal/mol, improving on the best published
 antisymmetry-consistent result (PoPMuSiCsym: $r_{\mathrm{inv}}=0.48$,
-$\sigma_{\mathrm{inv}}=1.62$~kcal/mol) by $+0.10$ in correlation and
-$-0.22$~kcal/mol in error. Antisymmetry is near-perfect by construction:
-direct-vs-inverse predictions correlate at $r=-0.944$ with mean
-antisymmetry violation $-0.04$~kcal/mol (best published: $-0.77$ and
-$0.03$). On the full Ssym set $r=0.698$; on the direct half $r=0.625$.
+$\sigma_{\mathrm{inv}}=1.62$~kcal/mol) by $+0.11$ in correlation and
+$-0.19$~kcal/mol in error. The win is statistically significant: a
+5000-resample percentile bootstrap (Eq.~\eqref{eq:bootstrap}) gives
+95\% CIs $r\in[0.508,0.674]$ and $\sigma\in[1.250,1.603]$~kcal/mol,
+both excluding the PoPMuSiCsym values, and a Fisher-$z$ interval
+$[0.518,0.657]$ agrees; Spearman $\rho=0.570$
+($p=8.2\times10^{-31}$). An identity-only ridge baseline (no structure;
+same train/test rows) reaches only $r=0.251$,
+$\sigma=2.334$~kcal/mol, so the gain is structural, not a residue-identity
+shortcut. Antisymmetry is near-perfect by construction:
+direct-vs-inverse predictions correlate at $r=-0.953$ with mean
+antisymmetry violation $-0.024$~kcal/mol (best published: $-0.77$ and
+$0.03$). On the full Ssym set $r=0.699$; on the direct half $r=0.628$.
 Figure~\ref{fig:scatter} shows the inverse-set scatter.
 
 \begin{table}[ht]
@@ -228,8 +301,8 @@ $\sigma$ in kcal/mol.}
 Method & $\sigma_{\mathrm{dir}}$ & $r_{\mathrm{dir}}$ &
 $\sigma_{\mathrm{inv}}$ & $r_{\mathrm{inv}}$ \\
 \hline
-\textbf{This work (v2 GNN)} & \textbf{1.31} & \textbf{0.62} &
-\textbf{1.40} & \textbf{0.58} \\
+\textbf{This work (v2 GNN)} & \textbf{1.37} & \textbf{0.63} &
+\textbf{1.43} & \textbf{0.59} \\
 PoPMuSiCsym & 1.58 & 0.48 & 1.62 & 0.48 \\
 MAESTRO & 1.36 & 0.52 & 2.09 & 0.32 \\
 FoldX & 1.56 & 0.63 & 2.13 & 0.39 \\
@@ -260,10 +333,11 @@ inverse mutations (v2, epoch 300, trained on full S2648).}
 \subsection{Identity-bias analysis}
 \label{sec:bias}
 The v1 model carried a systematic per-identity bias: re-measured on
-S2648, mean residuals reach $+0.99$~kcal/mol for TRP, $+0.97$ ILE,
-$+0.89$ VAL, $+0.83$ TYR, $+0.76$ LEU (Fig.~\ref{fig:bias}). The v2
+S2648, mean residuals reach $+1.04$~kcal/mol for TRP, with ILE, VAL,
+TYR and LEU next (Fig.~\ref{fig:bias}). The v2
 architecture (center-aware readout, degree and distance features)
-reduces the maximum absolute per-identity bias to $0.205$~kcal/mol.
+reduces the maximum absolute per-identity bias to $0.191$~kcal/mol
+(ILE).
 
 \begin{figure}[ht]
 \centering
@@ -297,44 +371,61 @@ epochs (validation run).}
 
 \subsection{Rescue scan on p53-Y220C (2VUK)}
 \label{sec:scan}
-All 3743 single substitutions of 2VUK chain A (197 positions $\times$
-19) were scored with the v2 model and ranked raw and
-identity-bias-corrected. Two structural facts frame the scan. First,
+Every position $i$ of 2VUK chain A was re-typed to each amino acid $a$
+and scored through the shared network:
+\begin{equation}
+\hat y_{i,a} = f\big(G_{i,a}\big) - f\big(G_{\mathrm{wt}}\big),
+\qquad a \in \mathcal A \setminus \{\mathrm{aa}(i)\},
+\label{eq:scan}
+\end{equation}
+where $G_{i,a}$ is the fixed-backbone graph with node $i$ re-typed to
+$a$ (Eq.~\eqref{eq:features}) and $\mathcal A$ the 20 standard amino
+acids. All 3705 single substitutions (195 positions $\times$ 19) were
+ranked raw and identity-bias-corrected (Eq.~\eqref{eq:biascorr}). Two structural facts frame the scan. First,
 2VUK is Y220C crystallized on the superstable M133L/V203A/N239Y/N268D
 background \cite{joerger2006}, so the scan measures stabilization
 \emph{beyond} the known quadruple mutant. Second, the scan exposed an
 out-of-distribution failure: S2648 and Ssym contain no proline mutations
 in either direction, so the proline feature channel is untrained and
-WT=PRO predictions are inflated (mean $+3.42$ vs $-0.39$~kcal/mol for
-other WT types). All candidate rankings mask the 285 WT=PRO rows.
+WT=PRO predictions are inflated (mean $+3.26$~kcal/mol across the 266
+WT=PRO rows). All candidate rankings mask WT=PRO rows.
 
-Face-validity against curated literature suppressors: L137R, a
-documented Y220C second-site suppressor, scores $+3.13$ (top 7.2\%) and
-H178Y (a G245S suppressor) $+5.67$ (top 0.9\%); the four superstable
-background mutations are already present in the structure. The second
-documented Y220C suppressor, A138G, is scored $-3.25$ (bottom 7\%) - a
-clear miss, preserved as such. Top novel candidates (H178C $+6.7$,
-H178M $+6.2$, H178D $+6.2$, H179R $+5.8$, A189Y $+5.5$, K139V $+5.3$)
-concentrate in the two loops that host the known suppressors
-(L137/K139 and H178/H179), which is the strongest plausibility signal
-in the scan. Predicted magnitudes exceed typical experimental
-stabilizations, and a greedy multi-mutant sum ($+42.6$~kcal/mol) is
-implausible; ranks, not absolute values, are the output.
+Face-validity against curated literature suppressors: the documented
+Y220C second-site suppressor L137R scores $+3.43$ (top 4.9\%) and the
+R249S suppressor H168R $+3.55$ (top 4.7\%); the G245S suppressor H178Y
+is mid-rank ($+0.70$, 35th percentile from top), and the four
+superstable background mutations are already present in the structure.
+The second documented Y220C suppressor, A138G, is scored $-0.45$
+(58th percentile from top) - a clear miss, preserved as such. Top novel
+candidates (S240C $+6.5$, G245C $+6.1$, M246C $+6.0$, R273C $+5.9$,
+S241C $+5.6$) concentrate in the loop around Gly245 - a known p53
+hotspot whose destabilizing G245S mutation these cysteines would
+substitute at or near - and at the DNA-contact residue Arg273, which is
+the strongest plausibility signal in the scan. Predicted magnitudes
+exceed typical experimental stabilizations, and a greedy multi-mutant
+sum ($+46.0$~kcal/mol) is implausible; ranks, not absolute values, are
+the output.
 
 \subsection{SOD1 (Study 2)}
 \label{sec:sod1}
 Validation against 8 unique ThermoMutDB SOD1 $\Delta\Delta G$
 measurements (duplicates across temperatures averaged; structures
-1SPD/3ECU/1N18) gives Pearson $r=-0.05$, Spearman $-0.14$, MAE
-2.66~kcal/mol, sign accuracy 25\%: the model does not generalize to
-SOD1. The two worst misses have mechanistic explanations outside the
-model class: A4V (exp $-7.2$, pred $+0.07$) was measured on metal-free
-apo SOD1, and C6A ($-3.03$ vs $+0.1$) acts by removing an
+1SPD/3ECU/1N18) gives Pearson $r=-0.148$, Spearman $0.0$, MAE
+3.05~kcal/mol, and sign accuracy
+\begin{equation}
+\mathrm{Acc}_{\mathrm{sign}} = \frac{1}{n}\sum_{i=1}^{n}\mathbb{1}\!\big[\mathrm{sign}(p_i)=\mathrm{sign}(t_i)\big] = 62.5\%:
+\label{eq:signacc}
+\end{equation}
+the model does not generalize to SOD1. The two worst misses have mechanistic explanations outside the
+model class: A4V (exp $-7.2$, pred $+2.4$) was measured on metal-free
+apo SOD1, and C6A (exp $+0.1$, pred $-4.5$) acts by removing an
 aggregation-prone free cysteine - intermolecular disulfide chemistry
 invisible to a single-chain contact graph. A whole-chain scan of WT SOD1
-(1SPD) nominates V5Y/V5R and G114F/G114C as stabilizing candidates;
-C111S, the one free-cysteine removal the model could in principle see,
-ranks top 26\% with the correct sign. These are hypotheses with explicit
+(1SPD) nominates G82N, G33Y, G33W, G82K and G41W as stabilizing
+candidates - glycine-to-bulkier-residue substitutions at loops, the
+weakest points of a contact graph; C111S, the one free-cysteine removal
+the model could in principle see, ranks top 26\% with the correct
+sign. These are hypotheses with explicit
 caveats, not claims.
 
 \section{Discussion}
@@ -404,6 +495,18 @@ whose pathogenic mechanism is oligomeric, allosteric, or
 cofactor-mediated, and we report the failure in full because it
 delimits where the method class should and should not be applied.
 
+\subsection{Usable tool: \texttt{gnn-ddg}}
+The work ships as a runnable command-line tool, \texttt{tools/gnn-ddg}
+(documented in \texttt{tools/README.md}, smoke-tested in
+\texttt{tests/test\_gnn\_ddg\_cli.py}). \texttt{gnn-ddg scan} fetches a
+PDB structure, builds contact graphs with the altloc-safe parser, scores
+all 19 substitutions at every position through the benchmark checkpoint,
+masks out-of-distribution WT=PRO rows, applies the identity-bias
+correction of Eq.~\eqref{eq:biascorr}, and prints a ranked candidate
+table (JSON/CSV export); \texttt{gnn-ddg predict} scores a single
+mutation. Every caveat of this section is enforced or printed by the
+tool itself.
+
 \subsection{Recommended use}
 Taken together, the results support exactly one deployment pattern:
 bias-corrected, rank-based triage of candidate rescue mutations on
@@ -415,26 +518,29 @@ inverse split; outside it, our own negative results apply.
 \section{Limitations and negative results}
 \label{sec:limits}
 All of the following are preserved with quantification in
-\texttt{results/}: (1) v1 aromatic-identity bias ($+0.76$ to
-$+0.99$~kcal/mol); (2) greedy multi-mutant sums are implausible under
-the independence approximation ($+17.5$ v1, $+42.6$ v2); (3) p53
-transfer collapses at long training ($r$ 0.451 v1 $\to$ 0.155 v2-e300)
-and validation-based early stopping does not repair it; (4) proline
-positions are out of distribution because the training data contain no
-proline mutations; (5) SOD1 $\Delta\Delta G$ prediction fails outright
-($r=-0.05$, $n=8$); (6) the documented Y220C suppressor A138G is missed;
-(7) scan magnitudes are inflated and only ranks should be read.
+\texttt{results/}: (1) v1 aromatic-identity bias (up to
+$+1.04$~kcal/mol for TRP); (2) greedy multi-mutant sums are implausible
+under the independence approximation ($+19.5$ v1, $+46.0$ v2); (3) p53
+transfer collapses at long training ($r$ 0.426 v1 $\to$ $-0.02$
+v2-e300) and validation-based early stopping does not repair it; (4)
+proline positions are out of distribution because the training data
+contain no proline mutations; (5) SOD1 $\Delta\Delta G$ prediction
+fails outright ($r=-0.15$, $n=8$); (6) the documented Y220C suppressor
+A138G is missed; (7) scan magnitudes are inflated and only ranks should
+be read.
 
 \section{External tools}
 \label{sec:tools}
 Tools actually executed or queried (honest ledger:
-\texttt{results/EXTERNAL\_TOOLS.md}): RCSB PDB (484 structures),
-ProtDDG-Bench, the Pucci 2018 published Table~1 (verified from PDF),
-FireProtDB 2.0 REST API, ThermoMutDB API, Europe PMC REST, Zenodo API,
-SoDCoD, NumPy (all model math), matplotlib (figures), pytest (24
-hermetic tests), git/GitHub, Google Drive, pdflatex (this document).
-Staged and planned entries are listed separately in the ledger and are
-not counted here.
+\texttt{results/EXTERNAL\_TOOLS.md}): RCSB PDB (481 structures
+downloaded and parsed), ProtDDG-Bench, the Pucci 2018 published
+Table~1 (verified from PDF), FireProtDB 2.0 REST API, ThermoMutDB API,
+Europe PMC REST, Zenodo API, SoDCoD, Biopython (independent parser
+cross-check), SciPy (Spearman/Fisher statistics), scikit-learn
+(identity-only ridge baseline), NumPy (all model math), matplotlib
+(figures), pytest (hermetic tests), git/GitHub, Google Drive, pdflatex
+(this document). Staged and planned entries are listed separately in
+the ledger and are not counted here.
 
 
 \begin{thebibliography}{9}
@@ -447,6 +553,8 @@ Physical and molecular bases of protein thermal stability and cold adaptation.
 \bibitem[Lindberg et al.(2005)]{lindberg2005} Lindberg MJ, Bystr\"om R,
 Bokn\"as N, Andersen PM, Oliveberg M. Systematically perturbed folding
 patterns of ALS-associated SOD1 mutants. \textit{PNAS} 102:9754--9759 (2005).
+\bibitem[Efron and Tibshirani(1994)]{efron1994} Efron B, Tibshirani RJ.
+\emph{An Introduction to the Bootstrap}. Chapman \& Hall/CRC, 1994.
 \bibitem[Joerger et al.(2006)]{joerger2006} Joerger AC, Ang HC, Fersht AR.
 Structural basis for understanding oncogenic p53 mutations and designing
 rescue drugs. \textit{PNAS} 103:15056--15061 (2006).

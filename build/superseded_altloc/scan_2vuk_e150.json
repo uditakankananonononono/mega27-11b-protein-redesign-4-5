@@ -1,0 +1,423 @@
+{
+ "structure": "2VUK",
+ "chain": "A",
+ "center": 220,
+ "model_epoch": 150,
+ "n_positions": 72,
+ "n_scanned": 1368,
+ "top_overall": [
+  {
+   "position": 203,
+   "wt": "ALA",
+   "mut": "PHE",
+   "ddg_pred": 2.4257,
+   "in_reference_sets": false
+  },
+  {
+   "position": 104,
+   "wt": "GLN",
+   "mut": "TRP",
+   "ddg_pred": 2.3326,
+   "in_reference_sets": false
+  },
+  {
+   "position": 227,
+   "wt": "SER",
+   "mut": "TYR",
+   "ddg_pred": 2.2626,
+   "in_reference_sets": false
+  },
+  {
+   "position": 203,
+   "wt": "ALA",
+   "mut": "ILE",
+   "ddg_pred": 2.2006,
+   "in_reference_sets": false
+  },
+  {
+   "position": 231,
+   "wt": "THR",
+   "mut": "TYR",
+   "ddg_pred": 2.1643,
+   "in_reference_sets": false
+  },
+  {
+   "position": 266,
+   "wt": "GLY",
+   "mut": "TRP",
+   "ddg_pred": 2.1225,
+   "in_reference_sets": false
+  },
+  {
+   "position": 106,
+   "wt": "SER",
+   "mut": "TRP",
+   "ddg_pred": 2.069,
+   "in_reference_sets": false
+  },
+  {
+   "position": 199,
+   "wt": "GLY",
+   "mut": "PHE",
+   "ddg_pred": 2.0523,
+   "in_reference_sets": false
+  },
+  {
+   "position": 144,
+   "wt": "GLN",
+   "mut": "TYR",
+   "ddg_pred": 2.0286,
+   "in_reference_sets": false
+  },
+  {
+   "position": 230,
+   "wt": "THR",
+   "mut": "TYR",
+   "ddg_pred": 2.0152,
+   "in_reference_sets": false
+  },
+  {
+   "position": 266,
+   "wt": "GLY",
+   "mut": "PRO",
+   "ddg_pred": 2.0058,
+   "in_reference_sets": false
+  },
+  {
+   "position": 220,
+   "wt": "CYS",
+   "mut": "TYR",
+   "ddg_pred": 1.9844,
+   "in_reference_sets": false
+  },
+  {
+   "position": 104,
+   "wt": "GLN",
+   "mut": "PRO",
+   "ddg_pred": 1.9242,
+   "in_reference_sets": false
+  },
+  {
+   "position": 159,
+   "wt": "ALA",
+   "mut": "TYR",
+   "ddg_pred": 1.8823,
+   "in_reference_sets": false
+  },
+  {
+   "position": 203,
+   "wt": "ALA",
+   "mut": "TYR",
+   "ddg_pred": 1.8772,
+   "in_reference_sets": false
+  },
+  {
+   "position": 199,
+   "wt": "GLY",
+   "mut": "TYR",
+   "ddg_pred": 1.8665,
+   "in_reference_sets": false
+  },
+  {
+   "position": 105,
+   "wt": "GLY",
+   "mut": "PRO",
+   "ddg_pred": 1.8524,
+   "in_reference_sets": false
+  },
+  {
+   "position": 149,
+   "wt": "SER",
+   "mut": "TRP",
+   "ddg_pred": 1.834,
+   "in_reference_sets": false
+  },
+  {
+   "position": 199,
+   "wt": "GLY",
+   "mut": "ILE",
+   "ddg_pred": 1.8269,
+   "in_reference_sets": false
+  },
+  {
+   "position": 266,
+   "wt": "GLY",
+   "mut": "ILE",
+   "ddg_pred": 1.8268,
+   "in_reference_sets": false
+  },
+  {
+   "position": 105,
+   "wt": "GLY",
+   "mut": "TRP",
+   "ddg_pred": 1.812,
+   "in_reference_sets": false
+  },
+  {
+   "position": 196,
+   "wt": "ARG",
+   "mut": "TYR",
+   "ddg_pred": 1.8115,
+   "in_reference_sets": false
+  },
+  {
+   "position": 159,
+   "wt": "ALA",
+   "mut": "PHE",
+   "ddg_pred": 1.78,
+   "in_reference_sets": false
+  },
+  {
+   "position": 260,
+   "wt": "SER",
+   "mut": "TRP",
+   "ddg_pred": 1.7752,
+   "in_reference_sets": false
+  },
+  {
+   "position": 196,
+   "wt": "ARG",
+   "mut": "PHE",
+   "ddg_pred": 1.7744,
+   "in_reference_sets": false
+  }
+ ],
+ "top_novel": [
+  {
+   "position": 203,
+   "wt": "ALA",
+   "mut": "PHE",
+   "ddg_pred": 2.4257,
+   "in_reference_sets": false
+  },
+  {
+   "position": 104,
+   "wt": "GLN",
+   "mut": "TRP",
+   "ddg_pred": 2.3326,
+   "in_reference_sets": false
+  },
+  {
+   "position": 227,
+   "wt": "SER",
+   "mut": "TYR",
+   "ddg_pred": 2.2626,
+   "in_reference_sets": false
+  },
+  {
+   "position": 203,
+   "wt": "ALA",
+   "mut": "ILE",
+   "ddg_pred": 2.2006,
+   "in_reference_sets": false
+  },
+  {
+   "position": 231,
+   "wt": "THR",
+   "mut": "TYR",
+   "ddg_pred": 2.1643,
+   "in_reference_sets": false
+  },
+  {
+   "position": 266,
+   "wt": "GLY",
+   "mut": "TRP",
+   "ddg_pred": 2.1225,
+   "in_reference_sets": false
+  },
+  {
+   "position": 106,
+   "wt": "SER",
+   "mut": "TRP",
+   "ddg_pred": 2.069,
+   "in_reference_sets": false
+  },
+  {
+   "position": 199,
+   "wt": "GLY",
+   "mut": "PHE",
+   "ddg_pred": 2.0523,
+   "in_reference_sets": false
+  },
+  {
+   "position": 144,
+   "wt": "GLN",
+   "mut": "TYR",
+   "ddg_pred": 2.0286,
+   "in_reference_sets": false
+  },
+  {
+   "position": 230,
+   "wt": "THR",
+   "mut": "TYR",
+   "ddg_pred": 2.0152,
+   "in_reference_sets": false
+  },
+  {
+   "position": 266,
+   "wt": "GLY",
+   "mut": "PRO",
+   "ddg_pred": 2.0058,
+   "in_reference_sets": false
+  },
+  {
+   "position": 220,
+   "wt": "CYS",
+   "mut": "TYR",
+   "ddg_pred": 1.9844,
+   "in_reference_sets": false
+  },
+  {
+   "position": 104,
+   "wt": "GLN",
+   "mut": "PRO",
+   "ddg_pred": 1.9242,
+   "in_reference_sets": false
+  },
+  {
+   "position": 159,
+   "wt": "ALA",
+   "mut": "TYR",
+   "ddg_pred": 1.8823,
+   "in_reference_sets": false
+  },
+  {
+   "position": 203,
+   "wt": "ALA",
+   "mut": "TYR",
+   "ddg_pred": 1.8772,
+   "in_reference_sets": false
+  },
+  {
+   "position": 199,
+   "wt": "GLY",
+   "mut": "TYR",
+   "ddg_pred": 1.8665,
+   "in_reference_sets": false
+  },
+  {
+   "position": 105,
+   "wt": "GLY",
+   "mut": "PRO",
+   "ddg_pred": 1.8524,
+   "in_reference_sets": false
+  },
+  {
+   "position": 149,
+   "wt": "SER",
+   "mut": "TRP",
+   "ddg_pred": 1.834,
+   "in_reference_sets": false
+  },
+  {
+   "position": 199,
+   "wt": "GLY",
+   "mut": "ILE",
+   "ddg_pred": 1.8269,
+   "in_reference_sets": false
+  },
+  {
+   "position": 266,
+   "wt": "GLY",
+   "mut": "ILE",
+   "ddg_pred": 1.8268,
+   "in_reference_sets": false
+  },
+  {
+   "position": 105,
+   "wt": "GLY",
+   "mut": "TRP",
+   "ddg_pred": 1.812,
+   "in_reference_sets": false
+  },
+  {
+   "position": 196,
+   "wt": "ARG",
+   "mut": "TYR",
+   "ddg_pred": 1.8115,
+   "in_reference_sets": false
+  },
+  {
+   "position": 159,
+   "wt": "ALA",
+   "mut": "PHE",
+   "ddg_pred": 1.78,
+   "in_reference_sets": false
+  },
+  {
+   "position": 260,
+   "wt": "SER",
+   "mut": "TRP",
+   "ddg_pred": 1.7752,
+   "in_reference_sets": false
+  },
+  {
+   "position": 196,
+   "wt": "ARG",
+   "mut": "PHE",
+   "ddg_pred": 1.7744,
+   "in_reference_sets": false
+  }
+ ],
+ "greedy_combo": {
+  "mutations": [
+   {
+    "position": 203,
+    "wt": "ALA",
+    "mut": "PHE",
+    "ddg_pred": 2.4257,
+    "in_reference_sets": false
+   },
+   {
+    "position": 104,
+    "wt": "GLN",
+    "mut": "TRP",
+    "ddg_pred": 2.3326,
+    "in_reference_sets": false
+   },
+   {
+    "position": 227,
+    "wt": "SER",
+    "mut": "TYR",
+    "ddg_pred": 2.2626,
+    "in_reference_sets": false
+   },
+   {
+    "position": 231,
+    "wt": "THR",
+    "mut": "TYR",
+    "ddg_pred": 2.1643,
+    "in_reference_sets": false
+   },
+   {
+    "position": 266,
+    "wt": "GLY",
+    "mut": "TRP",
+    "ddg_pred": 2.1225,
+    "in_reference_sets": false
+   },
+   {
+    "position": 106,
+    "wt": "SER",
+    "mut": "TRP",
+    "ddg_pred": 2.069,
+    "in_reference_sets": false
+   },
+   {
+    "position": 199,
+    "wt": "GLY",
+    "mut": "PHE",
+    "ddg_pred": 2.0523,
+    "in_reference_sets": false
+   },
+   {
+    "position": 144,
+    "wt": "GLN",
+    "mut": "TYR",
+    "ddg_pred": 2.0286,
+    "in_reference_sets": false
+   }
+  ],
+  "predicted_total_ddg": 17.458
+ }
+}

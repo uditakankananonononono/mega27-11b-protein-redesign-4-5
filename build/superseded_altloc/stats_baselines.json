@@ -1,0 +1,46 @@
+{
+ "bootstrap": {
+  "n": 342,
+  "B": 5000,
+  "r_inv": 0.578,
+  "r_inv_ci95": [
+   0.4837,
+   0.6593
+  ],
+  "sigma_inv": 1.3966,
+  "sigma_inv_ci95": [
+   1.248,
+   1.5537
+  ],
+  "beats_popmusicsym_r_0_48": true
+ },
+ "scipy": {
+  "spearman_rho": 0.5464,
+  "spearman_p": 5.169282128103363e-28,
+  "fisher_z_ci95": [
+   0.5027,
+   0.6445
+  ]
+ },
+ "ridge_identity_baseline": {
+  "alpha": 1.0,
+  "n_train": 2644,
+  "n_test_inv": 342,
+  "r_inv": 0.2506,
+  "sigma_inv": 2.3338,
+  "note": "identity-only linear model, no structure; tested on the same 342 Ssym inverse rows as the v2 GNN"
+ },
+ "biopython_crosscheck": {
+  "chain_A_residues": 195,
+  "our_parser_residues": 197,
+  "match": false,
+  "superstable_background": {
+   "133": "LEU",
+   "203": "ALA",
+   "239": "TYR",
+   "268": "ASP",
+   "220": "CYS"
+  },
+  "confirms": true
+ }
+}

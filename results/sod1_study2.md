@@ -1,5 +1,16 @@
 # Study 2 - SOD1: validation and rescue scan (honest negative on ddG)
 
+> **POST-PARSER-FIX REGENERATION (2026-09-24 ~21:50 UTC+5:30).** Validation
+> and 1SPD scan regenerated on the fixed parser and post-fix checkpoint
+> (`build/sod1_validate.json`, `build/scan_1spd_whole_v2.json`). The
+> conclusion is unchanged - the model does NOT generalize to SOD1 - with
+> updated numbers: n=8, Pearson r=-0.148, Spearman 0.0, MAE 3.05 kcal/mol,
+> sign accuracy 62.5% (5/8). A4V pred +2.4 (exp -7.2), C6A pred -4.5
+> (exp +0.1). C111S ranks top 26.2% of the 1SPD scan with correct sign;
+> C6A bottom (99.5th pct). 1SPD top candidates now: G82N, G33Y, G33W,
+> G82K, G41W. Numbers in the body below are the PRE-FIX run unless
+> re-stated above.
+
 Scripts: `scripts/sod1_validate.py`, `scripts/rescue_scan_v2_whole.py`.
 Data: `build/sod1_validate.json`, `build/scan_1spd_whole_v2.json`.
 Experimental source: ThermoMutDB human P00441 rows

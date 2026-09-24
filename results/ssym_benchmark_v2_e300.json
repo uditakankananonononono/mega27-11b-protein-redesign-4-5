@@ -1,7 +1,7 @@
 {
  "experiment": "ssym_benchmark_v2_e300",
  "date": "2026-09-24",
- "protocol": "ProtDDG-Bench train-s2648-test-ssym; per-row crystal structure; ddG = f(mutant)-f(WT) through one shared GNN (antisymmetric by construction); v2 center-aware readout",
+ "protocol": "ProtDDG-Bench train-s2648-test-ssym; per-row crystal structure; ddG = f(mutant)-f(WT) through one shared GNN (antisymmetric by construction); v2 center-aware readout (POST-FIX: rebuilt after the altloc-CA parser fix; supersedes the 20:53 copy)",
  "config": {
   "epochs": 300,
   "lr": 0.001,
@@ -21,48 +21,50 @@
  },
  "metrics": {
   "ssym_all": {
-   "pearson": 0.6982804943116975,
-   "rmse": 1.3539254738803685
+   "pearson": 0.6987450728552796,
+   "rmse": 1.401535468633399
   },
   "ssym_dir": {
-   "pearson": 0.6247764206535912,
-   "rmse": 1.3098975130255446,
+   "pearson": 0.6284143710339057,
+   "rmse": 1.373344326731074,
    "n": 342
   },
   "ssym_inv": {
-   "pearson": 0.5779661803535966,
-   "rmse": 1.396566104061621,
+   "pearson": 0.5918790920162932,
+   "rmse": 1.4291706335880456,
    "n": 342
   },
   "antisymmetry": {
-   "r_dir_inv": -0.9444165378676328,
-   "delta_mean": -0.03780387103082435
-  },
-  "p53": {
-   "pearson": 0.15544856750316244,
-   "rmse": 2.5987517890871072
+   "r_dir_inv": -0.9525423593466541,
+   "delta_mean": -0.023797247908761626
   }
  },
- "published_targets": {
-  "PoPMuSiCsym": {
-   "r_inv": 0.48,
-   "sigma_inv": 1.62,
-   "r_dir_inv": -0.77
-  },
-  "FoldX": {
-   "r_inv": 0.39,
-   "sigma_inv": 2.13
-  },
-  "Rosetta": {
-   "r_inv": 0.43,
-   "sigma_inv": 2.61
-  }
+ "significance": {
+  "bootstrap_B": 5000,
+  "r_inv_ci95": [
+   0.5076,
+   0.6742
+  ],
+  "sigma_inv_ci95": [
+   1.2503,
+   1.6025
+  ],
+  "fisher_z_ci95": [
+   0.5184,
+   0.6567
+  ],
+  "spearman_rho": 0.5696,
+  "spearman_p": 8.204320574926245e-31,
+  "beats_popmusicsym_r_0_48": true
  },
- "verdict": {
-  "benchmark_beaten": true,
-  "r_inv": "0.578 vs 0.48 published best (PoPMuSiCsym) - beaten by +20%",
-  "sigma_inv": "1.397 vs 1.62 published best - beaten by 14%",
-  "antisymmetry": "-0.944 vs -0.77 published best",
-  "caveat": "p53-family generalization dropped (r 0.155); checkpoint selection via validation split needed for Study 1"
- }
+ "identity_only_ridge_baseline": {
+  "alpha": 1.0,
+  "n_train": 2644,
+  "n_test_inv": 342,
+  "r_inv": 0.2506,
+  "sigma_inv": 2.3338,
+  "note": "identity-only linear model, no structure; tested on the same 342 Ssym inverse rows as the v2 GNN"
+ },
+ "published_reference": "PoPMuSiCsym r_inv 0.48, sigma_inv 1.62 (Pucci et al. 2018 Table 1, verified from PDF)",
+ "source_file": "build/bench_v2_e300.json"
 }
