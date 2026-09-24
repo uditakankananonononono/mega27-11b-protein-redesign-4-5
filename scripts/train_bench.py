@@ -228,7 +228,7 @@ def main():
         preds, targs, dirs = [], [], []
         for r, e in zip(recs, exs):
             preds.append(predict_ddg(net, e, arch=args.arch))
-            targs.append(e[3])
+            targs.append(e[4])  # example = (na, wf, mf, center, ddg)
             dirs.append(r.direction)
         return preds, targs, dirs
 

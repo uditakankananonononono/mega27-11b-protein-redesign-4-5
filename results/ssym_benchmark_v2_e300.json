@@ -1,0 +1,68 @@
+{
+ "experiment": "ssym_benchmark_v2_e300",
+ "date": "2026-09-24",
+ "protocol": "ProtDDG-Bench train-s2648-test-ssym; per-row crystal structure; ddG = f(mutant)-f(WT) through one shared GNN (antisymmetric by construction); v2 center-aware readout",
+ "config": {
+  "epochs": 300,
+  "lr": 0.001,
+  "hidden": 64,
+  "mlp_hidden": 32,
+  "batch": 32,
+  "seed": 0,
+  "arch": "v2"
+ },
+ "leakage_check": {
+  "inverse_rows_overlapping_train_exact": 0,
+  "inverse_rows_n": 342,
+  "inverse_rows_same_protein_position": 0,
+  "direct_rows_overlapping_train": 194,
+  "direct_rows_n": 342,
+  "note": "direct overlap expected (Pucci 2018: direct mutations are in published methods' training sets); the inverse set is the independent test and is 100% leak-free"
+ },
+ "metrics": {
+  "ssym_all": {
+   "pearson": 0.6982804943116975,
+   "rmse": 1.3539254738803685
+  },
+  "ssym_dir": {
+   "pearson": 0.6247764206535912,
+   "rmse": 1.3098975130255446,
+   "n": 342
+  },
+  "ssym_inv": {
+   "pearson": 0.5779661803535966,
+   "rmse": 1.396566104061621,
+   "n": 342
+  },
+  "antisymmetry": {
+   "r_dir_inv": -0.9444165378676328,
+   "delta_mean": -0.03780387103082435
+  },
+  "p53": {
+   "pearson": 0.15544856750316244,
+   "rmse": 2.5987517890871072
+  }
+ },
+ "published_targets": {
+  "PoPMuSiCsym": {
+   "r_inv": 0.48,
+   "sigma_inv": 1.62,
+   "r_dir_inv": -0.77
+  },
+  "FoldX": {
+   "r_inv": 0.39,
+   "sigma_inv": 2.13
+  },
+  "Rosetta": {
+   "r_inv": 0.43,
+   "sigma_inv": 2.61
+  }
+ },
+ "verdict": {
+  "benchmark_beaten": true,
+  "r_inv": "0.578 vs 0.48 published best (PoPMuSiCsym) - beaten by +20%",
+  "sigma_inv": "1.397 vs 1.62 published best - beaten by 14%",
+  "antisymmetry": "-0.944 vs -0.77 published best",
+  "caveat": "p53-family generalization dropped (r 0.155); checkpoint selection via validation split needed for Study 1"
+ }
+}
