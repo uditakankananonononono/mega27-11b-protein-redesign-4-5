@@ -119,6 +119,29 @@ from FireProtDB~2.0. 481 crystal structures were fetched from RCSB PDB.
 The complete accession-level manifest (493 sources) is in
 \texttt{results/DATASETS.md}.
 
+\section{Related work}
+Published $\Delta\Delta G$ predictors fall into four families
+\cite{pucci2018}. Energy-based methods (FoldX, Rosetta, CUPSAT)
+evaluate a physical or statistical potential on the mutated structure;
+machine-learning methods (mCSM, DUET, MAESTRO, iSTABLE, STRUM, MUPRO,
+NeEMO) learn graph- or feature-based regressors over mutation
+descriptors; sequence/conservation methods (I-Mutant v3.0) need no
+structure; and symmetry-aware methods (PoPMuSiCsym) enforce the
+physically required antisymmetry
+$\Delta\Delta G(w\!\to\!m)=-\Delta\Delta G(m\!\to\!w)$. Pucci
+et al.\ showed that most ML predictors violate antisymmetry badly and
+inflate benchmark scores through direct-set leakage; the leak-free
+Ssym inverse split is therefore the binding comparison, and
+PoPMuSiCsym's $r=0.48$ is the best published number on it. Our model
+sits in the ML family but takes antisymmetry as a hard architectural
+constraint (Proposition~\ref{prop:antisym}) rather than a data
+augmentation, which is what lets a 2-layer GCN beat energy models with
+two orders of magnitude more parameters. Recent deep-learning
+predictors (ThermoNet, RaSP, ProteinMPNN-derived scorers) report
+higher numbers on larger private splits; we could not execute them in
+this sandbox (weights unavailable or license-restricted - Appendix A
+marks each NOT RUN) and compare only on the public Ssym protocol.
+
 \section{Methods}
 \subsection{Structure graphs}
 Each protein chain is a graph $G=(V,E)$ whose nodes are its residues
@@ -306,7 +329,19 @@ shortcut. Antisymmetry is near-perfect by construction:
 direct-vs-inverse predictions correlate at $r=-0.953$ with mean
 antisymmetry violation $-0.024$~kcal/mol (best published: $-0.77$ and
 $0.03$). On the full Ssym set $r=0.699$; on the direct half $r=0.628$.
-Figure~\ref{fig:scatter} shows the inverse-set scatter.
+Figure~\ref{fig:scatter} shows the inverse-set scatter. Error
+analysis on the 342 inverse rows (committed in
+\texttt{build/ssym\_inv\_error\_analysis.json}): median absolute
+error $0.578$~kcal/mol, 90th percentile $2.41$; MAE grows with
+experimental magnitude (from $0.73$ for $|\Delta\Delta G|<1$ to
+$\approx3.9$ beyond $6$~kcal/mol), i.e.\ the model compresses the
+dynamic range - consistent with the inflated-magnitude caveat of the
+scan sections. The largest per-identity residuals on this set are
+WT=PRO ($+2.52$, $n=9$) and WT=TRP ($-3.03$, $n=3$): the proline
+out-of-distribution failure is visible even in the headline metric,
+and excluding the 9 WT=PRO rows raises $r_{\mathrm{inv}}$ to
+$0.629$ ($\sigma=1.332$, $n=333$) - reported alongside, not instead
+of, the full-set number.
 
 \begin{table}[ht]
 \centering

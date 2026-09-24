@@ -1,0 +1,204 @@
+{
+ "median_abs_err": 0.578,
+ "p90_abs_err": 2.407,
+ "worst10": [
+  {
+   "pdb": "1L96",
+   "chain": "A",
+   "pos": 3,
+   "wt": "PRO",
+   "mut": "ILE",
+   "dir": "INV",
+   "exp": 3.0,
+   "pred": 9.741
+  },
+  {
+   "pdb": "1LHJ",
+   "chain": "A",
+   "pos": 103,
+   "wt": "GLY",
+   "mut": "PRO",
+   "dir": "INV",
+   "exp": 0.1,
+   "pred": -6.008
+  },
+  {
+   "pdb": "1QS5",
+   "chain": "A",
+   "pos": 98,
+   "wt": "LEU",
+   "mut": "ALA",
+   "dir": "INV",
+   "exp": 4.3,
+   "pred": -1.318
+  },
+  {
+   "pdb": "3C80",
+   "chain": "A",
+   "pos": 96,
+   "wt": "TYR",
+   "mut": "ARG",
+   "dir": "INV",
+   "exp": 4.7,
+   "pred": -0.2
+  },
+  {
+   "pdb": "1QTB",
+   "chain": "A",
+   "pos": 42,
+   "wt": "VAL",
+   "mut": "ALA",
+   "dir": "INV",
+   "exp": 2.7,
+   "pred": -1.674
+  },
+  {
+   "pdb": "3FI5",
+   "chain": "A",
+   "pos": 96,
+   "wt": "TRP",
+   "mut": "ARG",
+   "dir": "INV",
+   "exp": 4.5,
+   "pred": 0.238
+  },
+  {
+   "pdb": "1RBR",
+   "chain": "A",
+   "pos": 62,
+   "wt": "PRO",
+   "mut": "HIS",
+   "dir": "INV",
+   "exp": -1.1,
+   "pred": 2.942
+  },
+  {
+   "pdb": "1LYE",
+   "chain": "A",
+   "pos": 59,
+   "wt": "VAL",
+   "mut": "THR",
+   "dir": "INV",
+   "exp": 1.5,
+   "pred": -2.478
+  },
+  {
+   "pdb": "1FAN",
+   "chain": "A",
+   "pos": 45,
+   "wt": "ALA",
+   "mut": "PHE",
+   "dir": "INV",
+   "exp": 6.9,
+   "pred": 2.966
+  },
+  {
+   "pdb": "2SNM",
+   "chain": "A",
+   "pos": 66,
+   "wt": "LYS",
+   "mut": "VAL",
+   "dir": "INV",
+   "exp": 7.5,
+   "pred": 3.612
+  }
+ ],
+ "mae_by_exp_mag_bin": {
+  "0": 0.726,
+  "1": 0.9,
+  "2": 1.209,
+  "3": 1.594,
+  "4": 2.051,
+  "5": 1.539,
+  "6": 3.934,
+  "7": 3.888
+ },
+ "resid_by_wt": {
+  "TRP": {
+   "n": 3,
+   "mean_resid": -3.026
+  },
+  "PRO": {
+   "n": 9,
+   "mean_resid": 2.522
+  },
+  "MET": {
+   "n": 27,
+   "mean_resid": -0.878
+  },
+  "GLN": {
+   "n": 3,
+   "mean_resid": 0.635
+  },
+  "TYR": {
+   "n": 7,
+   "mean_resid": -0.497
+  },
+  "GLY": {
+   "n": 21,
+   "mean_resid": -0.471
+  },
+  "VAL": {
+   "n": 34,
+   "mean_resid": -0.448
+  },
+  "LYS": {
+   "n": 6,
+   "mean_resid": -0.408
+  },
+  "ASN": {
+   "n": 18,
+   "mean_resid": -0.402
+  },
+  "ARG": {
+   "n": 5,
+   "mean_resid": 0.364
+  },
+  "SER": {
+   "n": 25,
+   "mean_resid": -0.316
+  },
+  "CYS": {
+   "n": 9,
+   "mean_resid": 0.252
+  },
+  "ILE": {
+   "n": 20,
+   "mean_resid": -0.228
+  },
+  "LEU": {
+   "n": 21,
+   "mean_resid": -0.222
+  },
+  "ASP": {
+   "n": 12,
+   "mean_resid": -0.202
+  },
+  "THR": {
+   "n": 8,
+   "mean_resid": 0.194
+  },
+  "GLU": {
+   "n": 13,
+   "mean_resid": -0.193
+  },
+  "ALA": {
+   "n": 75,
+   "mean_resid": -0.096
+  },
+  "HIS": {
+   "n": 4,
+   "mean_resid": -0.046
+  },
+  "PHE": {
+   "n": 22,
+   "mean_resid": 0.015
+  }
+ },
+ "excluding_wt_pro": {
+  "n": 333,
+  "r_inv": 0.6292,
+  "rmse": 1.3322,
+  "note": "removes the 9 OOD WT=PRO inverse rows"
+ }
+}
