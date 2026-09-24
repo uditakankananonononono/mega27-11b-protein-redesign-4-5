@@ -2,14 +2,6 @@
  "note": "async external jobs awaiting collection; on completion write the results file listed, count the tool in EXTERNAL_TOOLS.md, and delete the entry",
  "jobs": [
   {
-   "tool": "NCBI BLAST API",
-   "id": "BAM06SAF014",
-   "status_url": "https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Get&FORMAT_OBJECT=SearchInfo&RID=BAM06SAF014",
-   "result_url": "https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Get&FORMAT_TYPE=Text&RID=BAM06SAF014&ALIGNMENTS=25&DESCRIPTIONS=25",
-   "purpose": "blastp SOD1 vs pdb (human) - verify 1SPD is the representative WT SOD1 structure choice",
-   "out": "results/blast_1spd_check.json"
-  },
-  {
    "tool": "EBI InterProScan 5 REST",
    "id": "iprscan5-R20260924-173220-0680-81949957-p1m",
    "status_url": "https://www.ebi.ac.uk/Tools/services/rest/iprscan5/status/iprscan5-R20260924-173220-0680-81949957-p1m",

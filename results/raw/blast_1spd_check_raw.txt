@@ -1,0 +1,937 @@
+<p><!--
+QBlastInfoBegin
+	Status=READY
+QBlastInfoEnd
+--><p>
+<PRE>
+
+BLASTP 2.17.0+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro
+A. Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and
+David J. Lipman (1997), "Gapped BLAST and PSI-BLAST: a new
+generation of protein database search programs", Nucleic
+Acids Res. 25:3389-3402.
+
+
+Reference for compositional score matrix adjustment: Stephen
+F. Altschul, John C. Wootton, E. Michael Gertz, Richa
+Agarwala, Aleksandr Morgulis, Alejandro A. Schaffer, and
+Yi-Kuo Yu (2005) "Protein database searches using
+compositionally adjusted substitution matrices", FEBS J.
+272:5101-5109.
+
+
+RID: BAM06SAF014
+
+
+Database: PDB protein database
+           190,094 sequences; 55,342,277 total letters
+Query= 
+Length=154
+
+
+                                                                   Score     E      Max
+Sequences producing significant alignments:                       (Bits)  Value   Ident
+
+8GSQ_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]        310     2e-110  100%        
+4B3E_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]        310     3e-110  100%        
+9IYK_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]        310     3e-110  100%        
+7FB9_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]        310     3e-110  100%        
+5YTO_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]        310     3e-110  100%        
+9IYD_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]        308     1e-109  99%         
+2ZKY_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]        308     1e-109  99%         
+6SPI_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]        308     2e-109  99%         
+9LI1_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]        308     2e-109  99%         
+8IHV_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]        307     2e-109  99%         
+1HL5_A Chain A, SUPEROXIDE DISMUTASE [Homo sapiens]                307     3e-109  100%        
+1HL4_A Chain A, SUPEROXIDE DISMUTASE [Homo sapiens]                307     3e-109  100%        
+8IHU_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]        307     3e-109  99%         
+2ZKW_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]        307     4e-109  99%         
+2NAM_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]        306     9e-109  100%        
+2WYT_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]        306     9e-109  99%         
+1UXL_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]        305     1e-108  99%         
+9IYJ_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]        305     1e-108  99%         
+2WZ6_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]        305     1e-108  99%         
+2WKO_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]        305     1e-108  99%         
+8GSQ_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]        305     1e-108  99%         
+1UXM_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]        305     2e-108  99%         
+3GZQ_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]        305     2e-108  99%         
+8GSQ_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]        305     2e-108  100%        
+3ECW_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]        305     2e-108  99%         
+
+ALIGNMENTS
+>8GSQ_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=155
+
+ Score = 310 bits (793),  Expect = 2e-110, Method: Compositional matrix adjust.
+ Identities = 154/154 (100%), Positives = 154/154 (100%), Gaps = 0/154 (0%)
+
+Query  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+            MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS
+Sbjct  2    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  61
+
+Query  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+            AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV
+Sbjct  62   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  121
+
+Query  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  122  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  155
+
+
+>4B3E_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 4B3E_B Chain B, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 4B3E_C Chain C, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 4B3E_D Chain D, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 4B3E_E Chain E, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 4B3E_F Chain F, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 4B3E_G Chain G, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 4B3E_H Chain H, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 4B3E_I Chain I, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 4B3E_J Chain J, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 5YUL_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YUL_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YUL_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YUL_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YUL_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YUL_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YUL_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YUL_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YUL_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YUL_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6A9O_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6A9O_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6A9O_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6A9O_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6A9O_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6A9O_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6A9O_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6A9O_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6A9O_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6A9O_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7VZF_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7VZF_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7VZF_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8CCX_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8CCX_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8GSQ_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8GSQ_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8GSQ_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8GSQ_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8GSQ_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8GSQ_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8Q6M_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8Q6M_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YD3_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YD3_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YD3_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YD3_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YD3_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YD3_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YD3_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YD3_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YD3_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YD3_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=154
+
+ Score = 310 bits (793),  Expect = 3e-110, Method: Compositional matrix adjust.
+ Identities = 154/154 (100%), Positives = 154/154 (100%), Gaps = 0/154 (0%)
+
+Query  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+            MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS
+Sbjct  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+
+Query  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+            AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV
+Sbjct  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+
+Query  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+
+
+>9IYK_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYK_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYK_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYK_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYK_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYK_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYK_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYK_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYK_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYK_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYK_K Chain K, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYK_L Chain L, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=156
+
+ Score = 310 bits (793),  Expect = 3e-110, Method: Compositional matrix adjust.
+ Identities = 154/154 (100%), Positives = 154/154 (100%), Gaps = 0/154 (0%)
+
+Query  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+            MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS
+Sbjct  3    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  62
+
+Query  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+            AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV
+Sbjct  63   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  122
+
+Query  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  123  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  156
+
+
+>7FB9_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7FB9_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7FB9_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7FB9_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7FB9_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7FB9_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7FB9_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7FB9_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7FB9_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7FB9_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7FB9_K Chain K, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7FB9_L Chain L, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7FB9_M Chain M, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7FB9_N Chain N, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9JBO_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9JBO_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9JBO_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=161
+
+ Score = 310 bits (793),  Expect = 3e-110, Method: Compositional matrix adjust.
+ Identities = 154/154 (100%), Positives = 154/154 (100%), Gaps = 0/154 (0%)
+
+Query  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+            MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS
+Sbjct  8    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  67
+
+Query  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+            AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV
+Sbjct  68   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  127
+
+Query  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  128  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  161
+
+
+>5YTO_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTO_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTO_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTO_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTO_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTO_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTO_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTO_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTO_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTO_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTU_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTU_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTU_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTU_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTU_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTU_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTU_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTU_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTU_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5YTU_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7XX3_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7XX3_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7XX3_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7XX3_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7XX3_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7XX3_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7XX3_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7XX3_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7XX3_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7XX3_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=180
+
+ Score = 310 bits (795),  Expect = 3e-110, Method: Compositional matrix adjust.
+ Identities = 154/154 (100%), Positives = 154/154 (100%), Gaps = 0/154 (0%)
+
+Query  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+            MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS
+Sbjct  27   MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  86
+
+Query  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+            AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV
+Sbjct  87   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  146
+
+Query  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  147  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  180
+
+
+>9IYD_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYD_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYD_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=154
+
+ Score = 308 bits (789),  Expect = 1e-109, Method: Compositional matrix adjust.
+ Identities = 153/154 (99%), Positives = 153/154 (99%), Gaps = 0/154 (0%)
+
+Query  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+            MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS
+Sbjct  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+
+Query  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+            AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKD VADVSIEDSVISLSGDHCIIGRTLVV
+Sbjct  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDAVADVSIEDSVISLSGDHCIIGRTLVV  120
+
+Query  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+
+
+>2ZKY_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2ZKY_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2ZKY_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2ZKY_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2ZKY_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2ZKY_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2ZKY_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2ZKY_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2ZKY_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2ZKY_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=159
+
+ Score = 308 bits (789),  Expect = 1e-109, Method: Compositional matrix adjust.
+ Identities = 153/154 (99%), Positives = 153/154 (99%), Gaps = 0/154 (0%)
+
+Query  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+            MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS
+Sbjct  6    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  65
+
+Query  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+            AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKD VADVSIEDSVISLSGDHCIIGRTLVV
+Sbjct  66   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDAVADVSIEDSVISLSGDHCIIGRTLVV  125
+
+Query  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  126  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  159
+
+
+>6SPI_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPI_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPI_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPI_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPI_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPI_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPI_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPI_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPI_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPI_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPI_K Chain K, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPI_L Chain L, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=154
+
+ Score = 308 bits (788),  Expect = 2e-109, Method: Compositional matrix adjust.
+ Identities = 153/154 (99%), Positives = 153/154 (99%), Gaps = 0/154 (0%)
+
+Query  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+            MATK VCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS
+Sbjct  1    MATKVVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+
+Query  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+            AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV
+Sbjct  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+
+Query  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+
+
+>9LI1_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9LI1_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9LI1_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=161
+
+ Score = 308 bits (789),  Expect = 2e-109, Method: Compositional matrix adjust.
+ Identities = 153/154 (99%), Positives = 153/154 (99%), Gaps = 0/154 (0%)
+
+Query  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+            MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS
+Sbjct  8    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  67
+
+Query  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+            AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKD VADVSIEDSVISLSGDHCIIGRTLVV
+Sbjct  68   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDAVADVSIEDSVISLSGDHCIIGRTLVV  127
+
+Query  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  128  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  161
+
+
+>8IHV_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8IHV_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8IHV_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=154
+
+ Score = 307 bits (787),  Expect = 2e-109, Method: Compositional matrix adjust.
+ Identities = 153/154 (99%), Positives = 153/154 (99%), Gaps = 0/154 (0%)
+
+Query  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+            MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGF VHEFGDNTAGCTS
+Sbjct  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFRVHEFGDNTAGCTS  60
+
+Query  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+            AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV
+Sbjct  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+
+Query  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+
+
+>1HL5_A Chain A, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_B Chain B, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_C Chain C, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_D Chain D, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_E Chain E, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_F Chain F, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_G Chain G, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_H Chain H, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_I Chain I, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_J Chain J, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_K Chain K, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_L Chain L, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_M Chain M, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_N Chain N, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_O Chain O, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_P Chain P, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_Q Chain Q, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL5_S Chain S, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1PU0_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 1PU0_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 1PU0_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 1PU0_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 1PU0_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 1PU0_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 1PU0_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 1PU0_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 1PU0_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 1PU0_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2C9U_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 2C9U_F Chain F, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 2C9V_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 2C9V_F Chain F, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 2V0A_A Chain A, Superoxide Dismutase [Homo sapiens]
+ 2V0A_F Chain F, Superoxide Dismutase [Homo sapiens]
+ 3ECU_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3ECU_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3ECU_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3ECU_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH3_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH3_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH3_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH3_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH3_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH3_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH3_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH3_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH3_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH3_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH3_K Chain K, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH3_L Chain L, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH4_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH4_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH4_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH4_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH4_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3KH4_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3RE0_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3RE0_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3RE0_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3RE0_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 4FF9_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 4FF9_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5O3Y_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5O3Y_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5O40_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 5O40_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6FFK_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6FFK_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6FFK_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6FFK_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7NXX_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K33_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K33_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K33_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K33_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K33_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K33_K Chain K, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K33_L Chain L, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K33_N Chain N, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K33_P Chain P, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K33_U Chain U, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K33_W Chain W, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K33_Y Chain Y, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K3A_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K3L_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K3L_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K3L_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8K3L_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YAF_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YAF_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YAF_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YAF_L Chain L, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YAF_P Chain P, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YAF_T Chain T, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YAT_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YAT_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YAT_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8YAT_M Chain M, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9XJ0_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9XJ0_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9XJI_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9XJI_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=153
+
+ Score = 307 bits (786),  Expect = 3e-109, Method: Compositional matrix adjust.
+ Identities = 153/153 (100%), Positives = 153/153 (100%), Gaps = 0/153 (0%)
+
+Query  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+            ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA
+Sbjct  1    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  60
+
+Query  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+            GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH
+Sbjct  61   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  120
+
+Query  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  121  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  153
+
+
+>1HL4_A Chain A, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL4_B Chain B, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL4_C Chain C, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1HL4_D Chain D, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1SPD_A Chain A, SUPEROXIDE DISMUTASE [Homo sapiens]
+ 1SPD_B Chain B, SUPEROXIDE DISMUTASE [Homo sapiens]
+Length=154
+
+ Score = 307 bits (786),  Expect = 3e-109, Method: Compositional matrix adjust.
+ Identities = 153/153 (100%), Positives = 153/153 (100%), Gaps = 0/153 (0%)
+
+Query  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+            ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA
+Sbjct  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+
+Query  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+            GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH
+Sbjct  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+
+Query  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+
+
+>8IHU_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8IHU_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8IHU_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=154
+
+ Score = 307 bits (786),  Expect = 3e-109, Method: Compositional matrix adjust.
+ Identities = 153/154 (99%), Positives = 153/154 (99%), Gaps = 0/154 (0%)
+
+Query  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+            MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS
+Sbjct  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+
+Query  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+            AGPHFNPLSRKHGGPKDEERHVGDL NVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV
+Sbjct  61   AGPHFNPLSRKHGGPKDEERHVGDLRNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+
+Query  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+
+
+>2ZKW_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2ZKW_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2ZKX_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2ZKX_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2ZKX_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 2ZKX_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=159
+
+ Score = 307 bits (786),  Expect = 4e-109, Method: Compositional matrix adjust.
+ Identities = 153/154 (99%), Positives = 153/154 (99%), Gaps = 0/154 (0%)
+
+Query  1    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  60
+            MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS
+Sbjct  6    MATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTS  65
+
+Query  61   AGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  120
+            AGPHFNPLSRKHGGPKDEERHVGDL NVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV
+Sbjct  66   AGPHFNPLSRKHGGPKDEERHVGDLRNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVV  125
+
+Query  121  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  126  HEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  159
+
+
+>2NAM_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=161
+
+ Score = 306 bits (784),  Expect = 9e-109, Method: Compositional matrix adjust.
+ Identities = 153/153 (100%), Positives = 153/153 (100%), Gaps = 0/153 (0%)
+
+Query  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+            ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA
+Sbjct  9    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  68
+
+Query  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+            GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH
+Sbjct  69   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  128
+
+Query  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  129  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  161
+
+
+>2WYT_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 2WYT_F Chain F, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 2WZ0_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 2WZ0_F Chain F, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 2WZ5_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 2WZ5_F Chain F, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+Length=153
+
+ Score = 306 bits (783),  Expect = 9e-109, Method: Compositional matrix adjust.
+ Identities = 152/153 (99%), Positives = 153/153 (100%), Gaps = 0/153 (0%)
+
+Query  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+            ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKG+TEGLHGFHVHEFGDNTAGCTSA
+Sbjct  1    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGVTEGLHGFHVHEFGDNTAGCTSA  60
+
+Query  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+            GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH
+Sbjct  61   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  120
+
+Query  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  121  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  153
+
+
+>1UXL_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXL_B Chain B, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXL_C Chain C, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXL_D Chain D, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXL_E Chain E, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXL_F Chain F, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXL_G Chain G, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXL_H Chain H, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXL_I Chain I, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXL_J Chain J, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 3ECV_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3ECV_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3ECV_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3ECV_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 4A7G_F Chain F, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 4A7Q_A Chain A, Superoxide Dismutase [cu-zn] [Homo sapiens]
+ 4A7Q_F Chain F, Superoxide Dismutase [cu-zn] [Homo sapiens]
+ 4A7S_A Chain A, Superoxide Dismutase [cu-zn] [Homo sapiens]
+ 4A7S_F Chain F, Superoxide Dismutase [cu-zn] [Homo sapiens]
+ 4A7T_A Chain A, Superoxide Dismutase [cu-zn] [Homo sapiens]
+ 4A7T_F Chain F, Superoxide Dismutase [cu-zn] [Homo sapiens]
+ 4A7U_A Chain A, Superoxide Dismutase [cu-zn] [Homo sapiens]
+ 4A7U_F Chain F, Superoxide Dismutase [cu-zn] [Homo sapiens]
+ 4A7V_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 4A7V_F Chain F, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+Length=153
+
+ Score = 305 bits (782),  Expect = 1e-108, Method: Compositional matrix adjust.
+ Identities = 152/153 (99%), Positives = 152/153 (99%), Gaps = 0/153 (0%)
+
+Query  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+            ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA
+Sbjct  1    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  60
+
+Query  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+            GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCI GRTLVVH
+Sbjct  61   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCITGRTLVVH  120
+
+Query  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  121  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  153
+
+
+>9IYJ_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYJ_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 9IYJ_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=153
+
+ Score = 305 bits (782),  Expect = 1e-108, Method: Compositional matrix adjust.
+ Identities = 152/153 (99%), Positives = 153/153 (100%), Gaps = 0/153 (0%)
+
+Query  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+            ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA
+Sbjct  1    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  60
+
+Query  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+            GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIE+SVISLSGDHCIIGRTLVVH
+Sbjct  61   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIENSVISLSGDHCIIGRTLVVH  120
+
+Query  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  121  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  153
+
+
+>2WZ6_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 2WZ6_F Chain F, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 3GZP_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3GZP_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3GZP_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3GZP_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7T8E_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7T8E_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7T8F_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7T8F_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7T8G_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7T8G_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7T8H_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 7T8H_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=153
+
+ Score = 305 bits (782),  Expect = 1e-108, Method: Compositional matrix adjust.
+ Identities = 152/153 (99%), Positives = 152/153 (99%), Gaps = 0/153 (0%)
+
+Query  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+            ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA
+Sbjct  1    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  60
+
+Query  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+            GPHFNPLSRKHGGPKDEERHVGDLGNVTADKD VADVSIEDSVISLSGDHCIIGRTLVVH
+Sbjct  61   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDAVADVSIEDSVISLSGDHCIIGRTLVVH  120
+
+Query  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  121  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  153
+
+
+>2WKO_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 3GZO_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3GZO_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3GZO_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3GZO_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3GZO_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3GZO_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3GZO_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3GZO_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3GZO_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3GZO_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=154
+
+ Score = 305 bits (782),  Expect = 1e-108, Method: Compositional matrix adjust.
+ Identities = 152/153 (99%), Positives = 152/153 (99%), Gaps = 0/153 (0%)
+
+Query  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+            ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA
+Sbjct  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+
+Query  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+            GPHFNPLSRKHGGPKDEERHVGDLGNVTADKD VADVSIEDSVISLSGDHCIIGRTLVVH
+Sbjct  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDAVADVSIEDSVISLSGDHCIIGRTLVVH  121
+
+Query  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+
+
+>8GSQ_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 8GSQ_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=154
+
+ Score = 305 bits (782),  Expect = 1e-108, Method: Compositional matrix adjust.
+ Identities = 152/153 (99%), Positives = 152/153 (99%), Gaps = 0/153 (0%)
+
+Query  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+            ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA
+Sbjct  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+
+Query  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+            GPHFNPLSRKHGGPKD ERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH
+Sbjct  62   GPHFNPLSRKHGGPKDAERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+
+Query  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+
+
+>1UXM_A Chain A, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXM_B Chain B, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXM_C Chain C, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXM_D Chain D, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXM_E Chain E, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXM_F Chain F, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXM_G Chain G, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXM_H Chain H, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXM_I Chain I, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXM_J Chain J, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXM_K Chain K, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 1UXM_L Chain L, SUPEROXIDE DISMUTASE [CU-ZN] [Homo sapiens]
+ 6SPA_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPA_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPA_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPA_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPA_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPA_L Chain L, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPH_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPH_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPH_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPH_G Chain G, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPH_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPH_L Chain L, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPJ_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPJ_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPJ_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPJ_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPJ_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPJ_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPK_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPK_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPK_E Chain E, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPK_F Chain F, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPK_I Chain I, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6SPK_J Chain J, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z3V_AAA Chain AAA, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z3V_BBB Chain BBB, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4G_AAA Chain AAA, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4G_BBB Chain BBB, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4H_AAA Chain AAA, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4H_BBB Chain BBB, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4I_AAA Chain AAA, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4I_FFF Chain FFF, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4J_AAA Chain AAA, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4J_BBB Chain BBB, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4K_AAA Chain AAA, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4K_BBB Chain BBB, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4L_AAA Chain AAA, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4L_BBB Chain BBB, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4M_AAA Chain AAA, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4M_BBB Chain BBB, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4O_AAA Chain AAA, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 6Z4O_BBB Chain BBB, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=153
+
+ Score = 305 bits (781),  Expect = 2e-108, Method: Compositional matrix adjust.
+ Identities = 152/153 (99%), Positives = 152/153 (99%), Gaps = 0/153 (0%)
+
+Query  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+            ATK VCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA
+Sbjct  1    ATKVVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  60
+
+Query  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+            GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH
+Sbjct  61   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  120
+
+Query  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  121  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  153
+
+
+>3GZQ_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3GZQ_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=154
+
+ Score = 305 bits (781),  Expect = 2e-108, Method: Compositional matrix adjust.
+ Identities = 152/153 (99%), Positives = 152/153 (99%), Gaps = 0/153 (0%)
+
+Query  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+            ATK VCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA
+Sbjct  2    ATKVVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+
+Query  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+            GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH
+Sbjct  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+
+Query  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+
+
+>8GSQ_H Chain H, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=153
+
+ Score = 305 bits (780),  Expect = 2e-108, Method: Compositional matrix adjust.
+ Identities = 152/152 (100%), Positives = 152/152 (100%), Gaps = 0/152 (0%)
+
+Query  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+            ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA
+Sbjct  1    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  60
+
+Query  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+            GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH
+Sbjct  61   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  120
+
+Query  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIA  153
+            EKADDLGKGGNEESTKTGNAGSRLACGVIGIA
+Sbjct  121  EKADDLGKGGNEESTKTGNAGSRLACGVIGIA  152
+
+
+>3ECW_A Chain A, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3ECW_B Chain B, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3ECW_C Chain C, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+ 3ECW_D Chain D, Superoxide dismutase [Cu-Zn] [Homo sapiens]
+Length=153
+
+ Score = 305 bits (780),  Expect = 2e-108, Method: Compositional matrix adjust.
+ Identities = 152/153 (99%), Positives = 152/153 (99%), Gaps = 0/153 (0%)
+
+Query  2    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSA  61
+            ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDN AGCTSA
+Sbjct  1    ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNRAGCTSA  60
+
+Query  62   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  121
+            GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH
+Sbjct  61   GPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVH  120
+
+Query  122  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  154
+            EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+Sbjct  121  EKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ  153
+
+
+  Database: PDB protein database
+    Posted date:  Sep 16, 2026  6:31 AM
+  Number of letters in database: 14,178,662
+  Number of sequences in database:  51,671
+
+Lambda      K        H
+   0.313    0.136    0.410 
+Gapped
+Lambda      K        H
+   0.267   0.0410    0.140 
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Number of Sequences: 51671
+Number of Hits to DB: 106358
+Number of extensions: 269
+Number of successful extensions: 157
+Number of sequences better than 100: 83
+Number of HSP's better than 100 without gapping: 0
+Number of HSP's gapped: 135
+Number of HSP's successfully gapped: 89
+Length of query: 154
+Length of database: 14178662
+Length adjustment: 91
+Effective length of query: 63
+Effective length of database: 9476601
+Effective search space: 597025863
+Effective search space used: 597025863
+T: 20
+A: 40
+X1: 16 (7.2 bits)
+X2: 38 (14.6 bits)
+X3: 64 (24.7 bits)
+S1: 38 (19.2 bits)
+S2: 47 (22.7 bits)
+ka-blk-alpha gapped: 1.9
+ka-blk-alpha ungapped: 0.7916
+ka-blk-alpha_v gapped: 42.6028
+ka-blk-alpha_v ungapped: 4.96466
+ka-blk-sigma gapped: 43.6362
+
+

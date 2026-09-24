@@ -1,0 +1,35 @@
+{
+ "tool": "NCBI BLAST API (QBlast, blastp)",
+ "rid": "BAM06SAF014",
+ "submitted_utc": "2026-09-24 ~17:35 IST",
+ "collected_ist": "2026-09-25 03:03",
+ "program": "BLASTP 2.17.0",
+ "database": "PDB protein database (190,094 sequences; 55,342,277 letters)",
+ "query": "human SOD1 mature chain, UniProt P00441 residues 1-154 (EC 1.15.1.1)",
+ "query_length": 154,
+ "purpose": "verify 1SPD (the WT SOD1 structure used as the Study 2 scaffold) is a sequence-valid representative of human SOD1",
+ "descriptions_returned": 25,
+ "top_hit": {
+  "id": "8GSQ_C",
+  "description": "Superoxide dismutase [Cu-Zn] [Homo sapiens]",
+  "bits": 310,
+  "evalue": "2e-110",
+  "identity_pct": 100
+ },
+ "spd_hit": {
+  "id": "1SPD_A",
+  "also": [
+   "1SPD_B"
+  ],
+  "bits": 307,
+  "evalue": "3e-109",
+  "identities": "153/153 (100%)",
+  "positives": "153/153 (100%)",
+  "gaps": "0/153 (0%)",
+  "alignment_span_query": "2-154",
+  "alignment_span_sbjct": "2-154",
+  "note": "1SPD alignment starts at residue 2 of the mature chain; the crystallized construct lacks the N-terminal initiator Met (post-translationally removed in vivo), so 153/153 aligned residues are identical - full-length mature-chain identity."
+ },
+ "all_25_hits": "every one of the 25 returned descriptions is a human SOD1 PDB chain (Homo sapiens, Cu-Zn SOD), identities 99-100%",
+ "conclusion": "1SPD is independently validated by NCBI BLAST against the full PDB as a bona fide wild-type human SOD1 structure: 100% sequence identity over the complete mature chain (153/153, E=3e-109). The Study 2 scaffold choice is sequence-verified."
+}
