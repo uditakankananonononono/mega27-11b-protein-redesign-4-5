@@ -3,8 +3,21 @@
   "strict_tool_gate": "open",
   "historical_resource_entries": 44,
   "max_eligible_entries_after_obvious_exclusions_before_evidence_review": 34,
-  "nonqualifiers": ["pytest", "GitHub", "Drive", "pdfLaTeX", "Pucci research paper", "FireProtDB OpenAPI specification", "PubMed literature-only lookup", "ProtDDG-Bench dataset", "SoDCoD dataset", "second RCSB endpoint as separate tool"],
+  "nonqualifiers": [
+    "pytest",
+    "GitHub",
+    "Drive",
+    "pdfLaTeX",
+    "Pucci research paper",
+    "FireProtDB OpenAPI specification",
+    "PubMed literature-only lookup",
+    "ProtDDG-Bench dataset",
+    "SoDCoD dataset",
+    "second RCSB endpoint as separate tool"
+  ],
   "pdb_ids_listed": 481,
   "unique_pdb_ids_listed": 481,
-  "dataset_note": "481 PDB accession records are individually identified; this is not 481 independent experimental studies"
+  "dataset_note": "481 PDB accession records are individually identified; this is not 481 independent experimental studies",
+  "new_verified_distinct_tool": "MaveDB REST API (one tool; two SOD1 score sets)",
+  "latest_strict_gate": "open; new tool added but below 40"
 }

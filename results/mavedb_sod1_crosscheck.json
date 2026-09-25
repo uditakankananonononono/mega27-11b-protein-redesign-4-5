@@ -1,0 +1,26 @@
+{
+  "scan": "build/scan_1spd_whole_v2.json",
+  "mapping": "PDB mature position +1 to canonical HGVS",
+  "maps": {
+    "abundance": {
+      "source_url": "https://api.mavedb.org/api/v1/score-sets/urn:mavedb:00001217-a-3/scores",
+      "sha256": "64a806aaf15a6c6605dc99e184a6c356c8f72bbd316bb11a6c90cf7ed63ae9f5",
+      "n_source_rows": 2906,
+      "n_matched": 2566,
+      "spearman": 0.03208560887899007,
+      "p_unadjusted": 0.10417419006363382,
+      "expected_relation": "positive if predicted stability tracks abundance/activity",
+      "interpretation": "independent functional-map check only, not a ddG benchmark"
+    },
+    "activity": {
+      "source_url": "https://api.mavedb.org/api/v1/score-sets/urn:mavedb:00001217-a-4/scores",
+      "sha256": "4f6c2784d7b79477f70a020d98de0c9c3918738d65cff30d0dace4295527d62d",
+      "n_source_rows": 2910,
+      "n_matched": 2571,
+      "spearman": 0.042654163546497065,
+      "p_unadjusted": 0.030563252583671,
+      "expected_relation": "positive if predicted stability tracks abundance/activity",
+      "interpretation": "independent functional-map check only, not a ddG benchmark"
+    }
+  }
+}

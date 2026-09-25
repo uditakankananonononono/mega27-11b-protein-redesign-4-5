@@ -728,6 +728,13 @@ are in \texttt{results/EXTERNAL\_TOOLS.md}; its 44 rows also include
 infrastructure, datasets, a research paper, literature-only lookups and a
 repeated RCSB endpoint, and therefore do not pass the strict 40-tool gate.
 The audited grouping is in Appendix~A. Staged or planned tools are excluded.
+A new MaveDB SOD1 cross-check adds one genuine data API: the GNN scan has
+near-zero rank association with independent variant-abundance scores
+($\rho=0.032$, $n=2{,}566$) and activity scores
+($\rho=0.043$, $n=2{,}571$) after accounting for the mature-to-precursor
+residue offset (\texttt{results/mavedb\_sod1\_crosscheck.json}). These
+are functional readouts, not direct $\Delta\Delta G$ measurements, so they
+corroborate a model limitation without inflating the stability benchmark.
 
 
 \clearpage
