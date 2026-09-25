@@ -1,9 +1,9 @@
-# External tools and resources used (honest ledger, updated each cycle) [40/40 MET]
+# External tools and resources used (honest ledger, updated each cycle) [44/40 MET]
 
 Status legend: USED = actually executed/queried in this project;
 STAGED = fetched and on disk, analysis pending; PLANNED = queued.
 
-## Used so far (39)
+## Used so far (44)
 
 1. RCSB PDB / data.rcsb.org - 481 WT+mutant structures downloaded, parsed (graph construction)
 2. ProtDDG-Bench (github.com/protddg-bench) - S2648/Ssym/P53 train-test protocol
