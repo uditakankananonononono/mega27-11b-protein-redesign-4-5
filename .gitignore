@@ -10,3 +10,6 @@ build/*.bundle
 build/*.pdf
 build/*.txt
 build/*.json
+
+# Local licensed Times New Roman font files; do not redistribute.
+paper/fonts/

@@ -1,6 +1,6 @@
 \documentclass[11pt]{article}
-\usepackage{mathptmx}
-\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}[Path=fonts/,Extension=.TTF,UprightFont=Times,BoldFont=Timesbd,ItalicFont=Timesi,BoldItalicFont=Timesbi]
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{graphicx,longtable,array}
@@ -241,7 +241,7 @@ whose expectation is $(1-\beta_1^t)\mathbb{E}[g]$; dividing by
 $1-\beta_1^t$ unbiases the estimate (likewise $v_t$).
 
 The training objective is the mean squared error over a batch $\mathcal{B}$,
-egin{equation}
+\begin{equation}
 L(\theta) = \frac{1}{|\mathcal{B}|}\sum_{i\in\mathcal{B}} (\hat y_i - y_i)^2,
 \qquad
 \frac{\partial L}{\partial \hat y_i} = \frac{2}{|\mathcal{B}|}(\hat y_i - y_i),
@@ -721,16 +721,13 @@ $0.24$-$0.29$ when decontaminated.
 
 \section{External tools}
 \label{sec:tools}
-Tools actually executed or queried (honest ledger:
-\texttt{results/EXTERNAL\_TOOLS.md}): RCSB PDB (481 structures
-downloaded and parsed), ProtDDG-Bench, the Pucci 2018 published
-Table~1 (verified from PDF), FireProtDB 2.0 REST API, ThermoMutDB API,
-Europe PMC REST, Zenodo API, SoDCoD, Biopython (independent parser
-cross-check), SciPy (Spearman/Fisher statistics), scikit-learn
-(identity-only ridge baseline), NumPy (all model math), matplotlib
-(figures), pytest (hermetic tests), git/GitHub, Google Drive, pdflatex
-(this document). Staged and planned entries are listed separately in
-the ledger and are not counted here.
+Scientific libraries and data services used include NumPy, SciPy, scikit-learn,
+Biopython, FreeSASA, RCSB PDB, FireProtDB, ThermoMutDB, UniProt and
+PDBe/SIFTS. The complete historical resource inventory and evidence links
+are in \texttt{results/EXTERNAL\_TOOLS.md}; its 44 rows also include
+infrastructure, datasets, a research paper, literature-only lookups and a
+repeated RCSB endpoint, and therefore do not pass the strict 40-tool gate.
+The audited grouping is in Appendix~A. Staged or planned tools are excluded.
 
 
 \clearpage

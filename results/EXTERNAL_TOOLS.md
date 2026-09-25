@@ -1,9 +1,9 @@
-# External tools and resources used (honest ledger, updated each cycle) [44/40 MET]
+# External resources and tools, historical 44-item inventory [STRICT 40-TOOL GATE OPEN]
 
 Status legend: USED = actually executed/queried in this project;
 STAGED = fetched and on disk, analysis pending; PLANNED = queued.
 
-## Used so far (44)
+## Historical used resource entries (44, not 44 eligible distinct tools)
 
 1. RCSB PDB / data.rcsb.org - 481 WT+mutant structures downloaded, parsed (graph construction)
 2. ProtDDG-Bench (github.com/protddg-bench) - S2648/Ssym/P53 train-test protocol
@@ -62,5 +62,7 @@ FoldX (if license permits), Rosetta (if installable), DDGun [PROBED: no public A
 MAESTROweb, mCSM, SDM2, DUET, PremPS, ThermoNet, RaSP, ESM-1v (scoring) [HF inference API unreachable from sandbox, no local weights - NOT RUN],
 ProteinMPNN (scoring), PyMOL (figures), PDBrenum [no PyPI distribution found - NOT RUN],
 PDBj, CATH, SCOPe, Pfam, ExPASy ProtParam, STRIDE, NACCESS-adapter.
-Target: 40 VERIFIED uses, each with a one-line "what it was used for" in the
-paper's Tools table. Anything listed but not executed will be marked NOT RUN.
+Target: 40 distinct, verified research/data tools or scientific libraries, each evidenced with an actual use. Still open. Anything listed but not executed will be marked NOT RUN.
+
+## September 25 strict-count correction
+The 44 historical rows mix tools, data and references. Exclude pytest (9), GitHub (10), Drive (11), pdfLaTeX (15), Pucci paper (3), FireProtDB OpenAPI specification (13), and literature-only NCBI E-utilities (26). Collapse RCSB PDB structure retrieval (1) and metadata endpoint (25) into one tool. ProtDDG-Bench (2) and SoDCoD (12) are data resources, not independently used research tools. These exclusions alone reduce the upper bound to 34 distinct eligible entries; some remaining entries still need underlying evidence validation. Gate remains open. Never treat pending/staged resources as used.
