@@ -50,12 +50,13 @@ STAGED = fetched and on disk, analysis pending; PLANNED = queued.
 41. NCBI BLAST API (QBlast blastp vs PDB) - 1SPD verified as WT human SOD1 representative: 153/153 (100%) identity over full mature chain, E=3e-109; all 25 top hits are human SOD1 PDB chains (results/blast_1spd_check.json)
 42. EBI InterProScan 5 REST - independent domain/motif annotation of WT SOD1: 9 signature hits (Pfam PF00080 Sod_Cu 15-150, Gene3D 2.60.40.200, PANTHER PTHR10003, SUPERFAMILY SSF49329, CDD cd00305, PRINTS PR00068, PROSITE PS00087/PS00332); CONFIRMS the paper's Pfam-based claim that A4 and C6 lie OUTSIDE PF00080 (results/interproscan_sod1.json)
 43. EBI Clustal Omega REST - 4-species SOD1 ortholog alignment (human/mouse/bovine/fly): all three GNN scan-candidate glycines G33/G41/G82 (mature numbering) fully conserved across species; pairwise identity vs human 83.8% / 82.9% / 61.8% (results/clustalo_sod1_conservation.json)
+44. EBI EMBOSS pepstats REST - independent composition/physchem of WT SOD1 (154 aa): MW 15935.74 Da, identical to ProtParam (15935.74); composition Gly 25 (16.2%), Val 14, Asp 11, Lys 11, Cys 4, Trp 1, Tyr 0; pI 6.06 (EMBOSS pKa set) vs ProtParam 5.70 (results/pepstats_sod1.json)
 
 ## Staged (on disk, analysis queued)
 14. ProtDDG-Bench subsets BROOM, KORPM, MYOGLOBIN, PTMUL, VB1432 (additional test sets)
 
 ## Planned (named, will be executed or queried - checked off only when real)
-DSSP/mkdssp, EBI EMBOSS pepstats REST [job emboss_pepstats-R20260924-174112-0982-83250395-p1m still QUEUED as of 2026-09-25 03:51 IST],
+DSSP/mkdssp,
 EBI InterProScan, HHpred, ConSurf, PROSITE [scan endpoint redirect host unresolvable from sandbox - NOT RUN],
 FoldX (if license permits), Rosetta (if installable), DDGun [PROBED: no public API found, web-form only - NOT RUN], INPS-MD,
 MAESTROweb, mCSM, SDM2, DUET, PremPS, ThermoNet, RaSP, ESM-1v (scoring) [HF inference API unreachable from sandbox, no local weights - NOT RUN],

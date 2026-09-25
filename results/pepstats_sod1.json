@@ -1,0 +1,192 @@
+{
+ "tool": "EBI EMBOSS pepstats REST",
+ "job_id": "emboss_pepstats-R20260924-174112-0982-83250395-p1m",
+ "result_url": "https://www.ebi.ac.uk/Tools/services/rest/emboss_pepstats/result/emboss_pepstats-R20260924-174112-0982-83250395-p1m/out",
+ "purpose": "independent amino-acid composition of WT SOD1 (cross-check of ProtParam MW/composition)",
+ "collected_at": "2026-09-25T03:36:57.430604+00:00",
+ "raw_output": "build/raw/pepstats_sod1.out",
+ "results": {
+  "residues": 154,
+  "molecular_weight": 15935.74,
+  "average_residue_weight": 103.479,
+  "charge": -2.0,
+  "isoelectric_point": 6.0616,
+  "a280_molar_ext_coeff": {
+   "reduced": 5500,
+   "cystine_bridges": 5750
+  },
+  "inclusion_body_improbability": 0.722,
+  "composition": {
+   "Ala": {
+    "count": 10,
+    "mole_pct": 6.494,
+    "dayhoff": 0.755
+   },
+   "Asx": {
+    "count": 0,
+    "mole_pct": 0.0,
+    "dayhoff": 0.0
+   },
+   "Cys": {
+    "count": 4,
+    "mole_pct": 2.597,
+    "dayhoff": 0.896
+   },
+   "Asp": {
+    "count": 11,
+    "mole_pct": 7.143,
+    "dayhoff": 1.299
+   },
+   "Glu": {
+    "count": 10,
+    "mole_pct": 6.494,
+    "dayhoff": 1.082
+   },
+   "Phe": {
+    "count": 4,
+    "mole_pct": 2.597,
+    "dayhoff": 0.722
+   },
+   "Gly": {
+    "count": 25,
+    "mole_pct": 16.234,
+    "dayhoff": 1.933
+   },
+   "His": {
+    "count": 8,
+    "mole_pct": 5.195,
+    "dayhoff": 2.597
+   },
+   "Ile": {
+    "count": 9,
+    "mole_pct": 5.844,
+    "dayhoff": 1.299
+   },
+   "Lys": {
+    "count": 11,
+    "mole_pct": 7.143,
+    "dayhoff": 1.082
+   },
+   "Leu": {
+    "count": 9,
+    "mole_pct": 5.844,
+    "dayhoff": 0.79
+   },
+   "Met": {
+    "count": 1,
+    "mole_pct": 0.649,
+    "dayhoff": 0.382
+   },
+   "Asn": {
+    "count": 7,
+    "mole_pct": 4.545,
+    "dayhoff": 1.057
+   },
+   "Pro": {
+    "count": 5,
+    "mole_pct": 3.247,
+    "dayhoff": 0.624
+   },
+   "Gln": {
+    "count": 3,
+    "mole_pct": 1.948,
+    "dayhoff": 0.5
+   },
+   "Arg": {
+    "count": 4,
+    "mole_pct": 2.597,
+    "dayhoff": 0.53
+   },
+   "Ser": {
+    "count": 10,
+    "mole_pct": 6.494,
+    "dayhoff": 0.928
+   },
+   "Thr": {
+    "count": 8,
+    "mole_pct": 5.195,
+    "dayhoff": 0.852
+   },
+   "Val": {
+    "count": 14,
+    "mole_pct": 9.091,
+    "dayhoff": 1.377
+   },
+   "Trp": {
+    "count": 1,
+    "mole_pct": 0.649,
+    "dayhoff": 0.5
+   },
+   "Xaa": {
+    "count": 0,
+    "mole_pct": 0.0,
+    "dayhoff": 0.0
+   },
+   "Tyr": {
+    "count": 0,
+    "mole_pct": 0.0,
+    "dayhoff": 0.0
+   },
+   "Glx": {
+    "count": 0,
+    "mole_pct": 0.0,
+    "dayhoff": 0.0
+   }
+  },
+  "property_classes": {
+   "Tiny": {
+    "residues": "A+C+G+S+T",
+    "count": 57,
+    "mole_pct": 37.013
+   },
+   "Small": {
+    "residues": "A+B+C+D+G+N+P+S+T+V",
+    "count": 94,
+    "mole_pct": 61.039
+   },
+   "Aliphatic": {
+    "residues": "A+I+L+V",
+    "count": 42,
+    "mole_pct": 27.273
+   },
+   "Aromatic": {
+    "residues": "F+H+W+Y",
+    "count": 13,
+    "mole_pct": 8.442
+   },
+   "Non-polar": {
+    "residues": "A+C+F+G+I+L+M+P+V+W+Y",
+    "count": 82,
+    "mole_pct": 53.247
+   },
+   "Polar": {
+    "residues": "D+E+H+K+N+Q+R+S+T+Z",
+    "count": 72,
+    "mole_pct": 46.753
+   },
+   "Charged": {
+    "residues": "B+D+E+H+K+R+Z",
+    "count": 44,
+    "mole_pct": 28.571
+   },
+   "Basic": {
+    "residues": "H+K+R",
+    "count": 23,
+    "mole_pct": 14.935
+   },
+   "Acidic": {
+    "residues": "B+D+E+Z",
+    "count": 21,
+    "mole_pct": 13.636
+   }
+  }
+ },
+ "crosscheck_vs_protparam": {
+  "protparam_mw": 15935.74,
+  "pepstats_mw": 15935.74,
+  "mw_abs_diff": 0.0,
+  "protparam_pI": 5.7,
+  "pepstats_pI": 6.0616,
+  "note": "MW agrees exactly; pI differs because EMBOSS and ExPASy use different pKa sets (expected, not a discrepancy). Composition sums to 154 residues."
+ }
+}

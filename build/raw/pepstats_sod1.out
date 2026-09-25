@@ -1,0 +1,48 @@
+PEPSTATS of EMBOSS_001 from 1 to 154
+
+Molecular weight = 15935.74  		Residues = 154   
+Average Residue Weight  = 103.479 	Charge   = -2.0  
+Isoelectric Point = 6.0616
+A280 Molar Extinction Coefficients  = 5500 (reduced)   5750 (cystine bridges)
+A280 Extinction Coefficients 1mg/ml = 0.345 (reduced)   0.361 (cystine bridges)
+Improbability of expression in inclusion bodies = 0.722
+
+Residue		Number		Mole%		DayhoffStat
+A = Ala		10		6.494  		0.755  	
+B = Asx		0		0.000  		0.000  	
+C = Cys		4		2.597  		0.896  	
+D = Asp		11		7.143  		1.299  	
+E = Glu		10		6.494  		1.082  	
+F = Phe		4		2.597  		0.722  	
+G = Gly		25		16.234 		1.933  	
+H = His		8		5.195  		2.597  	
+I = Ile		9		5.844  		1.299  	
+J = ---		0		0.000  		0.000  	
+K = Lys		11		7.143  		1.082  	
+L = Leu		9		5.844  		0.790  	
+M = Met		1		0.649  		0.382  	
+N = Asn		7		4.545  		1.057  	
+O = ---		0		0.000  		0.000  	
+P = Pro		5		3.247  		0.624  	
+Q = Gln		3		1.948  		0.500  	
+R = Arg		4		2.597  		0.530  	
+S = Ser		10		6.494  		0.928  	
+T = Thr		8		5.195  		0.852  	
+U = ---		0		0.000  		0.000  	
+V = Val		14		9.091  		1.377  	
+W = Trp		1		0.649  		0.500  	
+X = Xaa		0		0.000  		0.000  	
+Y = Tyr		0		0.000  		0.000  	
+Z = Glx		0		0.000  		0.000  	
+
+Property	Residues		Number		Mole%
+Tiny		(A+C+G+S+T)		57		37.013
+Small		(A+B+C+D+G+N+P+S+T+V)	94		61.039
+Aliphatic	(A+I+L+V)		42		27.273
+Aromatic	(F+H+W+Y)		13		 8.442
+Non-polar	(A+C+F+G+I+L+M+P+V+W+Y)	82		53.247
+Polar		(D+E+H+K+N+Q+R+S+T+Z)	72		46.753
+Charged		(B+D+E+H+K+R+Z)		44		28.571
+Basic		(H+K+R)			23		14.935
+Acidic		(B+D+E+Z)		21		13.636
+

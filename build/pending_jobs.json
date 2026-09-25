@@ -1,13 +1,4 @@
 {
  "note": "async external jobs awaiting collection; on completion write the results file listed, count the tool in EXTERNAL_TOOLS.md, and delete the entry",
- "jobs": [
-  {
-   "tool": "EBI EMBOSS pepstats REST",
-   "id": "emboss_pepstats-R20260924-174112-0982-83250395-p1m",
-   "status_url": "https://www.ebi.ac.uk/Tools/services/rest/emboss_pepstats/status/emboss_pepstats-R20260924-174112-0982-83250395-p1m",
-   "result_url": "https://www.ebi.ac.uk/Tools/services/rest/emboss_pepstats/result/emboss_pepstats-R20260924-174112-0982-83250395-p1m/out",
-   "purpose": "independent amino-acid composition of SOD1 (cross-check of ProtParam MW/composition)",
-   "out": "results/pepstats_sod1.json"
-  }
- ]
+ "jobs": []
 }
