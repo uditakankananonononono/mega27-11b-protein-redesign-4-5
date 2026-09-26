@@ -317,17 +317,17 @@ identity: setting the derivative of
 $\sum_{i:\mathrm{mut}(i)=a}(p_i-t_i-B_a)^2$ to zero gives
 $-2\sum_i (p_i-t_i-B_a)=0$, whose solution is \eqref{eq:bias}, and the
 second derivative $2n_a>0$ makes it the unique minimizer.
-Uncertainty on $r$ uses a percentile bootstrap over $5000$ test-set
+Uncertainty on $r$ uses a percentile bootstrap over $10{,}000$ test-set
 resamples:
 \begin{equation}
 \widehat{\mathrm{CI}}_{95}(r) = \big[\,Q_{0.025}\{r^{*(b)}\},\; Q_{0.975}\{r^{*(b)}\}\,\big],
-\qquad b=1,\dots,5000,
+\qquad b=1,\dots,10{,}000,
 \label{eq:bootstrap}
 \end{equation}
 where $r^{*(b)}$ is Eq.~\eqref{eq:pearson} evaluated on a uniform
-resample with replacement of the test pairs; the interval is exact for
-the empirical distribution and first-order accurate for the sampling
-distribution \cite{efron1994}.
+resample with replacement of the test pairs; the resulting percentile interval describes resampling variability of
+the observed pairs under an independent-pair assumption, not the
+uncertainty of a paired difference against published comparators \cite{efron1994}.
 
 As a distribution-sensitive cross-check we also report the Fisher
 $z$-interval: with $z = \mathrm{arctanh}\, r$ and
@@ -366,10 +366,10 @@ test set. The v2 model attains $r_{\mathrm{inv}}=0.592$ and
 $\sigma_{\mathrm{inv}}=1.429$~kcal/mol, improving on the best published
 antisymmetry-consistent result (PoPMuSiCsym: $r_{\mathrm{inv}}=0.48$,
 $\sigma_{\mathrm{inv}}=1.62$~kcal/mol) by $+0.11$ in correlation and
-$-0.19$~kcal/mol in error. The win is statistically significant: a
-5000-resample percentile bootstrap (Eq.~\eqref{eq:bootstrap}) gives
-95\% CIs $r\in[0.508,0.674]$ and $\sigma\in[1.250,1.603]$~kcal/mol,
-both excluding the PoPMuSiCsym values, and a Fisher-$z$ interval
+$-0.19$~kcal/mol in error. The recorded B1 gate passes under a comparison of our percentile interval with the published point estimate, not a paired test against comparator predictions. A
+10{,}000-resample percentile bootstrap (Eq.~\eqref{eq:bootstrap}) gives
+95\% CIs $r\in[0.5075,0.6736]$ and $\sigma\in[1.2504,1.6079]$~kcal/mol,
+both excluding the PoPMuSiCsym published point estimates by a narrow margin; these intervals do not account for the comparator's sampling error, data overlap or benchmark differences. A Fisher-$z$ interval
 $[0.518,0.657]$ agrees; Spearman $\rho=0.570$
 ($p=8.2\times10^{-31}$). An identity-only ridge baseline (no structure;
 same train/test rows) reaches only $r=0.251$,
@@ -737,6 +737,25 @@ are functional readouts, not direct $\Delta\Delta G$ measurements, so they
 corroborate a model limitation without inflating the stability benchmark.
 
 
+\clearpage
+\section{Locked B1 gate audit and scope}
+The committed \texttt{results/b1\_bootstrap\_10k.json} reports 342 inverse
+mutations and 10,000 bootstrap resamples. Its inverse correlation is
+$r_{\mathrm{inv}}=0.5919$, 95\% percentile interval $[0.5075,0.6736]$;
+$\sigma_{\mathrm{inv}}=1.4292$ kcal/mol, interval $[1.2504,1.6079]$.
+PoPMuSiCsym is reported in the same artifact as $r_{\mathrm{inv}}=0.48$
+and $\sigma_{\mathrm{inv}}=1.62$. Both one-sided gate comparisons pass:
+our interval excludes each comparator point estimate. This is a narrowly
+specified benchmark criterion. It does not establish a paired uncertainty
+interval for the difference between methods, since no corresponding
+comparator predictions were resampled here. The reported correlation
+margin is $0.1119$ and error margin is $0.1908$ kcal/mol against published
+point estimates. Neither is a universal performance guarantee. The SOD1
+external negative ($r=-0.15$ on eight measurements), proline blind spot
+and magnitude compression remain part of the interpretation.
+
+[PENDING: matched-pair comparator predictions and uncertainty on the
+method difference under the same experimental rows.]
 \clearpage
 \appendix
 \input{appendix_tools}
