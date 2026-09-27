@@ -50,3 +50,24 @@ range: out-of-family p53 transfer is fragile and protocol-sensitive,
 r = -0.02 (full-train headline) to +0.26 (val-protocol), vs r = 0.70
 in-family ssym_all for the same headline model. Level-3 of the
 myoglobin_eval gradient refers to the headline model, as stated there.
+
+## Width-isolation outcome (prereg docs/PREREG_P53_WIDTH_ISOLATION_2026-09-27.md, commit 4899953)
+
+Run executed exactly as locked: arch v2, hidden 32/16, lr 1e-3, e300,
+full-train (n_train 2644), same 42 p53 rows.
+Result: **p53 r = 0.4090** (RMSE 2.023), results/bench_v2_h32_e300.json.
+Comparator (identical except width 64/32): p53 r = -0.0207.
+
+Per the predeclared bands (> 0.15 -> width implicated): the e300 p53
+collapse is a WIDTH effect, not a long-training effect. Narrow v2 at 300
+epochs retains p53 transfer r = 0.41, in line with the earlier v1 narrow
+runs (e25 0.3768, e150 0.4262). Overfitting signature: the wider model is
+better in-family (ssym_all 0.699 vs 0.552) and worse out-of-family
+(-0.021 vs +0.409).
+
+Correction to the collapse narrative: "long training collapses p53
+transfer" should read "the hidden-64 v2 model collapses p53 transfer;
+hidden-32 models do not, at any epoch count tested (25-300)". Verdict
+endpoint numbers remain committed and unchanged; only the attribution
+changes. Falsifiable follow-up (not required): v2 h64 at e25 should show
+positive p53 r if width-driven overfitting needs epochs to develop.
