@@ -2,7 +2,7 @@
 
 Provenance: original inbound WhatsApp message wamid.HBgMOTE4MTM0MDk4NTcxFQIAEhgWM0VCMEFGRDY4MzY4OTkxNzFEQURGRAA=, 2026-09-27 12:02:56 IST. The quoted blocks below are extracted without editing from the original channel body. The queue is agent-authored and is not a quotation or owner instruction.
 
-Full original body SHA-256: d700f12c2a01d6f21b7392305aaa6b25d7a9efb29062ce5ba95c14e22f11bc33
+Full original body preserved byte-for-byte in `MEGA_VERDICT_FULL_BODY_2026-09-27.txt`. SHA-256: d700f12c2a01d6f21b7392305aaa6b25d7a9efb29062ce5ba95c14e22f11bc33
 Lane section SHA-256: c50915918c53f350e72e0db4c4b0f1599e5cb9e53169579957d37388b96b5e04
 
 ## Agent-authored response queue, locked before manuscript edits

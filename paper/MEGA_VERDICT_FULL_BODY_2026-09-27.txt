@@ -1,0 +1,664 @@
+IGNORE ABOUT ISEF DELIVERABLES, IMPROVE PAGE COUNT : ITEM-27: Five Bioinformatics Tools (Draft)
+Weaknesses (20) — computational only:
+
+4-page draft, not a paper; does not meet program floor.
+
+Five unrelated tools bundled as one document — no single question.
+
+No lane has a completed, closed gate.
+
+DGR-Atlas: only known-case recovery; no autonomous discovery.
+
+DGR-Atlas: bridge architecture is acknowledged prior art.
+
+DGR-Atlas: CAYG motif gate falsified by source data.
+
+DGR-Atlas: DGRpy getDict parser bug is software, not biology.
+
+DGR-Atlas: DGRscan timeout yields no specificity conclusion.
+
+LoopShift: unsupported rows labeled "unknown," not negatives — no true negative class.
+
+LoopShift: no independent loop prediction win.
+
+miR-Time: HMDD v3.2/v4 is not a clean prospective split.
+
+miR-Time: 3,752 pairs have unknown dating; 243 v4 labels unresolved.
+
+miR-Time: pilot ranking tied degree, not a matched gain.
+
+CellPerturb: only 3 donors — underpowered.
+
+CellPerturb: source-known CCR7 quarantined; margin reverses.
+
+CellPerturb: original QC (reads-based, DoubleFinder) not reproduced.
+
+PocketShift: early fragment ranking lost to ECFP4 baseline.
+
+PocketShift: AID 743077 shares labels with 743075 — no independent test.
+
+PocketShift: Tox21 overlaps 6,693 structures — external validation defeated.
+
+No user-provided reviews; every gate still open.
+
+Additions (computational):
+
+Split into five separate ISEF-sized projects; pick one.
+
+For DGR-Atlas: source-blind RT nomination + decoys + equal-input DGRpy/myDGR comparison.
+
+For LoopShift: define true negatives from an independently tested promoter universe.
+
+For miR-Time: freeze cold-start estimand before analysis.
+
+For CellPerturb: add more donors from public CRISPRi datasets.
+
+For PocketShift: find a truly structure-disjoint independent assay.
+
+One primary estimand per lane; lock gates before analysis.
+
+Add matched-metric bootstrap CIs.
+
+Add a decision tree for when each tool is usable.
+
+Pre-register each lane's protocol in a dated commit.
+
+2. main (12): Breast Cancer Recurrence — METABRIC/TCGA Cox
+Weaknesses (20) — computational only:
+
+Ceiling is a penalized linear Cox model — no deep-learning win.
+
+DeepSurv, CoxCNN, CoxGCN all underperform clinical+expression Cox.
+
+GCN has the highest seed variance (±0.015).
+
+Locked stability test failed: 3 folds had no stable genes.
+
+Multicohort transport wins are point-estimate only; CIs overlap.
+
+Two cohorts lose (GGI, nodal stage).
+
+Comparator encodings had sign-convention bugs (fixed, but shows fragility).
+
+DLDA-30 metadata column dropped mid-analysis.
+
+Endpoint mismatch: RFS vs DFS across cohorts.
+
+Cross-platform (Affymetrix vs Illumina) without harmonization.
+
+Treatment-era differences between METABRIC and TCGA.
+
+Panel is expression-only; clinical covariates still carry signal (GSE20685).
+
+No competing-risks handling.
+
+No survival calibration (Brier, decision curves).
+
+Tool count below 40-gate.
+
+Dataset count is 9 studies, not 120 (nested records).
+
+Failed discovery arms (low-NPI mitotic contrast) only in appendix.
+
+"Benchmark beat" framing overstates point-estimate wins.
+
+GCN graph is k-NN on expression — not biological graph.
+
+No leave-cohort-out retraining.
+
+Additions (computational):
+
+Add survival calibration and decision-curve analysis.
+
+Add competing-risks models (Fine-Gray).
+
+Harmonize endpoints before pooling.
+
+Add a fully locked prospective holdout with pre-registered genes.
+
+Compare against MammaPrint/Oncotype DX on same patients.
+
+Report per-cohort calibration slopes.
+
+Add "when does deep learning help?" n-threshold analysis.
+
+Pre-register the stability test before re-running.
+
+Add gene-level biological interpretation of top Cox coefficients.
+
+Use protein-family-blocked CV.
+
+3. main (11): miRNA Target Scoring — DuplexCNN
+Weaknesses (20) — computational only:
+
+Pair-map ablation changes correlation by +0.0029 only — branch is not load-bearing.
+
+Expression confound shrinks CNN CLIP gain from +0.0048 to +0.0008.
+
+miRDB v6.0 beats CNN on miRTarBase labels (0.787 vs 0.685).
+
+TarBase v9.0 reproduces the miRDB gap.
+
+Univariate CNN min-score wins 0/132 miRNAs vs seed count.
+
+Pair-map costs 20× training time for near-zero gain.
+
+No pathway coherence in CNN top-200 or CLIP sets.
+
+STRING coherence explained by expression.
+
+GTEx target avoidance: CNN nonconserved targets show none.
+
+Enrichr reverse-lookup site-count win fails pre-registered replication.
+
+Reactome gates failed (design errors).
+
+LOEUF depletion survives only in weaker form; UTR-length clause withdrawn.
+
+ClinGen, HPO, DECIPHER do not support "beyond UTR length."
+
+Study bias explains curated-label depletion.
+
+Random-weight CNN falsifier not run.
+
+Tool ledger ~40 pending direct-use audit.
+
+317 entries are record partitions, not studies.
+
+No external benchmark not derived from TargetScan/ENCORI.
+
+Non-conserved candidates unvalidated.
+
+Paper reads as a graveyard of negatives.
+
+Additions (computational):
+
+Run the random-weight CNN falsifier.
+
+Test exact-length-bin control.
+
+Add a truly external miRNA target benchmark.
+
+Make the expression confound the primary finding.
+
+Report per-miRNA effect sizes with cluster-level CIs.
+
+Pre-register a replication on a second CLIP dataset.
+
+Deprecate the pair-map branch unless it earns its keep.
+
+Reduce to one primary endpoint (CLIP AUROC conditional on expression).
+
+Add a decision rule for when CNN scores add value.
+
+4. main (10): Protein Redesign GNN — ΔΔG, p53/SOD1
+Weaknesses (20) — computational only:
+
+p53 transfer collapses at long training (r 0.426 → -0.02).
+
+Validation-based early stopping does not repair the p53 gap.
+
+Proline positions are out-of-distribution (no PRO in S2648).
+
+SOD1 fails outright (r = -0.15, n = 8).
+
+Y220C suppressor A138G missed.
+
+Scan magnitudes inflated; only ranks readable.
+
+MYOGLOBIN r=0.455 contaminated by 41 same-protein rows; drops to 0.24-0.29.
+
+Greedy multi-mutant sums implausible (+46 kcal/mol).
+
+v1 aromatic identity bias up to +1.04 kcal/mol.
+
+2VUK carries superstable quadruple-mutant background.
+
+Single-chain Cα graph cannot see metal binding or dimer interface.
+
+Only 34 eligible tools in strict audit.
+
+MaveDB SOD1 cross-check near-zero rank association.
+
+SOD1 whole-chain scan hits glycine→bulky at loops.
+
+Structure background verification caught late.
+
+No leave-protein-family-out CV.
+
+Only one benchmark (Ssym inverse) supports the headline.
+
+No contact-map or ESM edges in the GNN.
+
+No cross-species transfer.
+
+p53 Y220C nomination does not clear checks.
+
+Additions (computational):
+
+Add contact-map or ESM-embedding edges.
+
+Test metal-aware / dimer-aware representation for SOD1.
+
+Run leave-protein-family-out CV.
+
+Add a second antisymmetry-consistent benchmark (ProTherm).
+
+Report per-family error breakdown.
+
+Add cross-species transfer (mouse p53).
+
+Pre-register a new rescue nomination before scanning.
+
+Provide a decision tree for when the tool should abstain.
+
+Reduce headline to rank-based claims only.
+
+5. manuscript (2): Biomarkers-25 — Cross-Cohort Audit
+Weaknesses (20) — computational only:
+
+Core result is a negative: audit changes earlier replications.
+
+Only PCOS and IC survive; IC has 7 specimens.
+
+PCOS follow-up selection-matched nulls fail (p=0.588).
+
+P10-P44 mostly fail.
+
+P14 uses re-mapped material from prior studies — reuse risk.
+
+P24 GSE295760 has label conflicts (4 participants).
+
+P25 Hunner-lesion test fails (31/46, p=0.068).
+
+P26 iPSC-MPC panel fails (10/18, p=0.328).
+
+P27 granulosa isoform panel fails (9/15, p=0.261).
+
+P28 leishmaniasis panel fails (11/18, p=0.644).
+
+P29 ME/CFS cfRNA panel fails (5/13, p=0.949).
+
+P30 PON2/CACNA2D2 are post-hoc picks.
+
+P31 Chagas mixed signs, 15/17 (p=0.020) — fragile.
+
+P32 ME/CFS blood-to-muscle fails (3/9, p=0.941).
+
+P33 lower than published Lasso (0.723 vs 0.810).
+
+P36-P38 long-COVID genes are source-selected.
+
+CNN underperforms logistic (0.576 vs 0.628).
+
+1,328 accessions are nested, not independent studies.
+
+No positive named discovery; gate not met.
+
+No pre-registered new cohort for any surviving panel.
+
+Additions (computational):
+
+Make the GSM-overlap audit the primary contribution.
+
+Report PCOS and IC survivors as the payload; failures as limits.
+
+Add a pre-registered new cohort for one surviving panel.
+
+Add a proper clinical adjudication of the IC lesion split.
+
+Reduce accession count to study-level.
+
+Add a "how to audit biomarkers" decision tree.
+
+Provide the source-audit tool as a standalone resource.
+
+Simplify to 12 slides.
+
+6. main (9): AMP Design — 09a Label-Provenance Audit
+Weaknesses (20) — computational only:
+
+Primary finding is a dataset validity failure (21,742/24,628 unreviewed).
+
+Scale-up AUROC 0.921 is confounded.
+
+APD6 0.926 uses same reviewed negatives — not independent transfer.
+
+Post-hoc reviewed subgroup (239 positives) is selected and small.
+
+GNN underperforms CNN at every scale.
+
+"First automated census" rests on absence of evidence.
+
+Admissibility gate thresholds are ad hoc.
+
+No expert adjudication of any flagged sequence.
+
+Discovery candidates are unvalidated hypotheses.
+
+Signal-peptide ablation: score drops 0.908→0.630.
+
+Veltri 0.8029 below published 0.83.
+
+ACEP 0.9778 remains above our stack.
+
+Feb2020 0.9688 vs 0.962 — descriptive parity only.
+
+Feb2020 CV has 15.98% decamer overlap.
+
+Random-split homology leakage unquantified.
+
+Tool count inflated via infrastructure.
+
+Dataset count inflated (MGNify/PubMed).
+
+Paper is 58 pages — too long.
+
+Twelve-slide storyboard is outline, not rendered.
+
+No reviewed-only retraining completed.
+
+Additions (computational):
+
+Fetch reviewed-only positives; match negatives on review status and organism.
+
+Rebuild splits, retrain, re-evaluate.
+
+Add a locked reviewed-only benchmark as headline.
+
+Pre-register discovery screen before scoring.
+
+Use MMseqs2 for alignment-based clustering.
+
+Simplify to one primary question: provenance audit.
+
+Add a decision tree for AMP benchmark users.
+
+Reduce tools/datasets to what is used.
+
+Render the 12-slide storyboard.
+
+7. paper_with_updates.pdf: Tri-Objective Peptide (09c)
+Weaknesses (20) — computational only:
+
+AntiCP 2.0 main: 0.8029 vs published 0.83 — not beaten.
+
+AntiCP 2.0 alternate: 0.931 vs 0.95 — not beaten.
+
+AmyloGram CV 0.865 stands; ours 0.7947.
+
+Only verified win is FoldAmyloid on pep424 (+9.1 AUROC).
+
+Discovery candidates unvalidated.
+
+25-epoch screen drifted anionic — model failure.
+
+Random-weight CNN falsifier not run.
+
+Mass-table bugs (P/Q/V/W/Y scramble) survived test suite.
+
+Shipped weights almost overwritten silently — integrity incident.
+
+Single-seed headline numbers.
+
+AntiCP 2.0 leakage: 16.6% test peptides near-homolog to train.
+
+Composition descriptors dominate AntiCP benchmark.
+
+CNN loses to 3-mer LR on CPP (0.8956 vs 0.9265).
+
+GNN underperforms CNN on AMP tasks.
+
+Tool count 24, not 40 (gate open).
+
+Only 287 accession records, not 120 cohorts.
+
+Limited to 10-30-mer screens.
+
+Conformational blindness — no membrane state.
+
+Paper is 47-52 pages — too long.
+
+Constrained-screen family not pre-registered.
+
+Additions (computational):
+
+Add a hemolysis classifier (HemoPI-class) as a fifth task.
+
+Add ESM-2/ProtT5 embedding baseline.
+
+Add a disulfide-aware gate.
+
+Add per-residue solubility profile (CamSol-style).
+
+Raise pytest coverage from 29.2% to 60%+.
+
+Add NCBI BLAST novelty check.
+
+Pre-register the constrained screen.
+
+Simplify: lead with pep424 break + constrained-screen method.
+
+Reduce to 12 slides.
+
+8. manuscript.pdf: Peptide-HLA + CPP (09b)
+Weaknesses (20) — computational only:
+
+G3 allele-held-out challenge fails badly (0.6687 vs 0.9285).
+
+Mean per-allele AUROC 0.5798 vs 0.9056.
+
+CNN does not beat PSSM on peptide-disjoint split (0.9044 vs 0.9156).
+
+GNN trails even with extended training (0.8480).
+
+CPP CNN loses to 3-mer LR (0.8956 vs 0.9265).
+
+G3 is a locked negative — overrides leader-beating claim.
+
+Same-row MHCflurry margin is small (0.9281 vs 0.9164).
+
+Per-allele G2 Wilcoxon p=0.0104 but alleles not independent.
+
+Assay-method slices small (competitive fluorescence n=757).
+
+Binder prevalence inflates PPV.
+
+Calibration under new alleles not established.
+
+pAUC0.1 = 0.52 — poor top-of-ranking.
+
+CPP candidates Arg/Trp-rich — likely near-duplicates.
+
+Max Jaccard 0.176-0.444 — not globally novel.
+
+Identifiability propositions are conditional, not empirically audited.
+
+40-tool gate open.
+
+1,328 records are nested, not independent.
+
+Paper thin (18 pages).
+
+Allele-held-out failure not mechanistically explained.
+
+No second allele-held-out benchmark.
+
+Additions (computational):
+
+Run a pre-registered new unseen-allele benchmark.
+
+Test ESM-2 embeddings for allele generalization.
+
+Add ligand-eluted benchmark (NetMHCpan task) for fair comparison.
+
+Predeclare decision thresholds before new cohorts.
+
+Add a proper identifiability rank audit on the observed design.
+
+Simplify to one question: when do deep models help vs additive baselines.
+
+Render 12-slide storyboard.
+
+9. MEGA27-16: GSE2034 Breast Cancer ML
+Weaknesses (20) — computational only:
+
+AUC 0.632 is below clinical utility.
+
+First negative (naive 70/30 split, AUC 0.537) is preserved but unhelpful as headline.
+
+Graph smoothing arm fails (0.629 vs 0.632).
+
+No deep model escapes the 0.62-0.67 band.
+
+Panel genes are not the univariate top list — interpretability gap.
+
+15-gene panel not yet validated on METABRIC/SCAN-B.
+
+GSE2034 is heavily reanalyzed.
+
+Bone-only relapse labels — narrow endpoint.
+
+No treatment harmonization.
+
+Array-era normalization.
+
+Probe mapping via GPL96 only.
+
+Tool count 45 vs 40 gate — inflated by infrastructure.
+
+301 accessions are 286 GSMs + 15 gene records, not independent datasets.
+
+Bootstrap sign stability is not biological validation.
+
+CNN AUC missing post-hoc (accuracy only).
+
+No permutation-based significance on panel.
+
+No external replication yet.
+
+Published Wang 76-gene signature not beaten.
+
+Elastic-net+clinical G1 rung fails.
+
+Paper is a methods record, not a discovery.
+
+Additions (computational):
+
+Run panel on METABRIC, SCAN-B, GSE2603.
+
+Pre-register a locked replication rung.
+
+Add competing-risks or cause-specific models.
+
+Add decision curve analysis.
+
+Add calibration analysis.
+
+Compare to Wang 76-gene signature directly.
+
+Simplify to one primary claim: a stability-based discovery method.
+
+Reduce to 12 slides.
+
+10. MEGA27-12: 3D Drug Discovery — Mpro
+Weaknesses (20) — computational only:
+
+Raw Vina AUROC 0.339 — below chance on 15 compounds.
+
+GNN n=15 result was single-seed luck (0.946 → 0.871 ± 0.050).
+
+Bigscreen n=59 shows MLP ≈ GNN (0.83 both).
+
+n=15 leave-one-out CIs are wide.
+
+Only 15 labeled compounds in the primary benchmark.
+
+Covalent warheads scored as reversible — chemistry blind.
+
+Ebselen excluded (no Se parameters).
+
+Ivermectin SMILES unresolved.
+
+Rigid receptor — induced fit unmodeled.
+
+Water-mediated interactions absent.
+
+Cross-target transfer untested.
+
+Exhaustiveness 8 can miss deep minima.
+
+Label set includes failed clinical drugs (assay heterogeneity).
+
+Comparator encodings may be direction-confused.
+
+"Benchmark break" framing is small-n.
+
+Bigscreen excludes 17 macrocycles — scope narrow.
+
+MPRO-D1 does not beat nilotinib on affinity.
+
+Tool count 40 — meets gate but inflated.
+
+GNN at n=15 was pose-graph; at n=59 was 2D bond-graph — architectures not merged.
+
+No cross-validation of MPRO-D1's docking pose class.
+
+Additions (computational):
+
+Grow labeled set to ≥50 compounds.
+
+Add explicit water molecules or hydration-aware scoring.
+
+Add covalent docking branch.
+
+Add cross-target transfer (e.g., another protease).
+
+Report DeLong CIs for all AUROC comparisons.
+
+Merge n=15 and n=59 architectures into one benchmark.
+
+Simplify to benchmark + one honest negative + one candidate.
+
+Reduce to 12 slides.
+
+Cross-Cutting Computational Themes
+Recurring weaknesses:
+
+Dataset/tool count inflation (nested records counted as independent).
+
+Long papers (47-58 pages) — not ISEF-ready.
+
+Negative-heavy narratives that obscure positive contributions.
+
+Single-seed headline numbers.
+
+Ad hoc gates/thresholds rather than theoretically derived.
+
+Homology leakage in random-split benchmarks.
+
+No leave-family-out CV in most projects.
+
+CIs often overlapping — point-estimate wins only.
+
+Universal computational additions:
+
+One primary question per paper.
+
+One locked primary endpoint.
+
+Cluster-level bootstrap CIs everywhere.
+
+Leave-family-out CV as the primary protocol.
+
+12-slide storyboard as the ISEF deliverable.
+
+One-page summary card.
+
+Decision tree for tool use.
+
+Pre-registered replication within the paper itself.
+
+"What this is NOT" section in every abstract.
+
+Reduce tool/dataset counting to study-level units.
