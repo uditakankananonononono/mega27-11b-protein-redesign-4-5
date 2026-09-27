@@ -13,3 +13,12 @@ prompt (see ~/judgelogs on the work sandbox) counts as the ONE round once the
 user's verdict returns AND its critique produces a landed novelty change
 (rule 8). Supplementary Gemini/DeepSeek/LLM consults are logged here as
 supplementary, never counted.
+
+CLARIFICATION 2026-09-27 10:01:47 IST (user, WhatsApp
+wamid.HBgMOTE4MTM0MDk4NTcxFQIAEhgWM0VCMDMwREI5RDQ0QUNCRDc2MTNDMwA=, verified
+author=user): "EACH PROJECTS NEED ONE FROM ME TO PASS" - only a verdict she
+personally provides through the courier paste route counts toward the ONE
+round. Agent-initiated ChatGPT rounds, even in her account, never count; they
+are preserved as supplementary history only. No completion claim on the judge
+gate without her verdict in hand (wamid provenance).
+
