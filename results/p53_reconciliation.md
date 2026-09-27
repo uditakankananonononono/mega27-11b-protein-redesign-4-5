@@ -71,3 +71,24 @@ hidden-32 models do not, at any epoch count tested (25-300)". Verdict
 endpoint numbers remain committed and unchanged; only the attribution
 changes. Falsifiable follow-up (not required): v2 h64 at e25 should show
 positive p53 r if width-driven overfitting needs epochs to develop.
+
+## h64-e25 follow-up outcome (prereg docs/PREREG_P53_H64_E25_2026-09-28.md, commit 035334d)
+
+Run exactly as locked (arch v2, hidden 64/32, e25, full-train, same 42
+p53 rows): **p53 r = 0.3877** (RMSE 2.003), results/bench_v2_h64_e25.json.
+Per the predeclared bands (> 0.15): prediction CONFIRMED.
+
+The full 2x2 over the same 42 p53 rows (full-train protocol):
+| width | e25 | e300 |
+|-------|-----|------|
+| h32 (v2) | (v1: 0.3768) | 0.4090 |
+| h64 (v2) | 0.3877 | -0.0207 |
+
+The p53 collapse requires BOTH width 64 AND long training: neither
+factor alone produces it. Mechanistic read: the wider model needs many
+epochs to overfit the S2648 training families; once it does, out-of-
+family transfer inverts. In-family the same wide model is the best
+(ssym_all 0.699). This closes the attribution: the headline model's p53
+negative is an overfitting artifact of the h64-e300 configuration, not
+evidence that transfer fails for this model class in general. Paper
+should quote the 2x2, not the single endpoint.
