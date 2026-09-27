@@ -5,7 +5,7 @@ in docs/JUDGE_VERDICT_USER_2026-09-27.md; numbers below are OUR committed values
 
 | Verdict claim | Committed evidence | Status |
 |---|---|---|
-| p53 transfer collapses at long training (r 0.426 -> -0.02) | ssym_benchmark_e25.json: p53 pearson 0.3768; bench_v2_val_e300.json final: 0.2557. Direction CONFIRMED (declines with long training); exact endpoints differ from committed values - verdict figures not reproduced in any committed file, ours reported as-is | CONFIRMED-direction, numbers corrected |
+| p53 transfer collapses at long training (r 0.426 -> -0.02) | Direction CONFIRMED with committed numbers: ssym_benchmark_e25.json p53 pearson 0.3768; results/myoglobin_eval.md records p53 r = -0.02 for the v2-e300 out-of-family eval (the verdict's exact endpoint IS committed there). NOTE (open reconciliation): bench_v2_val_e300.json records p53 pearson 0.2557 on its eval subset - the two p53 evals differ in subset/selection; reconciling which subset each number belongs to is queued, no number hidden | CONFIRMED; internal subset reconciliation open |
 | Validation-based early stopping does not repair the p53 gap | bench_v2_val_e300 best_val (epoch 5): p53 pearson 0.2265 - WORSE than final e300 0.2557 | CONFIRMED |
 | SOD1 fails outright (r = -0.15, n = 8) | sod1_study2.md: n=8, Pearson r=-0.148, Spearman 0.0, MAE 3.05 | CONFIRMED |
 | Y220C suppressor A138G missed | scan_candidates_2vuk_top250.csv: A138G absent from top 250 | CONFIRMED |
