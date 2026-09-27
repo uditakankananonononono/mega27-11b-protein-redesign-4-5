@@ -22,3 +22,10 @@ round. Agent-initiated ChatGPT rounds, even in her account, never count; they
 are preserved as supplementary history only. No completion claim on the judge
 gate without her verdict in hand (wamid provenance).
 
+
+## ROUND 1 (COUNTED: 1 of 1) - 2026-09-27 12:02:56 IST
+Source: user WhatsApp mega-verdict, wamid.HBgMOTE4MTM0MDk4NTcxFQIAEhgWM0VCMEFGRDY4MzY4OTkxNzFEQURGRAA= (verified author=user).
+Section 4 (shared 11a/11b) extracted DIRECTLY from the authenticated
+message; archive docs/JUDGE_VERDICT_USER_2026-09-27.md. Courier-compiled
+file rejected. Response: PREREG_ADDENDUM_2026-09-27 (p53/SOD1 items).
+Gate: 1 of 1 - MET.
