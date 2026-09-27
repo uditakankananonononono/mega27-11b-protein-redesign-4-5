@@ -1,72 +1,141 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.8.14)  24 SEP 2026 22:15
-entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2026.8.14)  27 SEP 2026 11:19
+ restricted system commands enabled.
 **main.tex
 (./main.tex
 LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-01-21>
+Lua module: luaotfload 2022-03-18 3.21 Lua based OpenType font support
+Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2021-05-20 2.74 ConTeXt Lua libraries -- extended c
+ollection.
+luaotfload | conf : Root cache directory is "/home/sandbox/.texlive2021/texmf-va
+r/luatex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2022-02-24.lua" from kpse-res
+olved path "/home/sandbox/texmf/tex/luatex/luaotfload/fontloader-2022-02-24.lua"
+.
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.119
+Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' at position 1 in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' at position 1 in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "/home/sandbox/.texlive2021/texmf-va
+r/luatex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' at position 1 in `glyph_stream_provider'
+.
+Inserting `luaotfload.harf.finalize_vlist' at position 1 in `post_linebreak_filt
+er'.
+Inserting `luaotfload.harf.finalize_hlist' at position 2 in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' at position 1 in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' at position 1 in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' at position 1 in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
+font'.
+Inserting `luaotfload.aux.set_font_index' at position 2 in `luaotfload.patch_fon
+t'.
+Inserting `luaotfload.aux.patch_cambria_domh' at position 3 in `luaotfload.patch
+_font'.
+Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_fon
+t_unsafe'.
+Inserting `luaotfload.aux.set_capheight' at position 4 in `luaotfload.patch_font
+'.
+Inserting `luaotfload.aux.set_xheight' at position 5 in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' at position 6 in `luaotfload.patch_font'
+. L3 programming layer <2022-01-21>
+Inserting `tracingstacklevels' at position 1 in `input_level_string'.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
-)
-\c@part=\count185
-\c@section=\count186
-\c@subsection=\count187
-\c@subsubsection=\count188
-\c@paragraph=\count189
-\c@subparagraph=\count190
-\c@figure=\count191
-\c@table=\count192
+luaotfload | db : Font names database loaded from /home/sandbox/.texlive2021/tex
+mf-var/luatex-cache/generic/names/luaotfload-names.luc.gz)
+\c@part=\count183
+\c@section=\count184
+\c@subsection=\count185
+\c@subsubsection=\count186
+\c@paragraph=\count187
+\c@subparagraph=\count188
+\c@figure=\count189
+\c@table=\count190
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
-\bibindent=\dimen138
+\bibindent=\dimen137
 )
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathptmx.sty
-Package: mathptmx 2020/03/25 PSNFSS-v9.3 Times w/ Math, improved (SPQR, WaS) 
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/ztmcm/m/n on input line 28.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/ztmcm/m/n on input line 28.
-LaTeX Font Info:    Redeclaring symbol font `letters' on input line 29.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  OML/cmm/m/it --> OML/ztmcm/m/it on input line 29.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/cmm/b/it --> OML/ztmcm/m/it on input line 29.
-LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 30.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> OMS/ztmcm/m/n on input line 30.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> OMS/ztmcm/m/n on input line 30.
-LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 31.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
-\symbold=\mathgroup4
-\symitalic=\mathgroup5
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 35.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 35.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
-LaTeX Info: Redefining \hbar on input line 50.
+(/home/sandbox/texmf/tex/latex/fontspec/fontspec.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2022-01-21 L3 programming layer (loader) 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2022-01-12 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count191
+\l__pdf_internal_box=\box50
+))
+Package: xparse 2022-01-12 L3 Experimental document command parser
 )
+Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+Lua module: fontspec 2022/01/15 2.8a Font selection for XeLaTeX and LuaLaTeX
+(/home/sandbox/texmf/tex/latex/fontspec/fontspec-luatex.sty
+Package: fontspec-luatex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaT
+eX
+\l__fontspec_script_int=\count192
+\l__fontspec_language_int=\count193
+\l__fontspec_strnum_int=\count194
+\l__fontspec_tmp_int=\count195
+\l__fontspec_tmpa_int=\count196
+\l__fontspec_tmpb_int=\count197
+\l__fontspec_tmpc_int=\count198
+\l__fontspec_em_int=\count199
+\l__fontspec_emdef_int=\count266
+\l__fontspec_strong_int=\count267
+\l__fontspec_strongdef_int=\count268
+\l__fontspec_tmpa_dim=\dimen138
+\l__fontspec_tmpb_dim=\dimen139
+\l__fontspec_tmpc_dim=\dimen140
+
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 11
-2.
+)
+(/home/sandbox/texmf/tex/latex/fontspec/fontspec.cfg)))
+luaotfload | cache : Lookup cache loaded from /home/sandbox/.texlive2021/texmf-v
+ar/luatex-cache/generic/names/luaotfload-lookup-cache.luc.
+luaotfload | aux : font no 23 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 24 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 25 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 26 (nil) does not define feature smcp for script latn
+ with language dflt
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
-File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-))
+Package fontspec Info: Font family 'LiberationSerif(0)' created for font
+(fontspec)             'Liberation Serif' with options [Ligatures=TeX].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"LiberationSerif:mode=node;script=latn;language=dflt;
++tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"LiberationSerif/B:mode=node;script=latn;language=dfl
+t;+tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"LiberationSerif/I:mode=node;script=latn;language=dfl
+t;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"LiberationSerif/BI:mode=node;script=latn;language=df
+lt;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
@@ -80,17 +149,17 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count193
-\Gm@cntv=\count194
-\c@Gm@tempcnt=\count195
-\Gm@bindingoffset=\dimen139
-\Gm@wd@mp=\dimen140
-\Gm@odd@mp=\dimen141
-\Gm@even@mp=\dimen142
-\Gm@layoutwidth=\dimen143
-\Gm@layoutheight=\dimen144
-\Gm@layouthoffset=\dimen145
-\Gm@layoutvoffset=\dimen146
+\Gm@cnth=\count269
+\Gm@cntv=\count270
+\c@Gm@tempcnt=\count271
+\Gm@bindingoffset=\dimen141
+\Gm@wd@mp=\dimen142
+\Gm@odd@mp=\dimen143
+\Gm@even@mp=\dimen144
+\Gm@layoutwidth=\dimen145
+\Gm@layoutheight=\dimen146
+\Gm@layouthoffset=\dimen147
+\Gm@layoutvoffset=\dimen148
 \Gm@dimlist=\toks17
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
@@ -104,46 +173,46 @@ Package: amstext 2021/08/26 v2.01 AMS text
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
-\ex@=\dimen147
+\ex@=\dimen149
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen148
+\pmbraise@=\dimen150
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2021/08/26 v2.02 operator names
 )
-\inf@bad=\count196
-LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count197
-\leftroot@=\count198
+\inf@bad=\count272
+LaTeX Info: Redefining \frac on input line 236.
+\uproot@=\count273
+\leftroot@=\count274
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count199
-\DOTSCASE@=\count266
+\classnum@=\count275
+\DOTSCASE@=\count276
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box50
-\strutbox@=\box51
-\big@size=\dimen149
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+\big@size=\dimen151
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count267
-\c@MaxMatrixCols=\count268
+\macc@depth=\count277
+\c@MaxMatrixCols=\count278
 \dotsspace@=\muskip16
-\c@parentequation=\count269
-\dspbrk@lvl=\count270
+\c@parentequation=\count279
+\dspbrk@lvl=\count280
 \tag@help=\toks19
-\row@=\count271
-\column@=\count272
-\maxfields@=\count273
+\row@=\count281
+\column@=\count282
+\maxfields@=\count283
 \andhelp@=\toks20
-\eqnshift@=\dimen150
-\alignsep@=\dimen151
-\tagshift@=\dimen152
-\tagwidth@=\dimen153
-\totwidth@=\dimen154
-\lineht@=\dimen155
+\eqnshift@=\dimen152
+\alignsep@=\dimen153
+\tagshift@=\dimen154
+\tagwidth@=\dimen155
+\totwidth@=\dimen156
+\lineht@=\dimen157
 \@envbody=\toks21
 \multlinegap=\skip50
 \multlinetaggap=\skip51
@@ -156,8 +225,9 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup6
-\symAMSb=\mathgroup7
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
@@ -185,13 +255,13 @@ Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
+Package graphics Info: Driver file: luatex.def on input line 107.
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/luatex.def
+File: luatex.def 2021/06/01 v1.2c Graphics/color driver for luatex
 ))
-\Gin@req@height=\dimen156
-\Gin@req@width=\dimen157
+\Gin@req@height=\dimen158
+\Gin@req@width=\dimen159
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
@@ -199,41 +269,35 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTright=\skip56
 \LTpre=\skip57
 \LTpost=\skip58
-\LTchunksize=\count274
-\LTcapwidth=\dimen158
-\LT@head=\box52
-\LT@firsthead=\box53
-\LT@foot=\box54
-\LT@lastfoot=\box55
-\LT@gbox=\box56
-\LT@cols=\count275
-\LT@rows=\count276
-\c@LT@tables=\count277
-\c@LT@chunks=\count278
+\LTchunksize=\count284
+\LTcapwidth=\dimen160
+\LT@head=\box53
+\LT@firsthead=\box54
+\LT@foot=\box55
+\LT@lastfoot=\box56
+\LT@gbox=\box57
+\LT@cols=\count285
+\LT@rows=\count286
+\c@LT@tables=\count287
+\c@LT@chunks=\count288
 \LT@p@ftn=\toks29
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
-\col@sep=\dimen159
-\ar@mcellbox=\box57
-\extrarowheight=\dimen160
+\col@sep=\dimen161
+\ar@mcellbox=\box58
+\extrarowheight=\dimen162
 \NC@list=\toks30
 \extratabsurround=\skip59
 \backup@length=\skip60
-\ar@cellbox=\box58
+\ar@cellbox=\box59
 )
-\c@proposition=\count279
-\c@theorem=\count280
-\c@lemma=\count281
-\c@remark=\count282
-
-(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count283
-\l__pdf_internal_box=\box59
-)
-(./main.aux)
-\openout1 = `main.aux'.
+\c@proposition=\count289
+\c@theorem=\count290
+\c@lemma=\count291
+\c@remark=\count292
+ (./main.aux)
+\openout1 = main.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
@@ -244,16 +308,87 @@ LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
+8.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
 
+Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
+
+\symlegacymaths=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 18.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 18.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 18.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 18.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 18.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 18.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 18.
+LaTeX Font Info:    Redeclaring math accent \check on input line 18.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 18.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 18.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 18.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 18.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 18.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 18.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 18.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 18.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 18.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 18.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 18.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 18.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 18.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 18.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 18.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 18.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 18.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/LiberationSerif(0)/m/n on input line
+ 18.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 18.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/LiberationSerif(0)/m/n on input lin
+e 18.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/LiberationSerif(0)/m/n --> TU/LiberationSerif(0)/m/n
+ on input line 18.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/LiberationSerif(0)/m/it on input li
+ne 18.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/LiberationSerif(0)/b/n on input lin
+e 18.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 18.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 18.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/LiberationSerif(0)/m/n --> TU/LiberationSerif(0)/b/n
+ on input line 18.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> TU/LiberationSerif(0)/b/it on input l
+ine 18.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 18.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 18.
+
 *geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
+*geometry* detected driver: luatex
 *geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
+* driver: luatex
 * paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -286,16 +421,16 @@ LaTeX Font Info:    ... okay on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count284
-\scratchdimen=\dimen161
+\scratchcounter=\count293
+\scratchdimen=\dimen163
 \scratchbox=\box60
-\nofMPsegments=\count285
-\nofMParguments=\count286
+\nofMPsegments=\count294
+\nofMParguments=\count295
 \everyMPshowfont=\toks31
-\MPscratchCnt=\count287
-\MPscratchDim=\dimen162
-\MPnumerator=\count288
-\makeMPintoPDFobject=\count289
+\MPscratchCnt=\count296
+\MPscratchDim=\dimen164
+\MPnumerator=\count297
+\makeMPintoPDFobject=\count298
 \everyMPtoPDFconversion=\toks32
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -306,348 +441,191 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 19.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
-File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 19.
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
-File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 19.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsztmcm.fd
-File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 19.
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
-File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1
-9.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
-File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-)
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 19.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 19.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 19.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
- [1
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-15.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-Overfull \hbox (1.94379pt too wide) in paragraph at lines 123--144
-\T1/ptm/m/n/10.95 Published $\OT1/ztmcm/m/n/10.95 ^^A^^A\OML/ztmcm/m/it/10.95 G
-$ \T1/ptm/m/n/10.95 pre-dic-tors fall into four fam-i-lies [[]]. Energy-based m
-eth-ods (FoldX, Rosetta,
+Overfull \hbox (5.45122pt too wide) in paragraph at lines 123--144
+\TU/LiberationSerif(0)/m/n/10.95 Pub-lished $\OT1/cmr/m/n/10.95 \OML/cmm/m/it
+/10.95 G$ \TU/LiberationSerif(0)/m/n/10.95 pre-dic-tors fall into four fam-i-lie
+s [[]]. Energy-based meth-ods (FoldX, Rosetta,
  []
 
-[2] [3]
-
-! LaTeX Error: Unicode character ^^H (U+0008)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.244 ^^H
-         egin{equation}
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.245 L(\theta
-              ) = \frac{1}{|\mathcal{B}|}\sum_{i\in\mathcal{B}} (\hat y_i - ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! You can't use `\eqno' in math mode.
-\endmathdisplay@a ...\df@tag \@empty \else \veqno 
-                                                  \alt@tag \df@tag \fi \ifx ...
-l.249 \end{equation}
-                    
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
-! LaTeX Error: \begin{document} ended by \end{equation}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.249 \end{equation}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.249 \end{equation}
-                    
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.249 \end{equation}
-                    
-Things are pretty mixed up, but I think the worst is over.
-
-[4]
-Overfull \hbox (13.64905pt too wide) in paragraph at lines 326--331
-\T1/ptm/m/n/10.95 for the em-pir-i-cal dis-tri-bu-tion and first-order ac-cu-ra
-te for the sam-pling dis-tri-bu-tion [[]]. 
+[2] [3] [4]
+Overfull \hbox (11.62128pt too wide) in paragraph at lines 326--331
+\TU/LiberationSerif(0)/m/n/10.95 for the em-pir-i-cal dis-tri-bu-tion and first-
+order ac-cu-rate for the sam-pling dis-tri-bu-tion [[]]. 
  []
 
 [5]
-<figs/fig1_ssym_inv_scatter.pdf, id=30, 325.215pt x 303.534pt>
+<figs/fig1_ssym_inv_scatter.pdf, id=32, 325.215pt x 303.534pt>
 File: figs/fig1_ssym_inv_scatter.pdf Graphic file (type pdf)
 <use figs/fig1_ssym_inv_scatter.pdf>
-Package pdftex.def Info: figs/fig1_ssym_inv_scatter.pdf  used on input line 429
+Package luatex.def Info: figs/fig1_ssym_inv_scatter.pdf  used on input line 429
 .
-(pdftex.def)             Requested size: 258.36668pt x 241.16016pt.
+(luatex.def)             Requested size: 258.36668pt x 241.16016pt.
 
-Overfull \hbox (19.3975pt too wide) in paragraph at lines 437--443
-\T1/ptm/m/n/10.95 The v1 model car-ried a sys-tem-atic per-identity bias: re-me
-asured on S2648, mean resid-u-als reach $\OT1/ztmcm/m/n/10.95 +1\OML/ztmcm/m/it
-/10.95 :\OT1/ztmcm/m/n/10.95 04$ \T1/ptm/m/n/10.95 kcal/mol
+Overfull \hbox (15.95338pt too wide) in paragraph at lines 437--443
+\TU/LiberationSerif(0)/m/n/10.95 The v1 model car-ried a sys-tem-atic per-identi
+ty bias: re-measured on S2648, mean resid-u-als reach $\OT1/cmr/m/n/10.95 +1\OM
+L/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 04$ \TU/LiberationSerif(0)/m/n/10.95 kcal/m
+ol
  []
 
-<figs/fig2_identity_bias.pdf, id=31, 505.89pt x 231.26399pt>
+<figs/fig2_identity_bias.pdf, id=33, 505.89pt x 231.264pt>
 File: figs/fig2_identity_bias.pdf Graphic file (type pdf)
 <use figs/fig2_identity_bias.pdf>
-Package pdftex.def Info: figs/fig2_identity_bias.pdf  used on input line 446.
-(pdftex.def)             Requested size: 422.77664pt x 193.27235pt.
-<figs/fig3_training_curve.pdf, id=32, 397.485pt x 245.718pt>
+Package luatex.def Info: figs/fig2_identity_bias.pdf  used on input line 446.
+(luatex.def)             Requested size: 422.77664pt x 193.27235pt.
+<figs/fig3_training_curve.pdf, id=34, 397.485pt x 245.718pt>
 File: figs/fig3_training_curve.pdf Graphic file (type pdf)
 <use figs/fig3_training_curve.pdf>
-Package pdftex.def Info: figs/fig3_training_curve.pdf  used on input line 469.
-(pdftex.def)             Requested size: 328.82707pt x 203.28224pt.
+Package luatex.def Info: figs/fig3_training_curve.pdf  used on input line 469.
+(luatex.def)             Requested size: 328.82707pt x 203.28224pt.
 [6]
-<figs/fig4_candidates_2vuk.png, id=36, 578.16pt x 433.62pt>
+Overfull \hbox (53.23026pt too wide) in paragraph at lines 483--495
+\TU/LiberationSerif(0)/m/n/10.95 Two struc-tural facts frame the scan. First, 2V
+UK is Y220C crys-tal-lized on the su-per-stable M133L/V203A/N239Y/N268D
+ []
+
+
+Overfull \hbox (6.16249pt too wide) in paragraph at lines 496--515
+[]\TU/LiberationSerif(0)/m/n/10.95 Face-validity against cu-rated lit-er-a-ture sup-pres-sors: the doc-u-mented Y220C second-site sup-pres-sor L137R
+ []
+
+<figs/fig4_candidates_2vuk.png, id=38, 578.16pt x 433.62pt>
 File: figs/fig4_candidates_2vuk.png Graphic file (type png)
 <use figs/fig4_candidates_2vuk.png>
-Package pdftex.def Info: figs/fig4_candidates_2vuk.png  used on input line 518.
+Package luatex.def Info: figs/fig4_candidates_2vuk.png  used on input line 518.
 
-(pdftex.def)             Requested size: 352.31625pt x 264.23654pt.
- [7] [8 <./figs/fig1_ssym_inv_scatter.pdf>] [9 <./figs/fig2_identity_bias.pdf>]
- [10 <./figs/fig3_training_curve.pdf>]
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 653.
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 6
-79.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [11 <./figs/fig4_candidates_2vuk.png>]
-Overfull \hbox (3.8975pt too wide) in paragraph at lines 692--696
-\OT1/ztmcm/m/n/10.95 0\OML/ztmcm/m/it/10.95 :\OT1/ztmcm/m/n/10.95 391$\T1/ptm/m
-/n/10.95 , $\OML/ztmcm/m/it/10.95 p \OT1/ztmcm/m/n/10.95 = 1\OML/ztmcm/m/it/10.
-95 :\OT1/ztmcm/m/n/10.95 6 \OMS/ztmcm/m/n/10.95 ^^B \OT1/ztmcm/m/n/10.95 10[]$\
-T1/ptm/m/n/10.95 ): the mag-ni-tude sig-nal is struc-turally sen-si-ble (\T1/cm
-tt/m/n/10.95 burial_analysis_2vuk.json\T1/ptm/m/n/10.95 ). 
+(luatex.def)             Requested size: 352.31625pt x 264.23654pt.
+[7] [8<./figs/fig1_ssym_inv_scatter.pdf>] [9<./figs/fig2_identity_bias.pdf>]
+[10<./figs/fig3_training_curve.pdf>]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 653.
+ [11<./figs/fig4_candidates_2vuk.png>]
+Overfull \hbox (5.02205pt too wide) in paragraph at lines 692--696
+\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 391$\TU/LiberationS
+erif(0)/m/n/10.95 , $\OML/cmm/m/it/10.95 p \OT1/cmr/m/n/10.95 = 1\OML/cmm/m/it/
+10.95 :\OT1/cmr/m/n/10.95 6 \OMS/cmsy/m/n/10.95  \OT1/cmr/m/n/10.95 10[]$\TU/L
+iberationSerif(0)/m/n/10.95 ): the mag-ni-tude sig-nal is struc-turally sen-si-b
+le (\TU/lmtt/m/n/10.95 burial_analysis_2vuk.json\TU/LiberationSerif(0)/m/n/10.9
+5 ). 
  []
 
-[12] (./appendix_tools.tex
-Underfull \hbox (badness 10000) in paragraph at lines 12--12
-[]|\T1/ptm/m/n/10.95 ProtDDG-Bench
- []
+[12] (./appendix_tools.tex) (./appendix_bias.tex
+Underfull \hbox (badness 10000) in paragraph at lines 10--1
 
-
-Underfull \hbox (badness 1383) in paragraph at lines 13--13
-[]|\T1/ptm/m/n/10.95 Pucci et al. 2018 Bioin-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--23
-[]|\T1/ptm/m/n/10.95 FireProtDB Ope-
- []
-
-
-Underfull \hbox (badness 2495) in paragraph at lines 26--27
-\T1/ptm/m/n/10.95 altloc-CA du-pli-cate bug (2VUK 197 vs 195 residues);
- []
-
-
-Underfull \hbox (badness 1527) in paragraph at lines 26--27
-\T1/ptm/m/n/10.95 con-firms 195-residue chain + su-per-stable back-ground in
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
-[]|\T1/ptm/m/n/10.95 per-residue SASA on 2VUK; burial cor-re-lates with
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
-\T1/ptm/m/n/10.95 pre-dicted |ddG| (Spear-man 0.391, p=1.6e-8) (re-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
-[]|\T1/ptm/m/n/10.95 scan/candidate ta-ble joins and ex-ports (re-
- []
-
-
-Underfull \hbox (badness 1286) in paragraph at lines 33--34
-[]|\T1/ptm/m/n/10.95 AF-P00441-F1 model down-loaded; pLDDT-vs-scan anal-
- []
-
-
-Underfull \hbox (badness 3088) in paragraph at lines 33--34
-\T1/ptm/m/n/10.95 y-sis: top SOD1 can-di-dates sit in high-confidence re-
- []
-
-
-Underfull \hbox (badness 5817) in paragraph at lines 34--35
-[]|\T1/ptm/m/n/10.95 domain mem-ber-ship: all 11 p53 scan po-si-tions in-
- []
-
-
-Underfull \hbox (badness 5446) in paragraph at lines 36--36
-[]|\T1/ptm/m/n/10.95 NCBI E-utilities (PubMed
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
-[]|\T1/ptm/m/n/10.95 structure fig-ure fig4 (2VUK can-di-date ge-om-e-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
-\T1/ptm/m/n/10.95 try, pa-per/figs/fig4_candidates_2vuk.png; ses-sion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
-[]|\T1/ptm/m/n/10.95 TP53/SOD1 functional-network con-text (re-
  []
 
 [13
 
-]) (./appendix_bias.tex [14]) (./appendix_candidates.tex
-Overfull \hbox (9.60115pt too wide) in paragraph at lines 1--1
-[]\T1/ptm/b/n/14.4 Appendix C: Top novel 2VUK res-cue can-di-dates (bias-correc
-ted, PRO-masked) 
+]) (./appendix_candidates.tex
+Overfull \hbox (7.95235pt too wide) in paragraph at lines 1--1
+[]\TU/LiberationSerif(0)/b/n/14.4 Ap-pendix C: Top novel 2VUK res-cue can-di-dat
+es (bias-corrected, PRO-masked) 
  []
 
 
-Overfull \hbox (34.1382pt too wide) in paragraph at lines 3--6
-\T1/ptm/m/n/10.95 Full rank-ing in \T1/cmtt/m/n/10.95 build/scan_2vuk_whole_v2.
-json\T1/ptm/m/n/10.95 ; top 250 in \T1/cmtt/m/n/10.95 results/scan_candidates_2
-vuk_top250.csv\T1/ptm/m/n/10.95 .
+Overfull \hbox (38.56892pt too wide) in paragraph at lines 3--6
+\TU/LiberationSerif(0)/m/n/10.95 Full rank-ing in \TU/lmtt/m/n/10.95 build/scan_
+2vuk_whole_v2.json\TU/LiberationSerif(0)/m/n/10.95 ; top 250 in \TU/lmtt/m/n/10
+.95 results/scan_candidates_2vuk_top250.csv\TU/LiberationSerif(0)/m/n/10.95 .
  []
 
-) (./appendix_sod1.tex [15]) (./appendix_repro.tex
-Overfull \hbox (22.38078pt too wide) in paragraph at lines 9--12
-[]\T1/ptm/m/n/10.95 Training (bench-mark model): \T1/cmtt/m/n/10.95 python3 scr
-ipts/train_bench.py --arch v2 --epochs 300 --hidden
- []
-
-
-Overfull \hbox (117.79877pt too wide) in paragraph at lines 9--12
-\T1/cmtt/m/n/10.95 64 --mlp-hidden 32 --lr 0.001 --batch 32 --seed 0 --ckpt bui
-ld/ckpt_v2.pkl --out build/bench_v2_e300.json 
- []
-
-) (./appendix_datasets.tex [16]
-Overfull \hbox (744.59482pt too wide) in alignment at lines 6--8
- [] [] [] [] 
+) (./appendix_sod1.tex [14]) (./appendix_repro.tex
+Overfull \hbox (34.76611pt too wide) in paragraph at lines 9--12
+\TU/lmtt/m/n/10.95 --hidden 64 --mlp-hidden 32 --lr 0.001 --batch 32 --seed 0 --
+ckpt build/ckpt_v2.pkl
  []
 
 
-Overfull \hbox (744.59482pt too wide) in alignment at lines 8--134
- [] [] [] [] 
+Overfull \hbox (8.7767pt too wide) in paragraph at lines 12--14
+[]\TU/LiberationSerif(0)/m/n/10.95 v1 model: same with \TU/lmtt/m/n/10.95 --arch
+ v1 --epochs 150 --hidden 32 --mlp-hidden 16 --lr 0.0005\TU/LiberationSerif(0)/
+m/n/10.95 . 
  []
 
-[17] [18]) (./appendix_perprotein.tex
-Overfull \hbox (44.77pt too wide) in paragraph at lines 3--9
-\T1/ptm/m/n/10.95 ues com-puted by \T1/cmtt/m/n/10.95 scripts/error_analysis.py
-\T1/ptm/m/n/10.95 ; machine-readable source: \T1/cmtt/m/n/10.95 build/ssym_inv_
-per_protein.json\T1/ptm/m/n/10.95 .
+
+Overfull \hbox (0.36433pt too wide) in paragraph at lines 16--21
+[]\TU/LiberationSerif(0)/m/n/10.95 Bias: \TU/lmtt/m/n/10.95 scripts/bias_measure
+.py\TU/LiberationSerif(0)/m/n/10.95 ; scans: \TU/lmtt/m/n/10.95 scripts/rescue_s
+can_v2_whole.py \TU/LiberationSerif(0)/m/n/10.95 (2VUK, 1SPD);
  []
 
-[19] [20] [21] [22] [23] [24] [25] [26]) (./appendix_scan_full.tex
-Overfull \hbox (112.72145pt too wide) in paragraph at lines 3--9
-\T1/ptm/m/n/10.95 ref-er-ence sets for this pro-tein (leakage-checked). Ranks, 
-not mag-ni-tudes, are the out-put. Source: \T1/cmtt/m/n/10.95 build/scan_2vuk_w
-hole_v2.json
+[15]) (./appendix_datasets.tex [16] [17] [18]) (./appendix_perprotein.tex
+Overfull \hbox (48.73984pt too wide) in paragraph at lines 3--9
+\TU/LiberationSerif(0)/m/n/10.95 ues com-puted by \TU/lmtt/m/n/10.95 scripts/err
+or_analysis.py\TU/LiberationSerif(0)/m/n/10.95 ; machine-readable source: \TU/l
+mtt/m/n/10.95 build/ssym_inv_per_protein.json\TU/LiberationSerif(0)/m/n/10.95 .
  []
 
-[27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39])
-(./appendix_sod1_scan.tex [40] [41] [42] [43] [44] [45] [46] [47] [48])
-(./appendix_positions.tex
+[19] [20] [21] [22] [23] [24] [25]) (./appendix_scan_full.tex
+Overfull \hbox (113.41997pt too wide) in paragraph at lines 3--9
+\TU/LiberationSerif(0)/m/n/10.95 ref-er-ence sets for this pro-tein (leakage-che
+cked). Ranks, not mag-ni-tudes, are the out-put. Source: \TU/lmtt/m/n/10.95 buil
+d/scan_2vuk_whole_v2.json
+ []
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 12 on input line 194.
+[26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37])
+(./appendix_sod1_scan.tex
+Overfull \hbox (8.87752pt too wide) in paragraph at lines 3--8
+\TU/LiberationSerif(0)/m/n/10.95 Full single-mutant scan of 1SPD chain A (153 po
+-si-tions, 2907 rows, WT=PRO ex-cluded), ranked by $\OMS/cmsy/m/n/10.95 j\OT1/c
+mr/m/n/10.95 \OML/cmm/m/it/10.95 G[]\OMS/cmsy/m/n/10.95 j$\TU/LiberationSerif
+(0)/m/n/10.95 .
+ []
 
-[49] [50] [51] [52])
+[38] [39] [40] [41] [42] [43] [44] [45]) (./appendix_positions.tex [46]
+[47] [48] [49]) [50]
+Underfull \hbox (badness 1210) in paragraph at lines 763--765
+[]\TU/LiberationSerif(0)/m/n/10.95 Efron B, Tib-shi-rani RJ. \TU/LiberationSeri
+f(0)/m/it/10.95 An In-tro-duc-tion to the Boot-strap\TU/LiberationSerif(0)/m/n/
+10.95 . Chap-man &
+ []
 
-Package longtable Warning: Table widths have changed. Rerun LaTeX.
+[51] (./main.aux))
 
-[53] (./main.aux) ) 
-Here is how much of TeX's memory you used:
- 3969 strings out of 480247
- 58314 string characters out of 5896151
- 446341 words of memory out of 5000000
- 21799 multiletter control sequences out of 15000+600000
- 539646 words of font info for 146 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 55i,11n,62p,426b,245s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/sandbox/.texlive2021/texmf-var/fonts/pk/ljfour/jknap
-pen/ec/ectt1200.600pk> </home/sandbox/.texlive2021/texmf-var/fonts/pk/ljfour/jk
-nappen/ec/ectt1095.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r
-.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/sym
-bol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (53 pages, 606661 bytes).
-PDF statistics:
- 438 PDF objects out of 1000 (max. 8388607)
- 185 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+Here is how much of LuaTeX's memory you used:
+ 6058 strings out of 477805
+ 305243,552014 words of node,token memory allocated
+ 811 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 4 sub_mlist, 1 glyph, 75 attribute,
+ 58 glue_spec, 75 attribute_list, 1 write nodes
+   avail lists: 1:1,2:8609,3:1975,4:24,5:345,6:975,7:25345,8:70,9:6421,10:15,11:
+697
+ 26492 multiletter control sequences out of 65536+600000
+ 89 fonts using 6882543 bytes
+ 68i,12n,79p,738b,245s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf/fonts/opentype/public/lm/lmmonolt10-bold.otf></usr/share/texmf
+/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/fonts/truetype/libera
+tion/LiberationSerif-Italic.ttf></usr/share/fonts/truetype/liberation/Liberation
+Serif-Bold.ttf></usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pf
+b>
+Output written on main.pdf (51 pages, 679909 bytes).
+
+PDF statistics: 397 PDF objects out of 1000 (max. 8388607)
+ 198 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 131072)
+ 1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
